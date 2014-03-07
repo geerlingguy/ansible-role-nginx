@@ -22,6 +22,11 @@ None.
       roles:
         - { role: geerlingguy.nginx }
 
+## TODO
+
+  - Make everything more configurable.
+  - Make this role work with all flavors of linux (as supported by nginx repos).
+
 ## License
 
 MIT / BSD
