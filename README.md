@@ -17,7 +17,7 @@ Available variables are listed below, along with default values (see `vars/main.
 The user under which Nginx will run.
 
     nginx_worker_processes: "1"
-    nginx_worker_connections: "1024"
+    nginx_worker_connections: "8192"
 
 `nginx_worker_processes` should be set to the number of cores present on your machine. Connections (find this number with `grep processor /proc/cpuinfo | wc -l`). `nginx_worker_connections` is the number of connections per process. Set this higher to handle more simultaneous connections (and remember that a connection will be used for as long as the keepalive timeout duration for every client!).
 
