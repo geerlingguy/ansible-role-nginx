@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
   remote_user: root
+  vars:
+    nginx_user: root
   roles:
     - ansible-role-nginx
