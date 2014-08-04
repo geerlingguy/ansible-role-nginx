@@ -30,5 +30,8 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
+  # Debugging.
+  - netstat -lntu
+
   # Request a page via Nginx, to make sure Nginx is running and responds.
   - "curl http://localhost/"
