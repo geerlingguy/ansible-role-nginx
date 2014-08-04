@@ -1,16 +1,17 @@
 ---
-- name: Enable nginx repo.
-  copy: src=nginx.repo dest=/etc/yum.repos.d/nginx.repo owner=root group=root mode=644
+- name: Enable nginx repo (RedHat).
+  copy: >
+    src=nginx.repo
+    dest=/etc/yum.repos.d/nginx.repo
+    owner=root group=root mode=644
   when: ansible_os_family == 'RedHat'
 
-- name: Ensure nginx is installed.
+- name: Ensure nginx is installed (RedHat).
   yum: pkg=nginx state=installed enablerepo=nginx
   when: ansible_os_family == 'RedHat'
 
-- name: Ensure nginx is installed.
-  apt: pkg=nginx state=installed update_cache=true
-  notify:
-    - restart nginx
+- name: Ensure nginx is installed (Debian).
+  apt: pkg=nginx state=installed
   when: ansible_os_family == 'Debian'
 
 - name: Copy nginx configuration in place.

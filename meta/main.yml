@@ -11,6 +11,12 @@ galaxy_info:
   - name: EL
     versions:
     - 6
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
   categories:
     - development
     - web
