@@ -12,7 +12,12 @@ None.
 
 ## Role Variables
 
-Available variables are listed below, along with default values (see `vars/main.yml`):
+Available variables are listed below, along with default values (see `vars/main.yml` and `defaults/main.yml`):
+
+    nginx_remove_default_vhost: false
+    nginx_default_vhost_path: /etc/nginx/sites-enabled/default
+
+Whether to remove the 'default' virtualhost configuration supplied by Nginx. Useful if you want the base `/` URL to be directed at one of your own virtual hosts configured in a separate .conf file. The `nginx_default_vhost_path` variable defines the path to the default vhosts file.
 
     nginx_user: "nginx"
 

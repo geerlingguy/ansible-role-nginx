@@ -1,0 +1,3 @@
+---
+nginx_remove_default_vhost: false
+nginx_default_vhost_path: /etc/nginx/sites-enabled/default
