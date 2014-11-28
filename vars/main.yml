@@ -1,5 +1,4 @@
 ---
-nginx_user: "nginx"
 nginx_worker_processes: "1"
 nginx_worker_connections: "8192"
 nginx_client_max_body_size: "64m"
