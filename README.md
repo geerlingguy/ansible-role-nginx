@@ -36,6 +36,10 @@ This value determines the largest file upload possible, as uploads are passed th
 
 The keepalive timeout. Should be set higher (10s+) if you have more polling-style traffic (AJAX-powered sites especially), or lower (<10s) if you have a site where most users visit a few pages and don't send any further requests.
 
+    nginx_proxy_cache_path: ""
+
+Set as the `proxy_cache_path` directive in the `nginx.conf` file. By default, this will not be configured (if left as an empty string), but if you wish to use Nginx as a reverse proxy, you can set this to a valid value (e.g. `"/var/cache/nginx keys_zone=cache:32m"`) to use Nginx's cache (further proxy configuration can be done in individual server configurations).
+
 ## Dependencies
 
 None.
