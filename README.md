@@ -12,7 +12,7 @@ None.
 
 ## Role Variables
 
-Available variables are listed below, along with default values (see `vars/main.yml` and `defaults/main.yml`):
+Available variables are listed below, along with default values (see `defaults/main.yml`):
 
     nginx_remove_default_vhost: false
     nginx_default_vhost_path: /etc/nginx/sites-enabled/default
@@ -21,7 +21,7 @@ Whether to remove the 'default' virtualhost configuration supplied by Nginx. Use
 
     nginx_user: "nginx"
 
-The user under which Nginx will run.
+The user under which Nginx will run. Defaults to `nginx` for RedHat, and `www-data` for Debian.
 
     nginx_worker_processes: "1"
     nginx_worker_connections: "8192"
