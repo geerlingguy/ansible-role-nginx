@@ -14,6 +14,9 @@
   apt: pkg=nginx state=installed
   when: ansible_os_family == 'Debian'
 
+- name: Ensure nginx user exists.
+  user: name=nginx state=present system=true
+
 - name: Copy nginx configuration in place.
   template: >
     src=nginx.conf.j2
