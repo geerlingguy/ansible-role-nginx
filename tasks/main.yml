@@ -10,10 +10,12 @@
 
 # Nginx setup.
 - name: Enable nginx repo (RedHat).
-  copy: >
-    src=nginx.repo
-    dest=/etc/yum.repos.d/nginx.repo
-    owner=root group=root mode=644
+  copy:
+    src: nginx.repo
+    dest: /etc/yum.repos.d/nginx.repo
+    owner: root
+    group: root
+    mode: 0644
   when: ansible_os_family == 'RedHat'
 
 - name: Ensure nginx is installed (RedHat).
@@ -25,18 +27,20 @@
   when: ansible_os_family == 'Debian'
 
 - name: Copy nginx configuration in place.
-  template: >
-    src=nginx.conf.j2
-    dest=/etc/nginx/nginx.conf
-    owner=root group=root mode=644
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: 0644
   notify: restart nginx
 
 - name: Ensure nginx is started and enabled to start at boot.
   service: name=nginx state=started enabled=yes
 
 - name: Remove default nginx config file (if configured).
-  file: >
-    path={{ nginx_default_vhost_path }}
-    state=absent
+  file:
+    path: "{{ nginx_default_vhost_path }}"
+    state: absent
   when: nginx_remove_default_vhost
   notify: restart nginx
