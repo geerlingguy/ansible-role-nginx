@@ -5,6 +5,7 @@ nginx_client_max_body_size: "64m"
 nginx_keepalive_timeout: "65"
 
 nginx_remove_default_vhost: false
-nginx_default_vhost_path: /etc/nginx/sites-enabled/default
+nginx_vhosts: []
+# TODO - add example.
 
 nginx_proxy_cache_path: ""

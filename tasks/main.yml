@@ -28,9 +28,4 @@
 - name: Ensure nginx is started and enabled to start at boot.
   service: name=nginx state=started enabled=yes
 
-- name: Remove default nginx config file (if configured).
-  file:
-    path: "{{ nginx_default_vhost_path }}"
-    state: absent
-  when: nginx_remove_default_vhost
-  notify: restart nginx
+- include: vhosts.yml

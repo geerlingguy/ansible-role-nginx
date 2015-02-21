@@ -14,10 +14,13 @@ None.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    nginx_remove_default_vhost: false
-    nginx_default_vhost_path: /etc/nginx/sites-enabled/default
+    nginx_vhost_path: /etc/nginx/sites-enabled
 
-Whether to remove the 'default' virtualhost configuration supplied by Nginx. Useful if you want the base `/` URL to be directed at one of your own virtual hosts configured in a separate .conf file. The `nginx_default_vhost_path` variable defines the path to the default vhosts file.
+The path to the vhost configuration folder (where Nginx will look for server configurations).
+
+    nginx_remove_default_vhost: false
+
+Whether to remove the 'default' virtualhost configuration supplied by Nginx. Useful if you want the base `/` URL to be directed at one of your own virtual hosts configured in a separate .conf file.
 
     nginx_user: "nginx"
 
