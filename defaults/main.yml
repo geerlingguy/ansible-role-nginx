@@ -20,3 +20,14 @@ nginx_vhosts: []
 #   access_log: "",
 #   extra_config: "" # Can be used to add extra config blocks (multiline).
 # }
+
+nginx_upstreams: []
+# - {
+#   name: myapp1,
+#   strategy: "ip_hash", # "least_conn", etc.
+#   servers: {
+#     "srv1.example.com",
+#     "srv2.example.com weight=3",
+#     "srv3.example.com"
+#   }
+# }
