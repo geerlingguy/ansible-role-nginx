@@ -34,5 +34,5 @@ http {
     proxy_cache_path {{ nginx_proxy_cache_path }};
 {% endif %}
 
-    include /etc/nginx/conf.d/*.conf;
+    include {{ nginx_vhost_path }}/*;
 }

@@ -14,9 +14,9 @@ None.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    nginx_vhost_path: /etc/nginx/sites-enabled
+    nginx_vhosts: []
 
-The path to the vhost configuration folder (where Nginx will look for server configurations).
+A list of vhost definitions (server blocks) for Nginx virtual hosts. If left empty, you will need to supply your own virtual host configuration. See the example in `defaults/main.yml` for available server options. If you have a large number of customizations required for your server definition(s), you're likely better off managing the vhost configuration file yourself, leaving this variable set to `[]`.
 
     nginx_remove_default_vhost: false
 
