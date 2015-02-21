@@ -8,24 +8,14 @@
     nginx_user: "{{ __nginx_user }}"
   when: nginx_user is not defined
 
-# Nginx setup.
-- name: Enable nginx repo (RedHat).
-  template:
-    src: nginx.repo.j2
-    dest: /etc/yum.repos.d/nginx.repo
-    owner: root
-    group: root
-    mode: 0644
+# Setup/install tasks.
+- include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
-- name: Ensure nginx is installed (RedHat).
-  yum: pkg=nginx state=installed enablerepo=nginx
-  when: ansible_os_family == 'RedHat'
-
-- name: Ensure nginx is installed (Debian).
-  apt: pkg=nginx state=installed
+- include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+# Nginx setup.
 - name: Copy nginx configuration in place.
   template:
     src: nginx.conf.j2
