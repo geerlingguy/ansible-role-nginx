@@ -1,6 +1,6 @@
 user  {{ nginx_user }};
 
-error_log  /var/log/nginx/error.log warn;
+error_log  {{ nginx_error_log }};
 pid        /var/run/nginx.pid;
 
 worker_processes  {{ nginx_worker_processes }};
@@ -21,12 +21,14 @@ http {
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
-    access_log  /var/log/nginx/access.log  main buffer=16k;
+    access_log  {{ nginx_access_log }};
 
-    sendfile        on;
-    #tcp_nopush     on;
+    sendfile        {{ nginx_sendfile }};
+    tcp_nopush      {{ nginx_tcp_nopush }};
+    tcp_nodelay     {{ nginx_tcp_nodelay }};
 
     keepalive_timeout  {{ nginx_keepalive_timeout }};
+    keepalive_requests {{ nginx_keepalive_requests }};
 
     #gzip  on;
 

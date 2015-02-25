@@ -31,17 +31,29 @@ If you are configuring Nginx as a load balancer, you can define one or more upst
 The user under which Nginx will run. Defaults to `nginx` for RedHat, and `www-data` for Debian.
 
     nginx_worker_processes: "1"
-    nginx_worker_connections: "8192"
+    nginx_worker_connections: "1024"
 
 `nginx_worker_processes` should be set to the number of cores present on your machine. Connections (find this number with `grep processor /proc/cpuinfo | wc -l`). `nginx_worker_connections` is the number of connections per process. Set this higher to handle more simultaneous connections (and remember that a connection will be used for as long as the keepalive timeout duration for every client!).
+
+    nginx_error_log: "/var/log/nginx/error.log warn"
+    nginx_access_log: "/var/log/nginx/access.log main buffer=16k"
+
+Configuration of the default error and access logs. Set to `off` to disable a log entirely.
+
+    nginx_sendfile: "on"
+    nginx_tcp_nopush: "on"
+    nginx_tcp_nodelay: "on"
+
+TCP connection options. See [this blog post](https://t37.net/nginx-optimization-understanding-sendfile-tcp_nodelay-and-tcp_nopush.html) for more information on these directives.
+
+    nginx_keepalive_timeout: "65"
+    nginx_keepalive_requests: "100"
+
+Nginx keepalive settings. Timeout should be set higher (10s+) if you have more polling-style traffic (AJAX-powered sites especially), or lower (<10s) if you have a site where most users visit a few pages and don't send any further requests.
 
     nginx_client_max_body_size: "64m"
 
 This value determines the largest file upload possible, as uploads are passed through Nginx before hitting a backend like `php-fpm`. If you get an error like `client intended to send too large body`, it means this value is set too low.
-
-    nginx_keepalive_timeout: "65"
-
-The keepalive timeout. Should be set higher (10s+) if you have more polling-style traffic (AJAX-powered sites especially), or lower (<10s) if you have a site where most users visit a few pages and don't send any further requests.
 
     nginx_proxy_cache_path: ""
 
