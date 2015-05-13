@@ -47,5 +47,10 @@ http {
     }
 {% endfor %}
 
+{% if nginx_conf_path is defined %}
+    include {{ nginx_conf_path }};
+{% endif %}
+{% if nginx_vhost_path is defined %}
     include {{ nginx_vhost_path }}/*;
+{% endif %}
 }
