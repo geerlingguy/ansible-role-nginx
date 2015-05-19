@@ -1,6 +1,6 @@
 ---
-# Used only for Debian/Ubuntu installation, as the -t option for apt.
-nginx_default_release: ""
+# Used only for Debian/Ubuntu installation, as `add-apt-repository ppa:nginx/stable` command.
+nginx_alternative_repo: ""
 
 nginx_worker_processes: "1"
 nginx_worker_connections: "1024"
