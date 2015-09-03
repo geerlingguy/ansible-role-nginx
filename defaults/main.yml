@@ -22,25 +22,21 @@ nginx_proxy_cache_path: ""
 nginx_remove_default_vhost: false
 nginx_vhosts: []
 # Example vhost below, showing all available options:
-# - {
-#   listen: "80 default_server", # default: "80 default_server"
-#   server_name: "example.com", # default: N/A
-#   root: "/var/www/example.com", # default: N/A
-#   index: "index.html index.htm", # default: "index.html index.htm"
+# - listen: "80 default_server" # default: "80 default_server"
+#   server_name: "example.com" # default: N/A
+#   root: "/var/www/example.com" # default: N/A
+#   index: "index.html index.htm" # default: "index.html index.htm"
 #
 #   # Properties that are only added if defined:
-#   error_page: "",
-#   access_log: "",
+#   error_page: ""
+#   access_log: ""
 #   extra_parameters: "" # Can be used to add extra config blocks (multiline).
-# }
 
 nginx_upstreams: []
-# - {
-#   name: myapp1,
-#   strategy: "ip_hash", # "least_conn", etc.
+# - name: myapp1
+#   strategy: "ip_hash" # "least_conn", etc.
 #   servers: {
 #     "srv1.example.com",
 #     "srv2.example.com weight=3",
 #     "srv3.example.com"
 #   }
-# }

@@ -18,6 +18,24 @@ Available variables are listed below, along with default values (see `defaults/m
 
 A list of vhost definitions (server blocks) for Nginx virtual hosts. If left empty, you will need to supply your own virtual host configuration. See the commented example in `defaults/main.yml` for available server options. If you have a large number of customizations required for your server definition(s), you're likely better off managing the vhost configuration file yourself, leaving this variable set to `[]`.
 
+    nginx_vhosts:
+      - listen: "80 default_server"
+        server_name: "example.com"
+        root: "/var/www/example.com"
+        index: "index.php index.html index.htm"
+        error_page: ""
+        access_log: ""
+        extra_parameters: |
+          location ~ \.php$ {
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass unix:/var/run/php5-fpm.sock;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+          }
+
+An example of a fully-populated nginx_vhosts entry, using a `|` to declare a block of syntax for the `extra_parameters`.
+
     nginx_remove_default_vhost: false
 
 Whether to remove the 'default' virtualhost configuration supplied by Nginx. Useful if you want the base `/` URL to be directed at one of your own virtual hosts configured in a separate .conf file.
