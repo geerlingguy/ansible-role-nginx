@@ -1,0 +1,13 @@
+{% if nginx_el_install_mainline %}
+[nginx]
+name=nginx repo mainline
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+{% else %}
+[nginx]
+name=nginx repo stable
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+{% endif %}

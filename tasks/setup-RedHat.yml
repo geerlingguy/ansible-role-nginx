@@ -1,11 +1,21 @@
 ---
-- name: Enable nginx repo.
+- name: (RedHat) Enable nginx repo.
   template:
-    src: nginx.repo.j2
+    src: nginx.rhel.repo.j2
     dest: /etc/yum.repos.d/nginx.repo
     owner: root
     group: root
     mode: 0644
+  when: ansible_distribution == 'RedHat'
+
+- name: (Centos) Enable nginx repo.
+  template:
+    src: nginx.centos.repo.j2
+    dest: /etc/yum.repos.d/nginx.repo
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_distribution == 'CentOS'
 
 - name: Ensure nginx is installed.
   yum: pkg=nginx state=installed enablerepo=nginx
