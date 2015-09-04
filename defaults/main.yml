@@ -3,6 +3,9 @@
 nginx_default_release: ""
 # Used only for RHEL/Centos installation. Set to false for mainline repo.
 nginx_el_install_mainline: yes
+# Used only for RHEL/Centos installation. Define the short gpg key id for nginx repo.
+# Here: https://pgp.mit.edu/pks/lookup?op=vindex&search=0xABF5BD827BD9BF62
+nginx_el_repo_gpg_key: 7BD9BF62
 
 nginx_worker_processes: "1"
 nginx_worker_connections: "1024"

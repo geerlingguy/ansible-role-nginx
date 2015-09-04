@@ -1,4 +1,19 @@
 ---
+- name: Check key id exists
+  command: rpm -qa gpg-pubkey
+  register: gpg_key_presence
+  changed_when: "'gpg-pubkey-{{ nginx_el_repo_gpg_key | lower }}-' not in gpg_key_presence.stdout"
+
+- name: Install nginx repo gpg key
+  rpm_key: state=present key=http://nginx.org/keys/nginx_signing.key
+  register: gpg_key_download
+  when: gpg_key_presence.changed
+
+# Throws error that key is not found. This means that after installing the key previously and its still missing# we have a MITM.
+- name: Ensure keyid exists with proper keyid.
+  rpm_key: state=present key="{{ nginx_el_repo_gpg_key | upper }}"
+  when: gpg_key_download.changed
+
 - name: (RedHat) Enable nginx repo.
   template:
     src: nginx.rhel.repo.j2
