@@ -1,5 +1,5 @@
 [nginx]
-{% if nginx_el_install_mainline %}
+{% if nginx_install_redhat_branch == 'mainline' %}
 name=nginx repo mainline
 baseurl=http://nginx.org/packages/mainline/{% if ansible_distribution == 'CentOS' %}centos{% else %}rhel{% endif%}/$releasever/$basearch/
 {% else %}
