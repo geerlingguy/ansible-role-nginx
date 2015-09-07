@@ -1,10 +1,10 @@
 [nginx]
 {% if nginx_install_redhat_branch == 'mainline' %}
 name=nginx repo mainline
-baseurl=http://nginx.org/packages/mainline/{% if ansible_distribution == 'CentOS' %}centos{% else %}rhel{% endif%}/$releasever/$basearch/
+baseurl=http://nginx.org/packages/mainline/{% if ansible_distribution == 'CentOS' %}centos{% else %}rhel{% endif%}/{{ ansible_distribution_major_version }}/$basearch/
 {% else %}
 name=nginx repo stable
-baseurl=http://nginx.org/packages/{% if ansible_distribution == 'CentOS' %}centos{% else %}rhel{% endif%}/$releasever/$basearch/
+baseurl=http://nginx.org/packages/{% if ansible_distribution == 'CentOS' %}centos{% else %}rhel{% endif%}/{{ ansible_distribution_major_version }}/$basearch/
 {% endif %}
 gpgcheck=1
 enabled=1
