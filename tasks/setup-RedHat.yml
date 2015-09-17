@@ -3,6 +3,7 @@
   command: rpm -qa gpg-pubkey
   register: gpg_key_presence
   changed_when: "'gpg-pubkey-{{ nginx_el_repo_gpg_key | lower }}-' not in gpg_key_presence.stdout"
+  always_run: true
 
 - name: Install nginx repo gpg key
   rpm_key: state=present key=http://nginx.org/keys/nginx_signing.key
