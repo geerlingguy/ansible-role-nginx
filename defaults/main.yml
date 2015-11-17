@@ -40,3 +40,5 @@ nginx_upstreams: []
 #     "srv2.example.com weight=3",
 #     "srv3.example.com"
 #   }
+
+nginx_enable_restart: true
