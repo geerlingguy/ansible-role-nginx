@@ -36,6 +36,10 @@ http {
     proxy_cache_path {{ nginx_proxy_cache_path }};
 {% endif %}
 
+{% if nginx_extra_options %}
+    {{ nginx_extra_options }}
+{% endif %}
+
 {% for upstream in nginx_upstreams %}
     upstream {{ upstream.name }} {
 {% if upstream.strategy is defined %}
