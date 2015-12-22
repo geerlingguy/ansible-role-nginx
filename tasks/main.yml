@@ -15,6 +15,9 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+# Vhost configuration
+- include: vhosts.yml
+
 # Nginx setup.
 - name: Copy nginx configuration in place.
   template:
@@ -23,9 +26,8 @@
     owner: root
     group: root
     mode: 0644
+  validate: 'nginx -t -c %s'
   notify: restart nginx
 
 - name: Ensure nginx is started and enabled to start at boot.
   service: name=nginx state=started enabled=yes
-
-- include: vhosts.yml
