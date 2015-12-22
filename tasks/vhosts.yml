@@ -4,7 +4,9 @@
     path: "{{ nginx_default_vhost_path }}"
     state: absent
   when: nginx_remove_default_vhost
-  notify: restart nginx
+  notify:
+    - validate nginx configuration
+    - restart nginx
 
 - name: Add managed vhost config file (if any vhosts are configured).
   template:

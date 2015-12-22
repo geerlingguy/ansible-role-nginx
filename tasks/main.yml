@@ -27,7 +27,9 @@
     group: root
     mode: 0644
     validate: 'nginx -t -c %s'
-  notify: restart nginx
+  notify:
+    - validate nginx configuration
+    - restart nginx
 
 - name: Ensure nginx is started and enabled to start at boot.
   service: name=nginx state=started enabled=yes
