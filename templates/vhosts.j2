@@ -3,7 +3,10 @@ server {
     listen {{ vhost.listen | default('80 default_server') }};
     server_name {{ vhost.server_name }};
 
+    {% if vhost.root is defined %}
     root {{ vhost.root }};
+    {% endif %}
+
     index {{ vhost.index | default('index.html index.htm') }};
 
     {% if vhost.error_page is defined %}
