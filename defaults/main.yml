@@ -30,6 +30,7 @@ nginx_vhosts: []
 #   # Properties that are only added if defined:
 #   error_page: ""
 #   access_log: ""
+#   error_log: ""
 #   extra_parameters: "" # Can be used to add extra config blocks (multiline).
 
 nginx_upstreams: []
