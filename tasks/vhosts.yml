@@ -4,7 +4,9 @@
     path: "{{ nginx_default_vhost_path }}"
     state: absent
   when: nginx_remove_default_vhost
-  notify: restart nginx
+  notify:
+    - validate nginx configuration
+    - restart nginx
 
 - name: Add managed vhost config file (if any vhosts are configured).
   template:
@@ -12,11 +14,16 @@
     dest: "{{ nginx_vhost_path }}/vhosts.conf"
     mode: 0644
   when: nginx_vhosts|length > 0
-  notify: restart nginx
+  notify:
+    - validate nginx configuration
+    - restart nginx
 
 - name: Remove managed vhost config file (if no vhosts are configured).
   file:
     path: "{{ nginx_vhost_path }}/vhosts.conf"
     state: absent
   when: nginx_vhosts|length == 0
-  notify: restart nginx
+  notify:
+    - validate nginx configuration
+    - restart nginx
+

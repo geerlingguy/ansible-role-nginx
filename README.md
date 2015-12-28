@@ -78,6 +78,16 @@ This value determines the largest file upload possible, as uploads are passed th
 
 Set as the `proxy_cache_path` directive in the `nginx.conf` file. By default, this will not be configured (if left as an empty string), but if you wish to use Nginx as a reverse proxy, you can set this to a valid value (e.g. `"/var/cache/nginx keys_zone=cache:32m"`) to use Nginx's cache (further proxy configuration can be done in individual server configurations).
 
+    nginx_extra_options: ""
+Optionally define extra parameters and their values to be insterted in the top-level `http` block in `nginx.conf`. The value should be defined literally (as you would insert it directly in the `nginx.conf`, adhering to the Nginx configuration syntax - such as `;` for line termination, etc.), like so:
+
+    nginx_extra_options: |
+      proxy_buffering    off;
+      proxy_set_header   X-Real-IP $remote_addr;
+      proxy_set_header   X-Scheme $scheme;
+      proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header   Host $http_host;	
+
     nginx_default_release: ""
 
 (For Debian/Ubuntu only) Allows you to set a different repository for the installation of Nginx. As an example, if you are running Debian's wheezy release, and want to get a newer version of Nginx, you can install the `wheezy-backports` repository and set that value here, and Ansible will use that as the `-t` option while installing Nginx.
