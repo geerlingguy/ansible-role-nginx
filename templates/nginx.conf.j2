@@ -37,7 +37,7 @@ http {
 {% endif %}
 
 {% if nginx_extra_options %}
-        {{ nginx_extra_options }}
+    {{ nginx_extra_options }}
 {% endif %}
 
 {% for upstream in nginx_upstreams %}

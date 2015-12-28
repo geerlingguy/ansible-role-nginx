@@ -15,7 +15,7 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-# Vhost configuration
+# Vhost configuration.
 - include: vhosts.yml
 
 # Nginx setup.
