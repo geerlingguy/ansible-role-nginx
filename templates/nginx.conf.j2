@@ -36,8 +36,8 @@ http {
     proxy_cache_path {{ nginx_proxy_cache_path }};
 {% endif %}
 
-{% if nginx_extra_options %}
-    {{ nginx_extra_options }}
+{% if nginx_extra_http_options %}
+    {{ nginx_extra_http_options }}
 {% endif %}
 
 {% for upstream in nginx_upstreams %}

@@ -19,9 +19,9 @@ nginx_client_max_body_size: "64m"
 
 nginx_proxy_cache_path: ""
 
-nginx_extra_options: ""
-# Example extra options, printed inside the main server http config:
-#    nginx_extra_options: |
+nginx_extra_http_options: ""
+# Example extra http options, printed inside the main server http config:
+#    nginx_extra_http_options: |
 #      proxy_buffering    off;
 #      proxy_set_header   X-Real-IP $remote_addr;
 #      proxy_set_header   X-Scheme $scheme;

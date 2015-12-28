@@ -78,11 +78,11 @@ This value determines the largest file upload possible, as uploads are passed th
 
 Set as the `proxy_cache_path` directive in the `nginx.conf` file. By default, this will not be configured (if left as an empty string), but if you wish to use Nginx as a reverse proxy, you can set this to a valid value (e.g. `"/var/cache/nginx keys_zone=cache:32m"`) to use Nginx's cache (further proxy configuration can be done in individual server configurations).
 
-    nginx_extra_options: ""
+    nginx_extra_http_options: ""
 
 Extra lines to be inserted in the top-level `http` block in `nginx.conf`. The value should be defined literally (as you would insert it directly in the `nginx.conf`, adhering to the Nginx configuration syntax - such as `;` for line termination, etc.), for example:
 
-    nginx_extra_options: |
+    nginx_extra_http_options: |
       proxy_buffering    off;
       proxy_set_header   X-Real-IP $remote_addr;
       proxy_set_header   X-Scheme $scheme;
