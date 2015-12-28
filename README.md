@@ -25,6 +25,7 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. If left emp
         index: "index.php index.html index.htm"
         error_page: ""
         access_log: ""
+        error_log: ""
         extra_parameters: |
           location ~ \.php$ {
             fastcgi_split_path_info ^(.+\.php)(/.+)$;
