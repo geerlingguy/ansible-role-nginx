@@ -5,8 +5,7 @@
     state: absent
   when: nginx_remove_default_vhost
   notify:
-    - validate nginx configuration
-    - restart nginx
+    - reload nginx
 
 - name: Add managed vhost config file (if any vhosts are configured).
   template:
@@ -15,8 +14,7 @@
     mode: 0644
   when: nginx_vhosts|length > 0
   notify:
-    - validate nginx configuration
-    - restart nginx
+    - reload nginx
 
 - name: Remove managed vhost config file (if no vhosts are configured).
   file:
@@ -24,6 +22,5 @@
     state: absent
   when: nginx_vhosts|length == 0
   notify:
-    - validate nginx configuration
-    - restart nginx
+    - reload nginx
 
