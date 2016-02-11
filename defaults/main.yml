@@ -2,6 +2,10 @@
 # Used only for Debian/Ubuntu installation, as the -t option for apt.
 nginx_default_release: ""
 
+# Distros like Debian/Ubuntu ships nginx package with different flavors, e.g.
+# full, light or extras.
+nginx_package_name: "nginx"
+
 nginx_worker_processes: "1"
 nginx_worker_connections: "1024"
 
@@ -18,6 +22,12 @@ nginx_keepalive_requests: "100"
 nginx_client_max_body_size: "64m"
 
 nginx_proxy_cache_path: ""
+
+nginx_extra_conf_options: ""
+# Example extra main options, used within the main nginx's context:
+#   nginx_extra_conf_options: |
+#     env VARIABLE;
+#     include /etc/nginx/main.d/*.conf;
 
 nginx_extra_http_options: ""
 # Example extra http options, printed inside the main server http config:
