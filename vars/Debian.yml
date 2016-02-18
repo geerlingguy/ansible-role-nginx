@@ -1,5 +1,4 @@
 ---
-nginx_package: nginx
 nginx_conf_path: /etc/nginx/conf.d
 nginx_vhost_path: /etc/nginx/sites-enabled
 nginx_default_vhost_path: /etc/nginx/sites-enabled/default
