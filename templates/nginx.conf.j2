@@ -57,6 +57,6 @@ http {
 
     include {{ nginx_conf_path }}/*.conf;
 {% if nginx_conf_path != nginx_vhost_path %}
-    include {{ nginx_vhost_path }}/*.conf;
+    include {{ nginx_vhost_path }}/*;
 {% endif %}
 }
