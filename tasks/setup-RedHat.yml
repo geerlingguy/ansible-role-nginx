@@ -8,4 +8,7 @@
     mode: 0644
 
 - name: Ensure nginx is installed.
-  yum: pkg=nginx state=installed enablerepo=nginx
+  yum:
+    name: "{{ nginx_package_name }}"
+    state: installed
+    enablerepo: nginx
