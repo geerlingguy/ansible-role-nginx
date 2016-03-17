@@ -8,6 +8,7 @@ nginx_package_name: "nginx"
 nginx_worker_processes: "1"
 nginx_worker_connections: "1024"
 nginx_multi_accept: "off"
+nginx_server_tokens: "off"
 
 nginx_error_log: "/var/log/nginx/error.log warn"
 nginx_access_log: "/var/log/nginx/access.log main buffer=16k"
