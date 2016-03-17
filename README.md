@@ -94,6 +94,12 @@ Extra lines to be inserted in the top-level `http` block in `nginx.conf`. The va
 
 (For Debian/Ubuntu only) Allows you to set a different repository for the installation of Nginx. As an example, if you are running Debian's wheezy release, and want to get a newer version of Nginx, you can install the `wheezy-backports` repository and set that value here, and Ansible will use that as the `-t` option while installing Nginx.
 
+`server_tokens` is disabled by default for security reasons. You can enable tokens by setting up the variable below.
+
+```
+nginx_server_tokens: "on"
+```
+
 ## Dependencies
 
 None.

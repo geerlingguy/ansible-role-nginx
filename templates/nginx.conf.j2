@@ -18,6 +18,7 @@ http {
     include       /etc/nginx/mime.types;
     default_type  application/octet-stream;
 
+    server_tokens {{ nginx_server_tokens }};
     server_names_hash_bucket_size 64;
 
     client_max_body_size {{ nginx_client_max_body_size }};
