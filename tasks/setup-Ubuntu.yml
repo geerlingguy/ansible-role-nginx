@@ -1,11 +1,14 @@
 ---
-  - name: Add PPA for Nginx.
-    apt_repository: repo='ppa:nginx/{{ nginx_ppa_version }}' state=present update_cache=yes
-    register: added_ppa
-    when: nginx_use_ppa
+- name: Add PPA for Nginx.
+  apt_repository:
+    repo: 'ppa:nginx/{{ nginx_ppa_version }}'
+    state: present
+    update_cache: yes
+  register: nginx_ppa_added
+  when: nginx_ppa_use
 
-  - name: ensure nginx is not installed when the ppa was just added
-    apt:
-      pkg: nginx
-      state: absent
-    when: added_ppa.changed
+- name: Ensure nginx will reinstall if the PPA was just added.
+  apt:
+    name: nginx
+    state: absent
+  when: nginx_ppa_added.changed

@@ -2,6 +2,10 @@
 # Used only for Debian/Ubuntu installation, as the -t option for apt.
 nginx_default_release: ""
 
+# Use the official Nginx PPA for Ubuntu, and the version to use if so.
+nginx_ppa_use: false
+nginx_ppa_version: stable
+
 # The name of the nginx apt/yum package to install.
 nginx_package_name: "nginx"
 
@@ -60,6 +64,3 @@ nginx_upstreams: []
 #     "srv2.example.com weight=3",
 #     "srv3.example.com"
 #   }
-
-nginx_ppa_version: stable
-nginx_use_ppa: false
