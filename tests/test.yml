@@ -2,4 +2,5 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-role-nginx
+    - role: ansible-role-nginx
+      nginx_use_ppa: true

@@ -60,3 +60,6 @@ nginx_upstreams: []
 #     "srv2.example.com weight=3",
 #     "srv3.example.com"
 #   }
+
+nginx_ppa_version: stable
+nginx_use_ppa: false
