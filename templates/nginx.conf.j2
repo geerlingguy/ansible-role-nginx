@@ -15,7 +15,7 @@ events {
 {% endif %}
 
 http {
-    include       /etc/nginx/mime.types;
+    include       {{ nginx_mime_file_path }};
     default_type  application/octet-stream;
 
     server_names_hash_bucket_size 64;
