@@ -7,7 +7,9 @@ server {
     root {{ vhost.root }};
     {% endif %}
 
+    {% if vhost.no_index is defined and not vhost.no_index %}
     index {{ vhost.index | default('index.html index.htm') }};
+    {% endif %}
 
     {% if vhost.error_page is defined %}
     error_page {{ vhost.error_page }};
