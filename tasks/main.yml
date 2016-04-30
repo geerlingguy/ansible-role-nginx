@@ -18,6 +18,9 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- include: setup-FreeBSD.yml
+  when: ansible_os_family == 'FreeBSD'
+
 # Vhost configuration.
 - include: vhosts.yml
 
@@ -25,9 +28,9 @@
 - name: Copy nginx configuration in place.
   template:
     src: nginx.conf.j2
-    dest: /etc/nginx/nginx.conf
+    dest: "{{ nginx_conf_file_path }}"
     owner: root
-    group: root
+    group: "{{ root_group }}"
     mode: 0644
   notify:
     - reload nginx
