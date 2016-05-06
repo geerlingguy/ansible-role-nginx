@@ -10,9 +10,9 @@ events {
     multi_accept {{ nginx_multi_accept }};
 }
 
-{% if nginx_extra_conf_options -%}
+{% if nginx_extra_conf_options %}
 {{ nginx_extra_conf_options }}
-{%- endif %}
+{% endif %}
 
 http {
     include       {{ nginx_mime_file_path }};
@@ -37,28 +37,27 @@ http {
 
     #gzip  on;
 
-{%- if nginx_proxy_cache_path -%}
+{% if nginx_proxy_cache_path %}
     proxy_cache_path {{ nginx_proxy_cache_path }};
 {% endif %}
 
-{%- if nginx_extra_http_options -%}
+{% if nginx_extra_http_options %}
     {{ nginx_extra_http_options }}
 {% endif %}
 
-{%- for upstream in nginx_upstreams -%}
+{% for upstream in nginx_upstreams %}
     upstream {{ upstream.name }} {
-{%- if upstream.strategy is defined -%}
+{% if upstream.strategy is defined %}
         {{ upstream.strategy }};
 {% endif %}
-{%- for server in upstream.servers -%}
+{% for server in upstream.servers %}
         server {{ server }};
 {% endfor %}
     }
 {% endfor %}
 
     include {{ nginx_conf_path }}/*.conf;
-{%- if nginx_conf_path != nginx_vhost_path -%}
+{% if nginx_conf_path != nginx_vhost_path %}
     include {{ nginx_vhost_path }}/*;
 {% endif %}
-
 }
