@@ -1,0 +1,12 @@
+---
+- name: Install WordPress, MariaDB, Nginx, and PHP-FPM
+  hosts: lemp-server
+  remote_user: root
+  # remote_user: user
+  # sudo: yes
+
+  roles:
+    - common
+    - mariadb
+    - nginx
+    - php-fpm
