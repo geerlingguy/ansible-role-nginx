@@ -1,5 +1,5 @@
 ---
-# This playbook deploys the whole application stack in this site.  
+# This playbook deploys the whole application stack in this site.
 
 - name: apply common configuration to all nodes
   hosts: all
@@ -14,6 +14,13 @@
 
   roles:
     - web
+
+- name: deploy PHP-FPM
+  hosts: webservers
+  remote_user: root
+
+  roles:
+    - php-fpm
 
 - name: deploy MySQL and configure the databases
   hosts: dbservers

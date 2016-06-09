@@ -1,28 +1,10 @@
 ---
 # These tasks install http and the php modules.
 
-- name: Install http and php etc
-  yum: name={{ item }} state=present
+- name: Install http and libraries
+  yum: name={{ item }} state=latest
   with_items:
    - httpd
-   - php
-   - php-mysql
-   - php-fpm
-   - php-gd
-   - php-mbstring
-   - php-mcrypt
-   - php-opcache
-   - php-pdo-dblib
-   - php-pecl-apcu
-   - php-pecl-memcached
-   - php-pecl-uploadprogress
-   - php-pecl-uuid
-   - php-pspell
-   - php-soap
-   - php-twig
-   - php-twig-ctwig
-   - php-xml
-   - php-xmlrpc
    - git
    - libsemanage-python
    - libselinux-python
