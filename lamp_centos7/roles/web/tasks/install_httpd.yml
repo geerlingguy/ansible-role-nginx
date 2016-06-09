@@ -23,7 +23,6 @@
    - php-twig-ctwig
    - php-xml
    - php-xmlrpc
-   - 
    - git
    - libsemanage-python
    - libselinux-python
