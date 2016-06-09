@@ -3,4 +3,4 @@
 
 httpd_port: 82
 ntpserver: 0.au.pool.ntp.org
-repository: https://github.com/bennojoy/mywebapp.git
+repository: https://git.drupal.org/project/drupal.git
