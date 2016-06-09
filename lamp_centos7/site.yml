@@ -14,12 +14,6 @@
 
   roles:
     - web
-
-- name: deploy PHP-FPM
-  hosts: webservers
-  remote_user: root
-
-  roles:
     - php-fpm
 
 - name: deploy MySQL and configure the databases
