@@ -19,8 +19,8 @@
 - name: Creates Nginx vhost directory
   file: path=/var/www/html/{{ server_hostname }} state=directory owner={{ nginx_user }} group={{ nginx_user }} mode=0775 recurse=yes
   when: nginx_vhosts|length > 0
-    notify:
-      - reload nginx
+  notify:
+    - reload nginx
 
 - name: Remove managed vhost config file (if no vhosts are configured).
   file:
