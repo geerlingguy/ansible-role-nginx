@@ -9,4 +9,4 @@
     - common
     - mariadb
     - nginx
-    - php-fpm
+    - ansible-role-php
