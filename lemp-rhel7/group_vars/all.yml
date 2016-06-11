@@ -59,3 +59,64 @@ php_packages:
   - php-xmlrpc
   - php-mcrypt
   - php-pecl-uploadprogress
+
+# Nginx vhosts configuration
+nginx_vhosts:
+  - listen: "80 default_server"
+    server_name: "example.com www.example.com"
+    root: "/var/www/html/example.com"
+    open_file_cache: "max=2000 inactive=120s"
+    open_file_cache_valid: "240s"
+    open_file_cache_min_uses: "5"
+    open_file_cache_errors: "off"
+    client_max_body_size: "5m"
+    client_body_timeout: "60"
+    index: "index.php index.html index.htm"
+    error_page: ""
+    access_log: ""
+    error_log: ""
+    extra_parameters: |
+      location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+      }
+      location = /favicon.ico {
+        log_not_found off;
+        access_log off;
+      }
+      location = /robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+      }
+      location = /backup {
+        deny all;
+      }
+      location ~* \.(txt|log)$ {
+        allow 127.0.0.1;
+        deny all;
+      }
+      location ~ \..*/.*\.php$ {
+        return 403;
+      }
+      location ~ ^/sites/.*/files/styles/ {
+        try_files $uri @rewrite;
+      }
+      location ~ ^/sites/default/files/ {
+        try_files $uri @rewrite;
+      }
+      location ~* \.(gif|jpg|jpeg|png|ico|bmp|js|css|pdf|doc|webp|woff|ico|js|css)(\?[a-zA-Z0-9\.\-_,])?$ {
+        expires max;
+        log_not_found off;
+        add_header Cache-Control "public";
+        add_header X-Cache $upstream_cache_status;
+      }
+      error_page 403 =404;
+      location ~ /\. { access_log off; log_not_found off; deny all; }
+      location ~ ~$ { access_log off; log_not_found off; deny all; }
+      location ~ /\.ht {
+        deny  all;
+      }
