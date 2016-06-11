@@ -26,3 +26,12 @@ auto_up_disable: false
 # false = Development, minor, and major updates are all disabled
 # minor = Minor updates are enabled, development, and major updates are disabled
 core_update_level: true
+
+# Defines PHP values
+php_enablerepo: "remi-php70"
+
+# PHP-FPM configuration.
+php_enable_php_fpm: fals
+
+php_apc_shm_size: "96M"
+php_date_timezone: "Australia/Melbourne"
