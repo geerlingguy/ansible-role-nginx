@@ -31,7 +31,9 @@ core_update_level: true
 php_enablerepo: "remi-php70"
 
 # PHP-FPM configuration.
-php_enable_php_fpm: fals
+php_enable_php_fpm: true
 
 php_apc_shm_size: "96M"
 php_date_timezone: "Australia/Melbourne"
+
+php_webserver_daemon: "nginx"
