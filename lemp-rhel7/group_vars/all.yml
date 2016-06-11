@@ -72,9 +72,9 @@ nginx_vhosts:
     client_max_body_size: "5m"
     client_body_timeout: "60"
     index: "index.php index.html index.htm"
-    error_page: ""
-    access_log: ""
-    error_log: ""
+    error_page: "403 =404"
+    access_log: "/var/log/nginx/example_access.log"
+    error_log: "/var/log/nginx/example_error.log"
     extra_parameters: |
       location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
@@ -114,9 +114,16 @@ nginx_vhosts:
         add_header Cache-Control "public";
         add_header X-Cache $upstream_cache_status;
       }
-      error_page 403 =404;
-      location ~ /\. { access_log off; log_not_found off; deny all; }
-      location ~ ~$ { access_log off; log_not_found off; deny all; }
+      location ~ /\. {
+        access_log off;
+        log_not_found off;
+        deny all;
+      }
+      location ~ ~$ {
+        access_log off;
+        log_not_found off;
+        deny all;
+      }
       location ~ /\.ht {
         deny  all;
       }
