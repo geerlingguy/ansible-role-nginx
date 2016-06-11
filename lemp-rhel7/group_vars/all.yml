@@ -62,9 +62,9 @@ php_packages:
 
 # Nginx vhosts configuration
 nginx_vhosts:
-  - listen: "80 default_server"
-    server_name: "example.com www.example.com"
-    root: "/var/www/html/example.com"
+  - listen: "{{ nginx_port }} default_server"
+    server_name: "{{ server_hostname }} www.{{ server_hostname }}"
+    root: "/var/www/html/{{ server_hostname }}"
     open_file_cache: "max=2000 inactive=120s"
     open_file_cache_valid: "240s"
     open_file_cache_min_uses: "5"
@@ -73,8 +73,8 @@ nginx_vhosts:
     client_body_timeout: "60"
     index: "index.php index.html index.htm"
     error_page: "403 =404"
-    access_log: "/var/log/nginx/example_access.log"
-    error_log: "/var/log/nginx/example_error.log"
+    access_log: "/var/log/nginx/{{ server_hostname }}_access.log"
+    error_log: "/var/log/nginx/{{ server_hostname }}_error.log"
     extra_parameters: |
       location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
