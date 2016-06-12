@@ -82,12 +82,17 @@ max_connections = {{ mysql_max_connections }}
 wait_timeout = {{ mysql_wait_timeout }}
 
 # InnoDB settings.
+default-storage-engine = innodb
 innodb_file_per_table = {{ mysql_innodb_file_per_table }}
 innodb_buffer_pool_size = {{ mysql_innodb_buffer_pool_size }}
 innodb_log_file_size = {{ mysql_innodb_log_file_size }}
 innodb_log_buffer_size = {{ mysql_innodb_log_buffer_size }}
 innodb_flush_log_at_trx_commit = {{ mysql_innodb_flush_log_at_trx_commit }}
 innodb_lock_wait_timeout = {{ mysql_innodb_lock_wait_timeout }}
+innodb_flush_method = O_DIRECT
+innodb_open_files = 600
+innodb_additional_mem_pool_size = 8M
+innodb_thread_concurrency = 0
 
 [mysqldump]
 quick
