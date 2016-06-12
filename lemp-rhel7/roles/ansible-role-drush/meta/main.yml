@@ -1,8 +1,8 @@
 ---
 dependencies:
-  - geerlingguy.git
-  - geerlingguy.php
-  - geerlingguy.composer
+  - ansible-role-git
+  - ansible-role-php
+  - ansible-role-composer
 
 galaxy_info:
   author: geerlingguy
