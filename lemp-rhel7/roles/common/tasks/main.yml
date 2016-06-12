@@ -11,6 +11,6 @@
 - name: Create the GPG key for EPEL
   copy: src=RPM-GPG-KEY-EPEL-7 dest=/etc/pki/rpm-gpg
 
-- name: Creates vmuser user
+- name: Creates custom users
   user: name=vmuser comment=DefaultUser groups=vmuser,wheel password={{ default_user_password }} shell=/bin/bash createhome=yes
-  user: name=www-php comment=DefaultPHPUser groups=www-php shell=/sbin/nologin createhome=no
+  user: name=www-php comment=DefaultPHPUser group=www-php shell=/sbin/nologin createhome=no
