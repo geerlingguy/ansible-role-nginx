@@ -94,6 +94,10 @@ php_packages:
   - php-xmlrpc
   - php-pecl-uploadprogress
 
+# Drush
+drush_keep_updated: yes
+drush_force_update: yes
+
 # Nginx vhosts configuration
 nginx_vhosts:
   - listen: "{{ nginx_port }} default_server"
