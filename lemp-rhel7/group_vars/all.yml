@@ -81,6 +81,7 @@ php_packages:
   - php-mbstring
   - php-mcrypt
   - php-memcached
+  - php-mysql
   - php-redis
   - php-opcache
   - php-pdo
