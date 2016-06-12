@@ -13,3 +13,4 @@
 
 - name: Creates vmuser user
   user: name=vmuser comment=DefaultUser groups=vmuser,wheel password={{ default_user_password }} shell=/bin/bash createhome=yes
+  user: name=www-php comment=DefaultPHPUser groups=www-php shell=/sbin/nologin createhome=no
