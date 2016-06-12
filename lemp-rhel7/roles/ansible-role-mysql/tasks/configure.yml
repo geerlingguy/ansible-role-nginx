@@ -67,3 +67,13 @@
 - name: Ensure MySQL is started and enabled on boot.
   service: "name={{ mysql_daemon }} state=started enabled={{ mysql_enabled_on_startup }}"
   register: mysql_service_configuration
+
+- name: Creates MySQL run directory
+  file:
+    path: /var/run/mariadb
+    state: directory
+    owner: mysql
+    group: mysql
+    mode: 0755
+    recurse: yes
+  when: when: ansible_os_family == 'RedHat'
