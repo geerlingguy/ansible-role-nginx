@@ -17,6 +17,12 @@ mysql_slow_query_log_file: /var/log/mysql-slow.log
 mysql_pid_file: /var/lib/mysql/mysql.pid
 mysql_slow_query_time: 2
 mysql_max_allowed_packet: "256M"
+mysql_innodb_buffer_pool_size: "1G"
+mysql_innodb_log_buffer_size: "1G"
+mysql_innodb_log_file_size: "1G"
+mysql_innodb_flush_log_at_trx_commit: "2"
+mysql_innodb_file_per_table: 1
+mysql_innodb_log_buffer_size: "16M"
 mysql_databases:
   - name: drupal8db
     encoding: utf8
