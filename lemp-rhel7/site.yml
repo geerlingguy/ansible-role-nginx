@@ -11,4 +11,5 @@
     - ansible-role-memcached
     - ansible-role-php
     - ansible-role-postfix
+    - ansible-role-git
     - ansible-role-drush
