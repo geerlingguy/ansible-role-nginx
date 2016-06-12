@@ -13,3 +13,5 @@ pm.max_requests = 500
 
 security.limit_extensions = .php .php3 .php4 .php5 .php7
 chdir = /var/www/html/{{ server_hostname }}
+catch_workers_output = yes
+php_admin_value[memory_limit] = {{ php_memory_limit }}
