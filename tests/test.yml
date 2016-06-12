@@ -1,4 +1,6 @@
 ---
-- hosts: all
+- hosts: localhost
+  remote_user: root
   roles:
-    - role_under_test
+    - role: ansible-role-nginx
+      nginx_use_ppa: true

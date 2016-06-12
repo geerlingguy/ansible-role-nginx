@@ -1,8 +1,14 @@
 ---
-- name: Ensure MySQL packages are installed.
-  yum: "name={{ item }} state=installed enablerepo={{ mysql_enablerepo }}"
-  with_items: "{{ mysql_packages }}"
-  register: rh_mysql_install_packages
+- name: Enable nginx repo.
+  template:
+    src: nginx.repo.j2
+    dest: /etc/yum.repos.d/nginx.repo
+    owner: root
+    group: root
+    mode: 0644
 
-- name: Ensure MySQL Python libraries are installed.
-  yum: "name=MySQL-python state=installed enablerepo={{ mysql_enablerepo }}"
+- name: Ensure nginx is installed.
+  yum:
+    name: "{{ nginx_package_name }}"
+    state: installed
+    enablerepo: nginx

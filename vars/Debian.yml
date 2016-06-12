@@ -1,9 +1,9 @@
 ---
-__mysql_daemon: mysql
-__mysql_packages:
-  - mysql-common
-  - mysql-server
-__mysql_slow_query_log_file: /var/log/mysql/mysql-slow.log
-mysql_config_file: /etc/mysql/my.cnf
-mysql_config_include_dir: /etc/mysql/conf.d
-mysql_socket: /var/run/mysqld/mysqld.sock
+root_group: root
+nginx_conf_path: /etc/nginx/conf.d
+nginx_conf_file_path: /etc/nginx/nginx.conf
+nginx_mime_file_path: /etc/nginx/mime.types
+nginx_pidfile: /run/nginx.pid
+nginx_vhost_path: /etc/nginx/sites-enabled
+nginx_default_vhost_path: /etc/nginx/sites-enabled/default
+__nginx_user: "www-data"
