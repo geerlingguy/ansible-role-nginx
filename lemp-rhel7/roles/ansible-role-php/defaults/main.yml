@@ -2,8 +2,7 @@
 # Pass in a comma-separated list of repos to use (e.g. "remi,epel").
 php_enablerepo: ""
 
-# PHP package state; use 'installed' to make sure it's installed, or 'latest' if
-# you want to upgrade or switch versions using a new repo.
+# State that the system package installer should use for PHP the enabled repo (e.g. "installed,latest")
 php_packages_state: installed
 
 # Set this to false if you're not using PHP with Apache/Nginx/etc.
