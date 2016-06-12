@@ -17,6 +17,9 @@ security.limit_extensions = .php .php3 .php4 .php5 .php7
 
 catch_workers_output = yes
 php_admin_value[memory_limit] = {{ php_memory_limit }}
+php_admin_value[post_max_size] = {{ php_post_max_size }}
+php_admin_value[upload_max_filesize] = {{ php_upload_max_filesize }}
+php_admin_value[max_input_vars] = {{ php_max_input_vars }}
 php_admin_value[error_log] = /var/log/php-fpm/www-error.log
 php_admin_flag[log_errors] = on
 php_value[session.save_handler] = files

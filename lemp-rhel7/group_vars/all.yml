@@ -63,6 +63,9 @@ php_fpm_pool_user: www-php
 php_fpm_pool_group: www-php
 
 php_apc_shm_size: "128M"
+php_post_max_size: "256M"
+php_upload_max_filesize: "1024M"
+php_max_input_vars: "4000"
 
 # Interaction with which web server
 php_webserver_daemon: "nginx"
