@@ -6,6 +6,6 @@
 
   roles:
     - common
-    - mariadb
+    - ansible-role-mysql
     - ansible-role-nginx
     - ansible-role-php
