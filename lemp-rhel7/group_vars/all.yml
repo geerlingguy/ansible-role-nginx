@@ -11,6 +11,8 @@ mysql_users:
     password: dcSEMWpH]O2P(?ubNjFmLYJ[xoVhXiCs
     priv: "drupal8db.*:ALL"
 php_date_timezone: "Australia/Melbourne"
+# Default user password for vmuser
+default_user_password: #uVOInGP&p<jfd}bkelLMEH!ZNRg$xiz
 
 # DO NOT MODIFY BELOW THIS LINE.
 

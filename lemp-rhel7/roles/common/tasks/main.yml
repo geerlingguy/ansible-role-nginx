@@ -12,4 +12,4 @@
   copy: src=RPM-GPG-KEY-EPEL-7 dest=/etc/pki/rpm-gpg
 
 - name: Creates vmuser user
-  user: name=vmuser comment=DefaultUser groups=vmuser,wheel shell=/bin/bash createhome=yes
+  user: name=vmuser comment=DefaultUser groups=vmuser,wheel password={{ default_user_password }} shell=/bin/bash createhome=yes
