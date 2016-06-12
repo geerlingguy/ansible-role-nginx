@@ -12,4 +12,5 @@
     - ansible-role-php
     - ansible-role-postfix
     - ansible-role-git
+    - ansible-role-composer
     - ansible-role-drush
