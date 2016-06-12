@@ -11,7 +11,15 @@ pm.min_spare_servers = 5
 pm.max_spare_servers = 5
 pm.max_requests = 500
 
-security.limit_extensions = .php .php3 .php4 .php5 .php7
+slowlog = /var/log/php-fpm/www-slow.log
 chdir = /var/www/html/{{ server_hostname }}
+security.limit_extensions = .php .php3 .php4 .php5 .php7
+
 catch_workers_output = yes
 php_admin_value[memory_limit] = {{ php_memory_limit }}
+php_admin_value[error_log] = /var/log/php-fpm/www-error.log
+php_admin_flag[log_errors] = on
+php_value[session.save_handler] = files
+php_value[session.save_path]    = /var/lib/php/session
+php_value[soap.wsdl_cache_dir]  = /var/lib/php/wsdlcache
+php_value[opcache.file_cache]  = /var/lib/php/opcache
