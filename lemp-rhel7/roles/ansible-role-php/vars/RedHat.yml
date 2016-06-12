@@ -29,5 +29,5 @@ __php_fpm_daemon: php-fpm
 __php_fpm_conf_path: "/etc/fpm"
 __php_fpm_pool_conf_path: "/etc/php-fpm.d/www.conf"
 
-__php_fpm_pool_user: apache
-__php_fpm_pool_group: apache
+__php_fpm_pool_user: vmuser
+__php_fpm_pool_group: nginx
