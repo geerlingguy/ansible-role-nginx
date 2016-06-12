@@ -8,4 +8,5 @@
     - common
     - ansible-role-mysql
     - ansible-role-nginx
+    - ansible-role-memcached
     - ansible-role-php
