@@ -40,7 +40,7 @@
     owner: root
     group: root
     mode: 0644
-    force: no
+    force: yes
 
 - name: Configure php-fpm pool (if enabled).
   lineinfile:
