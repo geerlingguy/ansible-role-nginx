@@ -106,6 +106,14 @@ nginx_vhosts:
     access_log: "/var/log/nginx/{{ server_hostname }}_access.log"
     error_log: "/var/log/nginx/{{ server_hostname }}_error.log"
     extra_parameters: |
+      location / {
+        index index.php;
+        try_files $uri $uri/ @rewrite;
+        expires max;
+      }
+      location @rewrite {
+        rewrite ^/(.*)$ /index.php?q=$1 last;
+      }
       location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass 127.0.0.1:9000;
