@@ -9,11 +9,11 @@ mysql_databases:
 mysql_users:
   - name: drupal8user
     host: "127.0.0.1"
-    password: dcSEMWpH]O2P(?ubNjFmLYJ[xoVhXiCs
+    password: "dcSEMWpH]O2P(?ubNjFmLYJ[xoVhXiCs"
     priv: "drupal8db.*:ALL"
   - name: drupal8user
     host: "localshot"
-    password: dcSEMWpH]O2P(?ubNjFmLYJ[xoVhXiCs
+    password: "dcSEMWpH]O2P(?ubNjFmLYJ[xoVhXiCs"
     priv: "drupal8db.*:ALL"
 
 php_date_timezone: "Australia/Melbourne"
