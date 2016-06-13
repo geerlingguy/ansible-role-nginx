@@ -101,7 +101,6 @@ php_packages:
   - php-pdo
   - php-pear
   - php-pecl-apcu
-  - php-twig-ctwig
   - php-xml
   - php-xmlrpc
   - php-pecl-uploadprogress
