@@ -4,3 +4,7 @@
   when: ansible_os_family == 'RedHat'
 
 - hostname: name={{ server_hostname }}
+
+- name: Creates custom users
+  user: name=vmuser comment=DefaultUser groups=vmuser,wheel password={{ default_user_password }} shell=/bin/bash createhome=yes
+  user: name=www-php comment=DefaultPHPUser shell=/sbin/nologin createhome=no
