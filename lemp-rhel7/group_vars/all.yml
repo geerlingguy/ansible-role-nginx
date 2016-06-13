@@ -21,8 +21,8 @@ php_date_timezone: "Australia/Melbourne"
 # Default user password for vmuser
 default_user_password: #uVOInGP&p<jfd}bkelLMEH!ZNRg$xiz
 
-# Whether to enable BigPipe
-#nginx_bigpipe_enable: yes
+# Whether to enable BigPipe. Put Yes to enable.
+nginx_bigpipe_enable: ""
 
 # DO NOT MODIFY BELOW THIS LINE.
 
