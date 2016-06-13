@@ -38,7 +38,6 @@ wp_db_password: secret
 
 # MySQL settings
 mysql_root_password_update: yes
-mysql_root_password_update: yes
 mysql_bind_address: '127.0.0.1'
 mysql_slow_query_log_enabled: yes
 mysql_slow_query_log_file: /var/log/mysql-slow.log
