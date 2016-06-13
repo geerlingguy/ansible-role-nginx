@@ -1,5 +1,6 @@
 ---
 # Variables listed here are applicable to all host groups
+server_hostname: web01.redyhost.com
 mysql_root_password: Ff!2KDSUOs10[tXR*M</_#mgvlJCkz5W
 mysql_databases:
   - name: drupal8db
@@ -88,7 +89,6 @@ php_packages:
   - php-mcrypt
   - php-memcached
   - php-mysql
-  - php-redis
   - php-opcache
   - php-pdo
   - php-pear

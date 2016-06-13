@@ -15,4 +15,4 @@
   user: name=vmuser comment=DefaultUser groups=vmuser,wheel password={{ default_user_password }} shell=/bin/bash createhome=yes
   user: name=www-php comment=DefaultPHPUser shell=/sbin/nologin createhome=no
 
-- hostname: name=web01
+- hostname: name={{ server_hostname }}
