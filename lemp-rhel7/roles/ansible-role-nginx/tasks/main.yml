@@ -38,7 +38,7 @@
 - name: Copy headers config file in place.
   template:
     src: headers.conf.j2
-    dest: "{{ nginx_conf_file_path }}/conf.d"
+    dest: "{{ nginx_conf_path }}"
     owner: root
     group: "{{ root_group }}"
     mode: 0644
