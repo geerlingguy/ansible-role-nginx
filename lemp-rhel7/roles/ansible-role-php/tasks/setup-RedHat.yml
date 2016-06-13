@@ -6,10 +6,3 @@
     enablerepo: "{{ php_enablerepo }}"
   with_items: "{{ php_packages }}"
   notify: restart webserver
-
-- name: Ensure PHP twigc package is installed.
-  yum:
-    name: "php-twig-ctwig"
-    state: "installed"
-    enablerepo: "remi"
-  notify: restart webserver
