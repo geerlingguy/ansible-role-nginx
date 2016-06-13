@@ -1,6 +1,6 @@
 ---
 dependencies:
-  - geerlingguy.php
+  - ansible-role-php
 
 galaxy_info:
   author: geerlingguy
