@@ -26,6 +26,8 @@ default_user_password: #uVOInGP&p<jfd}bkelLMEH!ZNRg$xiz
 
 # DO NOT MODIFY BELOW THIS LINE.
 
+ansible_ssh_private_key_file: /home/redyhost/.ssh/id_rsa_provisioning
+
 wp_version: 4.3
 wp_sha256sum: 3b0db3abe8504f15a33cf64188a493ec0de01eaa8d20e37c3d6a1d9fa0a40fb4
 
