@@ -1,0 +1,15 @@
+- name: Copy the NGINX repository definition
+  copy: src=nginx.repo dest=/etc/yum.repos.d/
+
+- name: Copy the EPEL repository definition
+  copy: src=epel.repo dest=/etc/yum.repos.d/
+
+- name: Create the GPG key for NGINX
+  copy: src=RPM-GPG-KEY-NGINX dest=/etc/pki/rpm-gpg
+
+- name: Create the GPG key for EPEL
+  copy: src=RPM-GPG-KEY-EPEL-7 dest=/etc/pki/rpm-gpg
+
+- name: Creates custom users
+  user: name=vmuser comment=DefaultUser groups=vmuser,wheel password={{ default_user_password }} shell=/bin/bash createhome=yes
+  user: name=www-php comment=DefaultPHPUser shell=/sbin/nologin createhome=no
