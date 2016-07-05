@@ -19,6 +19,7 @@ mysql_users:
 php_date_timezone: "Australia/Melbourne"
 
 # Default user password for vmuser
+default_user_username: "vmuser"
 default_user_password: #uVOInGP&p<jfd}bkelLMEH!ZNRg$xiz
 
 # Whether to enable BigPipe. Put Yes to enable.
