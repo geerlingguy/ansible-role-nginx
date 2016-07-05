@@ -72,7 +72,11 @@ apache_vhosts:
     extra_parameters: |
       RewriteCond %{HTTP_HOST} !^www\. [NC]
       RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/{{ server_hostname }}"
+      ProxyTimeout 600
+      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/{{ server_hostname }}/$1"
+      <Proxy fcgi://localhost:9000>
+        ProxySet timeout=600
+      </Proxy>
 
 # Disable All Updates
 # By default automatic updates are enabled, set this value to true to disable all automatic updates
