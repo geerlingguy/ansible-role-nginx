@@ -64,7 +64,8 @@ apache_vhosts_filename: "vhosts.conf"
 apache_remove_default_vhost: false
 apache_state: started
 apache_vhosts_ssl: []
-- servername: "www.{{ server_hostname }}"
+apache_vhosts:
+  - servername: "www.{{ server_hostname }}"
     serveralias: "{{ server_hostname }}"
     documentroot: "/var/www/html/{{ server_hostname }}"
     extra_parameters: |
