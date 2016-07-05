@@ -1,6 +1,6 @@
 ---
 dependencies:
-  - geerlingguy.apache
+  - ansible-role-apache-php-fpm
 
 galaxy_info:
   author: geerlingguy
