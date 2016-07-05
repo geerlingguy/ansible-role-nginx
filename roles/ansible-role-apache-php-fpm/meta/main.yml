@@ -1,6 +1,6 @@
 ---
 dependencies:
-  - ansible-role-apache-php-fpm
+  - ansible-role-apache
 
 galaxy_info:
   author: geerlingguy
