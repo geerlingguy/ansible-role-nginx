@@ -56,6 +56,21 @@ mysql_innodb_log_buffer_size: "16M"
 nginx_port: 80
 server_hostname: server.example.com
 
+# Apache configuration behind Nginx reverse proxy.
+apache_listen_ip: "127.0.0.1"
+apache_listen_port: 82
+apache_create_vhosts: true
+apache_vhosts_filename: "vhosts.conf"
+apache_remove_default_vhost: false
+apache_state: started
+apache_vhosts_ssl: []
+- servername: "www.{{ server_hostname }}"
+    serveralias: "{{ server_hostname }}"
+    documentroot: "/var/www/html/{{ server_hostname }}"
+    extra_parameters: |
+      RewriteCond %{HTTP_HOST} !^www\. [NC]
+      RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
 # Disable All Updates
 # By default automatic updates are enabled, set this value to true to disable all automatic updates
 auto_up_disable: false
@@ -110,9 +125,14 @@ php_packages:
 drush_keep_updated: yes
 drush_force_update: yes
 
+# Listing Vhost domains, required to create docroot directories.
+vhost_domains:
+  first:
+    name: '{{ server_hostname }}'
+
 # Nginx vhosts configuration
 nginx_vhosts:
-  - listen: "{{ nginx_port }} default_server"
+  - listen: "{{ nginx_port }}"
     server_name: "{{ server_hostname }} www.{{ server_hostname }}"
     root: "/var/www/html/{{ server_hostname }}"
     open_file_cache: "max=2000 inactive=120s"
@@ -126,21 +146,6 @@ nginx_vhosts:
     access_log: "/var/log/nginx/{{ server_hostname }}_access.log"
     error_log: "/var/log/nginx/{{ server_hostname }}_error.log"
     extra_parameters: |
-      location / {
-        index index.php;
-        try_files $uri $uri/ @rewrite;
-        expires max;
-      }
-      location @rewrite {
-        rewrite ^/(.*)$ /index.php?q=$1 last;
-      }
-      location ~ \.php$ {
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass 127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include fastcgi_params;
-      }
       location = /favicon.ico {
         log_not_found off;
         access_log off;
@@ -149,6 +154,17 @@ nginx_vhosts:
         allow all;
         log_not_found off;
         access_log off;
+      }
+      location / {
+        index index.php;
+        try_files $uri $uri/ /index.php;
+        expires max;
+      }
+      location ~ \.php$ {
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+        proxy_pass http://127.0.0.1:{{ apache_listen_port }};
       }
       location = /backup {
         deny all;

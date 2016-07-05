@@ -9,3 +9,11 @@
 
 - name: Create the GPG key for EPEL
   copy: src=RPM-GPG-KEY-EPEL-7 dest=/etc/pki/rpm-gpg
+
+- name: Creates Docroot vhost directory
+  file: path=/var/www/html/{{ item.value.name }} state=directory owner={{ default_user_username }} group={{ php_fpm_pool_group }} mode=0755 recurse=yes
+  when: nginx_vhosts|length > 0
+  with_dict: "{{ vhost_domains }}"
+  notify:
+    - reload nginx
+    - reload apache

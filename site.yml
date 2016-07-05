@@ -10,6 +10,7 @@
     - ansible-role-nginx
     - ansible-role-memcached
     - ansible-role-php
+    - ansible-role-apache
     - ansible-role-postfix
     - ansible-role-git
     - ansible-role-composer
