@@ -6,6 +6,5 @@
   LogFormat "%a %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
 
   RemoteIPHeader X-Real-IP
-  RemoteIPInternalProxy 127.0.0.1
-  RemoteIPTrustedProxy 127.0.0.1
+  RemoteIPInternalProxy 127.0.0.1/8
 </IfModule>
