@@ -82,19 +82,33 @@ apache_mods_disabled:
   - php7
 apache_vhosts_ssl: []
 apache_vhosts:
-  - servername: "www.{{ item }}"
-    with_items: "{{ vhost_domains }}"
-    serveralias: "{{ item }}"
-    documentroot: "/var/www/html/{{ item }}"
+  - servername: "www.{{ server_hostname }}"
+    serveralias: "{{ server_hostname }}"
+    documentroot: "/var/www/html/{{ server_hostname }}"
     extra_parameters: |
       RewriteCond %{HTTP_HOST} !^www\. [NC]
       RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-      ErrorLog "/var/log/httpd/{{ item }}_error.log"
+      ErrorLog "/var/log/httpd/{{ server_hostname }}_error.log"
       ServerSignature Off
       ProxyTimeout 600
-      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/{{ item }}/$1"
+      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/{{ server_hostname }}/$1"
       LogFormat "%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combinedlog
-      CustomLog "/var/log/httpd/{{ item }}_access.log" combinedlog
+      CustomLog "/var/log/httpd/{{ server_hostname }}_access.log" combinedlog
+      <Proxy fcgi://localhost:9000>
+        ProxySet timeout=600
+      </Proxy>
+  - servername: "www.2{{ server_hostname }}"
+    serveralias: "2{{ server_hostname }}"
+    documentroot: "/var/www/html/2{{ server_hostname }}"
+    extra_parameters: |
+      RewriteCond %{HTTP_HOST} !^www\. [NC]
+      RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+      ErrorLog "/var/log/httpd/2{{ server_hostname }}_error.log"
+      ServerSignature Off
+      ProxyTimeout 600
+      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/2{{ server_hostname }}/$1"
+      LogFormat "%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combinedlog
+      CustomLog "/var/log/httpd/2{{ server_hostname }}_access.log" combinedlog
       <Proxy fcgi://localhost:9000>
         ProxySet timeout=600
       </Proxy>
