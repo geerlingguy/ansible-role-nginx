@@ -1,6 +1,6 @@
 LoadModule remoteip_module modules/mod_remoteip.so
 
-LogFormat "%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogFormat "%a %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
 
 RemoteIPHeader X-Real-IP
 RemoteIPHeader X-Forwarded-For
