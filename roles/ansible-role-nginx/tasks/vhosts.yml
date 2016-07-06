@@ -1,6 +1,6 @@
 ---
 - name: Creates Nginx conf directories
-  file: path={{ nginx_vhost_path }} state=directory owner={{ root }} group={{ root }} mode=0755 recurse=yes
+  file: path={{ nginx_vhost_path }} state=directory mode=0755 recurse=yes
   when: nginx_vhosts|length > 0
 
 - name: Remove default nginx vhost config file (if configured).
