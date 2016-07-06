@@ -41,5 +41,3 @@
     group: root
     mode: 0644
   notify: restart apache
-  with_items: "{{ apache_mods_enabled }}"
-  when: item == "remoteip.load"

@@ -57,6 +57,13 @@ mysql_innodb_log_buffer_size: "16M"
 nginx_port: 80
 server_hostname: server.example.com
 
+# Listing Vhost domains, required to create docroot directories.
+vhost_domains:
+  first:
+    name: '{{ server_hostname }}'
+  second:
+      name: '2-{{ server_hostname }}'
+
 # Apache configuration behind Nginx reverse proxy.
 apache_listen_ip: "127.0.0.1"
 apache_listen_port: 82
@@ -75,27 +82,22 @@ apache_mods_disabled:
   - php7
 apache_vhosts_ssl: []
 apache_vhosts:
-  - servername: "www.{{ server_hostname }}"
-    serveralias: "{{ server_hostname }}"
-    documentroot: "/var/www/html/{{ server_hostname }}"
+  - servername: "www.{{ item.value.name }}"
+    with_dict: "{{ vhost_domains }}"
+    serveralias: "{{ item.value.name }}"
+    documentroot: "/var/www/html/{{ item.value.name }}"
     extra_parameters: |
       RewriteCond %{HTTP_HOST} !^www\. [NC]
       RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-      ErrorLog "/var/log/httpd/{{ server_hostname }}_error.log"
+      ErrorLog "/var/log/httpd/{{ item.value.name }}_error.log"
       ServerSignature Off
       ProxyTimeout 600
-      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/{{ server_hostname }}/$1"
+      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/{{ item.value.name }}/$1"
       LogFormat "%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combinedlog
-      CustomLog "/var/log/httpd/{{ server_hostname }}_access.log" combinedlog
+      CustomLog "/var/log/httpd/{{ item.value.name }}_access.log" combinedlog
       <Proxy fcgi://localhost:9000>
         ProxySet timeout=600
       </Proxy>
-      <Directory "/var/www/html/{{ server_hostname }}">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        DirectoryIndex index.php
-        Require all granted
-      </Directory>
 
 # Disable All Updates
 # By default automatic updates are enabled, set this value to true to disable all automatic updates
@@ -150,11 +152,6 @@ php_packages:
 # Drush
 drush_keep_updated: yes
 drush_force_update: yes
-
-# Listing Vhost domains, required to create docroot directories.
-vhost_domains:
-  first:
-    name: '{{ server_hostname }}'
 
 # Nginx vhosts configuration
 nginx_vhosts:
