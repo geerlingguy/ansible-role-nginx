@@ -171,15 +171,20 @@ nginx_vhosts:
         access_log off;
       }
       location / {
-        index index.php;
-        try_files $uri $uri/ /index.php;
-        expires max;
+        proxy_pass http://127.0.0.1:{{ apache_listen_port }};
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        add_header X-Cache $upstream_cache_status;
+        add_header X-Loaded "/";
       }
       location ~ \.php$ {
         proxy_set_header X-Real-IP  $remote_addr;
         proxy_set_header X-Forwarded-For $remote_addr;
         proxy_set_header Host $host;
         proxy_pass http://127.0.0.1:{{ apache_listen_port }};
+        add_header X-Cache $upstream_cache_status;
+        add_header X-Loaded "php";
       }
       location = /backup {
         deny all;
@@ -215,4 +220,9 @@ nginx_vhosts:
       }
       location ~ /\.ht {
         deny  all;
+      }
+      location @rewrite {
+        # Some modules enforce no slash (/) at the end of the URL
+        # Else this rewrite block wouldn't be needed (GlobalRedirect)
+        rewrite ^/(.*)$ /index.php?q=$1 last;
       }
