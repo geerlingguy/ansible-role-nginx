@@ -213,7 +213,7 @@ nginx_vhosts:
       location ~ ^/sites/default/files/ {
         try_files $uri @rewrite;
       }
-      location ~* \.(gif|jpg|jpeg|png|ico|bmp|js|css|pdf|doc|webp|woff|ico|js|css)(\?[a-zA-Z0-9\.\-_,])?$ {
+      location ~* \.(gif|jpg|jpeg|png|ico|bmp|js|css|pdf|doc|webp|woff|ico|js|css|svg)(\?[a-zA-Z0-9\.\-_,])?$ {
         expires max;
         log_not_found off;
         add_header Cache-Control "public";
