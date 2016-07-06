@@ -22,3 +22,13 @@
     mode: 0644
   notify: restart apache
   when: apache_create_vhosts
+
+- name: Change to Event MPM
+  template:
+    src: "00-mpm.conf.j2"
+    dest: "{{ apache_modules_path }}/00-mpm.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart apache
+  when: apache_enable_event_mpm

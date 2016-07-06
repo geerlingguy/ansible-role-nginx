@@ -64,6 +64,8 @@ apache_create_vhosts: true
 apache_vhosts_filename: "vhosts.conf"
 apache_remove_default_vhost: false
 apache_state: started
+apache_vhosts_version: "2.4"
+apache_enable_event_mpm: true
 apache_mods_enabled:
   - rewrite.load
   - ssl.load

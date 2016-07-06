@@ -42,3 +42,6 @@ apache_mods_disabled: []
 
 # Set initial apache state. Recommended values: `started` or `stopped`
 apache_state: started
+
+# To enable event MPM, change to true
+apache_enable_event_mpm: false
