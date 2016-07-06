@@ -69,6 +69,7 @@ apache_enable_event_mpm: true
 apache_mods_enabled:
   - rewrite.load
   - ssl.load
+  - remoteip.load
 apache_mods_disabled:
   - php
   - php7
