@@ -60,6 +60,7 @@ server_hostname: server.example.com
 # Apache configuration behind Nginx reverse proxy.
 apache_listen_ip: "127.0.0.1"
 apache_listen_port: 82
+apache_listen_port_ssl: 2443
 apache_create_vhosts: true
 apache_vhosts_filename: "vhosts.conf"
 apache_remove_default_vhost: false
@@ -70,6 +71,7 @@ apache_mods_enabled:
   - rewrite.load
   - ssl.load
   - remoteip.load
+  - security.load
 apache_mods_disabled:
   - php
   - php7

@@ -1,7 +1,11 @@
-LoadModule remoteip_module modules/mod_remoteip.so
+<IfModule !mod_remoteip.c>
+  LoadModule remoteip_module modules/mod_remoteip.so
+</IfModule>
 
-LogFormat "%a %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
+<IfModule mod_remoteip.c>
+  LogFormat "%a %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
 
-RemoteIPHeader X-Real-IP
-RemoteIPInternalProxy 127.0.0.1
-RemoteIPTrustedProxy 127.0.0.1
+  RemoteIPHeader X-Real-IP
+  RemoteIPInternalProxy 127.0.0.1
+  RemoteIPTrustedProxy 127.0.0.1
+</IfModule>
