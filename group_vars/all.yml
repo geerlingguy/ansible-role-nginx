@@ -82,19 +82,19 @@ apache_mods_disabled:
   - php7
 apache_vhosts_ssl: []
 apache_vhosts:
-  - servername: "www.{{ item.value.name }}"
-    with_dict: "{{ vhost_domains }}"
-    serveralias: "{{ item.value.name }}"
-    documentroot: "/var/www/html/{{ item.value.name }}"
+  - servername: "www.{{ item }}"
+    with_items: "{{ vhost_domains }}"
+    serveralias: "{{ item }}"
+    documentroot: "/var/www/html/{{ item }}"
     extra_parameters: |
       RewriteCond %{HTTP_HOST} !^www\. [NC]
       RewriteRule ^(.*)$ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-      ErrorLog "/var/log/httpd/{{ item.value.name }}_error.log"
+      ErrorLog "/var/log/httpd/{{ item }}_error.log"
       ServerSignature Off
       ProxyTimeout 600
-      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/{{ item.value.name }}/$1"
+      ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/{{ item }}/$1"
       LogFormat "%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combinedlog
-      CustomLog "/var/log/httpd/{{ item.value.name }}_access.log" combinedlog
+      CustomLog "/var/log/httpd/{{ item }}_access.log" combinedlog
       <Proxy fcgi://localhost:9000>
         ProxySet timeout=600
       </Proxy>
