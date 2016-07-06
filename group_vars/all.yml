@@ -67,11 +67,9 @@ apache_remove_default_vhost: false
 apache_state: started
 apache_vhosts_version: "2.4"
 apache_enable_event_mpm: true
-apache_mods_enabled:
-  - rewrite.load
-  - ssl.load
-  - remoteip.load
-  - security.load
+apache_packages:
+  - mod_ssl
+  - mod_security
 apache_mods_disabled:
   - php
   - php7
