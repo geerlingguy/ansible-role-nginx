@@ -85,6 +85,7 @@ apache_vhosts:
       ServerSignature Off
       ProxyTimeout 600
       ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/html/{{ server_hostname }}/$1"
+      LogFormat "%a %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
       CustomLog "/var/log/httpd/{{ server_hostname }}_access.log" combined
       <Proxy fcgi://localhost:9000>
         ProxySet timeout=600

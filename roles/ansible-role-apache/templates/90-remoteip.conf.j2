@@ -3,6 +3,5 @@ LoadModule remoteip_module modules/mod_remoteip.so
 LogFormat "%a %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
 
 RemoteIPHeader X-Real-IP
-RemoteIPHeader X-Forwarded-For
 RemoteIPInternalProxy 127.0.0.1
 RemoteIPTrustedProxy 127.0.0.1
