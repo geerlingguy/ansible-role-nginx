@@ -1,3 +1,0 @@
----
-__memcached_user: memcache
-memcached_config_file: /etc/memcached.conf
