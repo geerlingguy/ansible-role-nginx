@@ -6,6 +6,9 @@ nginx_default_release: ""
 nginx_ppa_use: false
 nginx_ppa_version: stable
 
+# Use custom nginx repo
+#nginx_custom_apt_repo: "https://nginx.example.org/nginx/ xenial nginx"
+
 # The name of the nginx apt/yum package to install.
 nginx_package_name: "nginx"
 

@@ -7,6 +7,12 @@
   register: nginx_ppa_added
   when: nginx_ppa_use
 
+- name: Add custom repo for nginx
+  apt_repository:
+    repo: '{{ nginx_custom_apt_repo }}'
+    state: present
+  when: nginx_custom_apt_repo is defined
+
 - name: Ensure nginx will reinstall if the PPA was just added.
   apt:
     name: nginx
