@@ -59,6 +59,7 @@ nginx_vhosts: []
 nginx_upstreams: []
 # - name: myapp1
 #   strategy: "ip_hash" # "least_conn", etc.
+#   keepalive: 16 # optional
 #   servers: {
 #     "srv1.example.com",
 #     "srv2.example.com weight=3",
