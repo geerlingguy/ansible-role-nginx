@@ -28,14 +28,17 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. If left emp
         error_log: ""
         extra_parameters: |
           location ~ \.php$ {
-            fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            fastcgi_pass unix:/var/run/php5-fpm.sock;
-            fastcgi_index index.php;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            include fastcgi_params;
-          }
+                  fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                  fastcgi_pass unix:/var/run/php5-fpm.sock;
+                  fastcgi_index index.php;
+                  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                  include fastcgi_params;
+              }
 
 An example of a fully-populated nginx_vhosts entry, using a `|` to declare a block of syntax for the `extra_parameters`.
+
+Please take note of the indentation in the above block. The first line should be a normal 2-space indent, with everything else 4-space indented, relative to the first line.
+Following this style will ensure the config file is indented correctly.
 
     nginx_remove_default_vhost: false
 
