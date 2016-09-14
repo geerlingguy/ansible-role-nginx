@@ -56,11 +56,11 @@ If you are configuring Nginx as a load balancer, you can define one or more upst
 
 The user under which Nginx will run. Defaults to `nginx` for RedHat, and `www-data` for Debian.
 
-    nginx_worker_processes: "1"
+    nginx_worker_processes: "{{ ansible_processor_vcpus|default(ansible_processor_count) }}"
     nginx_worker_connections: "1024"
     nginx_multi_accept: "off"
 
-`nginx_worker_processes` should be set to the number of cores present on your machine. Connections (find this number with `grep processor /proc/cpuinfo | wc -l`). `nginx_worker_connections` is the number of connections per process. Set this higher to handle more simultaneous connections (and remember that a connection will be used for as long as the keepalive timeout duration for every client!). You can set `nginx_multi_accept` to `on` if you want Nginx to accept all connections immediately.
+`nginx_worker_processes` should be set to the number of cores present on your machine (if the default is incorrect, find this number with `grep processor /proc/cpuinfo | wc -l`). `nginx_worker_connections` is the number of connections per process. Set this higher to handle more simultaneous connections (and remember that a connection will be used for as long as the keepalive timeout duration for every client!). You can set `nginx_multi_accept` to `on` if you want Nginx to accept all connections immediately.
 
     nginx_error_log: "/var/log/nginx/error.log warn"
     nginx_access_log: "/var/log/nginx/access.log main buffer=16k"

@@ -9,7 +9,7 @@ nginx_ppa_version: stable
 # The name of the nginx apt/yum package to install.
 nginx_package_name: "nginx"
 
-nginx_worker_processes: "1"
+nginx_worker_processes: "{{ ansible_processor_vcpus | default(ansible_processor_count) }}"
 nginx_worker_connections: "1024"
 nginx_multi_accept: "off"
 
