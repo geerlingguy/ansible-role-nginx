@@ -82,6 +82,19 @@ Nginx keepalive settings. Timeout should be set higher (10s+) if you have more p
 
 This value determines the largest file upload possible, as uploads are passed through Nginx before hitting a backend like `php-fpm`. If you get an error like `client intended to send too large body`, it means this value is set too low.
 
+    nginx_gzip: "on"
+
+    nginx_gzip_disable: "msie6"
+    nginx_gzip_vary: "on"
+    nginx_gzip_proxied: "any"
+    nginx_gzip_comp_level: "6"
+    nginx_gzip_buffers: "16 8k"
+    nginx_gzip_http_version: "1.1"
+    nginx_gzip_min_length: "256"
+    nginx_gzip_types: "text/html"
+
+Improve time loading with Gzip compression. Enabled by default, you might need to change `nginx_gzip_types` to add more [type](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types) to compress files like .js, .css, .png... All details options available [here](http://nginx.org/en/docs/http/ngx_http_gzip_module.html)
+
     nginx_server_names_hash_bucket_size: "64"
 
 If you have many server names, or have very long server names, you might get an Nginx error on startup requiring this value to be increased.
