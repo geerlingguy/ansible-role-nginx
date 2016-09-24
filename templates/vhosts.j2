@@ -27,7 +27,7 @@ server {
 {% endif %}
 
 {% if vhost.extra_parameters is defined %}
-    {{ vhost.extra_parameters }}
+    {{ vhost.extra_parameters|indent(4) }}
 {% endif %}
 }
 {% endfor %}
