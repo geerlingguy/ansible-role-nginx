@@ -79,7 +79,7 @@ Nginx keepalive settings. Timeout should be set higher (10s+) if you have more p
 
     nginx_server_tokens: "on"
 
-Nginx server_tokens settings, this controlls if nginx responds with it's version in the HTTP headers, set to off to disable
+Nginx server_tokens settings. Controls whether nginx responds with it's version in HTTP headers. Set to `"off"` to disable.
 
     nginx_client_max_body_size: "64m"
 
