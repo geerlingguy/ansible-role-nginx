@@ -77,6 +77,10 @@ TCP connection options. See [this blog post](https://t37.net/nginx-optimization-
 
 Nginx keepalive settings. Timeout should be set higher (10s+) if you have more polling-style traffic (AJAX-powered sites especially), or lower (<10s) if you have a site where most users visit a few pages and don't send any further requests.
 
+    nginx_server_tokens: "on"
+
+Nginx server_tokens settings, this controlls if nginx responds with it's version in the HTTP headers, set to off to disable
+
     nginx_client_max_body_size: "64m"
 
 This value determines the largest file upload possible, as uploads are passed through Nginx before hitting a backend like `php-fpm`. If you get an error like `client intended to send too large body`, it means this value is set too low.

@@ -35,6 +35,7 @@ http {
     keepalive_timeout  {{ nginx_keepalive_timeout }};
     keepalive_requests {{ nginx_keepalive_requests }};
 
+    server_tokens {{ nginx_server_tokens }};
     #gzip  on;
 
 {% if nginx_proxy_cache_path %}
