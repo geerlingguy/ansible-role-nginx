@@ -5,14 +5,14 @@ pid        {{ nginx_pidfile }};
 
 worker_processes  {{ nginx_worker_processes }};
 
+{% if nginx_extra_conf_options %}
+{{ nginx_extra_conf_options }}
+{% endif %}
+
 events {
     worker_connections  {{ nginx_worker_connections }};
     multi_accept {{ nginx_multi_accept }};
 }
-
-{% if nginx_extra_conf_options %}
-{{ nginx_extra_conf_options }}
-{% endif %}
 
 http {
     include       {{ nginx_mime_file_path }};
