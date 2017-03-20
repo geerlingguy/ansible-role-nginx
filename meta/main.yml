@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   author: geerlingguy
-  description: Nginx installation for Linux, FreeBSD and OpenBSD.
+  description: Nginx installation for Linux, FreeBSD, OpenBSD and SmartOS.
   company: "Midwestern Mac, LLC"
   license: "license (BSD, MIT)"
   min_ansible_version: 1.8
@@ -29,6 +29,9 @@ galaxy_info:
       versions:
       - 5.9
       - 6.0
+    - name: SmartOS
+      versions:
+      - 16.4.1
   galaxy_tags:
     - development
     - web

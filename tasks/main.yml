@@ -24,6 +24,9 @@
 - include: setup-OpenBSD.yml
   when: ansible_os_family == 'OpenBSD'
 
+- include: setup-SmartOS.yml
+  when: (ansible_os_family == 'Solaris') and (ansible_distribution == 'SmartOS')
+
 # Vhost configuration.
 - include: vhosts.yml
 
