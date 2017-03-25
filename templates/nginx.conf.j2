@@ -41,11 +41,13 @@ http {
     keepalive_requests {{ nginx_keepalive_requests }};
 
     server_tokens {{ nginx_server_tokens }};
-    #gzip  on;
-
 {% if nginx_proxy_cache_path %}
     proxy_cache_path {{ nginx_proxy_cache_path }};
 {% endif %}
+{% endblock %}
+
+{% block http_gzip %}
+    # gzip on;
 {% endblock %}
 
 {% if nginx_extra_http_options %}
