@@ -1,5 +1,5 @@
 server {
-    listen {{ item.listen | default('80 default_server') }};
+    listen {{ item.listen | default('80') }};
 
 {% if item.server_name is defined %}
     server_name {{ item.server_name }};
