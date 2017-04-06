@@ -3,6 +3,10 @@ user  {{ nginx_user }};
 error_log  {{ nginx_error_log }};
 pid        {{ nginx_pidfile }};
 
+{% for module in nginx_dynamic_modules %}
+load_module "{{ module }}";
+{% endfor %}
+
 worker_processes  {{ nginx_worker_processes }};
 
 events {

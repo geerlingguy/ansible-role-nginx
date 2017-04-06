@@ -16,6 +16,12 @@ Available variables are listed below, along with default values (see `defaults/m
 
     nginx_vhosts: []
 
+A list of dynamic modules to load, the implementation assumes you will
+provide the correct path of the path as opposed to just the module name; defaults to `[]`.
+
+    nginx_dynamic_modules:
+      - modules/ngx_http_geoip_module.so
+
 A list of vhost definitions (server blocks) for Nginx virtual hosts. If left empty, you will need to supply your own virtual host configuration. See the commented example in `defaults/main.yml` for available server options. If you have a large number of customizations required for your server definition(s), you're likely better off managing the vhost configuration file yourself, leaving this variable set to `[]`.
 
     nginx_vhosts:
