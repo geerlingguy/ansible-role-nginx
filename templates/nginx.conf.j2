@@ -14,6 +14,12 @@ events {
 {{ nginx_extra_conf_options }}
 {% endif %}
 
+{% if nginx_stream_path %}
+stream {
+    include {{ nginx_stream_path }}/*;
+}
+{% endif %}
+
 http {
     include       {{ nginx_mime_file_path }};
     default_type  application/octet-stream;

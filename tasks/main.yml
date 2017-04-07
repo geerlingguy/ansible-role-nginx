@@ -27,6 +27,9 @@
 # Vhost configuration.
 - include: vhosts.yml
 
+# Stream configuration
+- include: stream.yml
+
 # Nginx setup.
 - name: Copy nginx configuration in place.
   template:

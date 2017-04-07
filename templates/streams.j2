@@ -1,0 +1,7 @@
+{% for stream in nginx_streams %}
+server {
+{% if stream.extra_parameters is defined %}
+    {{ stream.extra_parameters|indent(4) }}
+{% endif %}
+}
+{% endfor %}
