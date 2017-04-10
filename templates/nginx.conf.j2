@@ -26,9 +26,9 @@ stream {
         {{ upstream.extra_parameters|indent(8) }}
 {% endif %}
     }
+
 {% endfor %}
 {% endif %}
-
     include {{ nginx_stream_path }}/*;
 }
 {% endif %}
