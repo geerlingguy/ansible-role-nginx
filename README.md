@@ -51,6 +51,24 @@ The filename to use to store vhosts configuration. If you run the role multiple 
 
 If you are configuring Nginx as a load balancer, you can define one or more upstream sets using this variable. In addition to defining at least one upstream, you would need to configure one of your server blocks to proxy requests through the defined upstream (e.g. `proxy_pass http://myapp1;`). See the commented example in `defaults/main.yml` for more information.
 
+    nginx_streams: []
+
+If you are configuring Nginx as a tcp/udp streaming load balancer, list the stream definitions here.
+
+    nginx_streams:
+      - listen: "53 udp"
+        proxy_pass: "dns_servers"
+
+An example of simple udp stream of port 53 to a upstream group of dns servers.
+
+    nginx_streams_filename: "streams.conf"
+
+The filename to use for tcp/udp streaming definitions.
+
+    nginx_stream_upstreams: []
+
+Define a list of upstream groups used for load balancing tcp/udp streaming.  See the commented example in `defaults/main.yml` for more information.
+
     nginx_user: "nginx"
 
 The user under which Nginx will run. Defaults to `nginx` for RedHat, `www-data` for Debian and `www` on FreeBSD and OpenBSD.
