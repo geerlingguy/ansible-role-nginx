@@ -14,8 +14,21 @@ events {
 {{ nginx_extra_conf_options }}
 {% endif %}
 
-{% if nginx_stream_path %}
+{% if nginx_streams %}
 stream {
+{% if nginx_stream_upstreams %}
+{% for upstream in nginx_stream_upstreams %}
+    upstream {{ upstream.name }} {
+{% for server in upstream.servers %}
+        server {{ server }};
+{% endfor %}
+{% if upstream.extra_parameters is defined %}
+        {{ upstream.extra_parameters|indent(8) }}
+{% endif %}
+    }
+{% endfor %}
+{% endif %}
+
     include {{ nginx_stream_path }}/*;
 }
 {% endif %}
