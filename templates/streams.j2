@@ -1,5 +1,7 @@
 {% for stream in nginx_streams %}
 server {
+    listen {{ stream.listen }};
+    proxy_pass {{ stream.proxy_pass }};
 {% if stream.extra_parameters is defined %}
     {{ stream.extra_parameters|indent(4) }}
 {% endif %}
