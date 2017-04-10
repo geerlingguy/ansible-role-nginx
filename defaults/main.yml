@@ -64,11 +64,6 @@ nginx_vhosts: []
 #   error_log: ""
 #   extra_parameters: "" # Can be used to add extra config blocks (multiline).
 
-nginx_streams_filename: "streams.conf"
-nginx_streams: []
-# Example stream below. only available option is extra_parameters.
-# - extra_parameters: "" # Can be used to add extra config blocks (multiline).
-
 nginx_upstreams: []
 # - name: myapp1
 #   strategy: "ip_hash" # "least_conn", etc.
@@ -78,6 +73,22 @@ nginx_upstreams: []
 #     "srv2.example.com weight=3",
 #     "srv3.example.com"
 #   }
+
+nginx_streams_filename: "streams.conf"
+nginx_streams: []
+# Example stream below.
+# - listen: "53 udp" # Required. Port or IP:PORT and protocol
+#   proxy_pass: dns_servers # Required. Destination server:port or upstream group.
+#   extra_parameters: "" # Can be used to add extra config blocks (multiline).
+
+nginx_stream_upstreams: []
+# - name: dns_servers
+#   servers: {
+#     "dns1.example.com",
+#     "dns2.example.com weight=3",
+#     "dns3.example.com"
+#   }
+#   extra_parameters: "" # Can be used to add extra config blocks (multiline).
 
 nginx_log_format: |
   '$remote_addr - $remote_user [$time_local] "$request" '
