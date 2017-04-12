@@ -12,6 +12,7 @@
   apt_key:
     url: http://nginx.org/keys/nginx_signing.key
     state: present
+  become: yes
 
 - name: Ensure nginx apt repository is present
   apt_repository:
