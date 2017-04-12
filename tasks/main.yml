@@ -8,14 +8,16 @@
     nginx_user: "{{ __nginx_user }}"
   when: nginx_user is not defined
 
-- name: Ensure nginx repository is present
+- name: Ensure apt key is present for nginx repository
   apt_key:
-    url: 'http://nginx.org/keys/nginx_signing.key'
-    state: 'present'
-  apt_repository:
-    repo: 'deb http://nginx.org/packages/debian/ jessie nginx'
+    url: http://nginx.org/keys/nginx_signing.key
     state: present
-    filename: 'nginx'
+
+- name: Ensure nginx apt repository is present
+  apt_repository:
+    repo: deb http://nginx.org/packages/debian/ jessie nginx
+    state: present
+    filename: nginx
     update_cache: yes
   become: yes
 
