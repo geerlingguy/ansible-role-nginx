@@ -3,6 +3,30 @@
   apt: update_cache=yes cache_valid_time=86400
   changed_when: false
 
+- name: Ensure apt key is present for nginx repository
+  apt_key:
+    url: http://nginx.org/keys/nginx_signing.key
+    state: present
+  become: yes
+  when: nginx_repo_use
+
+- name: Ensure nginx apt repository is present
+  apt_repository:
+    repo: "deb http://nginx.org/packages/{{ nginx_repo_version }}/debian/ \
+           {{ ansible_distribution_release }} nginx"
+    state: present
+    filename: nginx
+    update_cache: yes
+  become: yes
+  register: nginx_repo_added
+  when: nginx_repo_use
+
+- name: Ensure nginx will reinstall if the repo was just added.
+  apt:
+    name: nginx
+    state: absent
+  when: nginx_repo_added.changed
+
 - name: Ensure nginx is installed.
   apt:
     name: "{{ nginx_package_name }}"
