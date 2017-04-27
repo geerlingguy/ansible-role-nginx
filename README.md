@@ -27,6 +27,7 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
         access_log: ""
         error_log: ""
         state: "present"
+        template: "{{ nginx_vhost_template }}"
         extra_parameters: |
           location ~ \.php$ {
               fastcgi_split_path_info ^(.+\.php)(/.+)$;
@@ -128,6 +129,21 @@ If you can't customize via variables because an option isn't exposed, you can ov
 ```yaml
 nginx_conf_template: "nginx.conf.j2"
 nginx_vhost_template: "vhost.j2"
+```
+
+If necessary you can also set the template on a per vhost basis.
+
+```yaml
+nginx_vhosts:
+  - listen: "80 default_server"
+    server_name: "site1.example.com"
+    root: "/var/www/site1.example.com"
+    index: "index.php index.html index.htm"
+    template: "{{ playbook_dir }}/templates/site1.example.com.vhost.j2"
+  - server_name: "site2.example.com"
+    root: "/var/www/site2.example.com"
+    index: "index.php index.html index.htm"
+    template: "{{ playbook_dir }}/templates/site2.example.com.vhost.j2"
 ```
 
 You can either copy and modify the provided template, or extend it with [Jinja2 template inheritance](http://jinja.pocoo.org/docs/2.9/templates/#template-inheritance) and override the specific template block you need to change.
