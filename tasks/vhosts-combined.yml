@@ -1,0 +1,20 @@
+---
+- name: Detect combined vhost filename
+  set_fact:
+    nginx_vhosts_filename: "{{ __nginx_vhosts_filename }}"
+  when: nginx_vhosts_filename is not defined
+
+- name: Add managed vhost config file (if any vhosts are configured).
+  template:
+    src: vhosts.j2
+    dest: "{{ nginx_vhost_path }}/{{ nginx_vhosts_filename }}"
+    mode: 0644
+  when: nginx_vhosts|length > 0
+  notify: reload nginx
+
+- name: Remove managed vhost config file (if no vhosts are configured).
+  file:
+    path: "{{ nginx_vhost_path }}/{{ nginx_vhosts_filename }}"
+    state: absent
+  when: nginx_vhosts|length == 0
+  notify: reload nginx
