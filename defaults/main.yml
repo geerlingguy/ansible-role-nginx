@@ -15,6 +15,10 @@ nginx_package_name: "nginx"
 nginx_conf_template: "nginx.conf.j2"
 nginx_vhost_template: "vhost.j2"
 
+# Whether not to use a combined or individual vhost files (individual | combined)
+nginx_vhost_style: "individual"
+__nginx_vhosts_filename: "vhosts.conf"
+
 nginx_worker_processes: "{{ ansible_processor_vcpus | default(ansible_processor_count) }}"
 nginx_worker_connections: "1024"
 nginx_multi_accept: "off"
