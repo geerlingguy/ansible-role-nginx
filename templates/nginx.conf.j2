@@ -7,7 +7,10 @@ worker_processes  {{ nginx_worker_processes }};
 
 events {
     worker_connections  {{ nginx_worker_connections }};
-    multi_accept {{ nginx_multi_accept }};
+    multi_accept {{ nginx_multi_accept | default('off') }};
+{% if nginx_use_method %}
+    use {{ nginx_use_method }};
+{% endif %}
 }
 
 {% if nginx_extra_conf_options %}
@@ -18,6 +21,12 @@ http {
     include       {{ nginx_mime_file_path }};
     default_type  application/octet-stream;
 
+{% if nginx_resolver %}
+    resolver {{ nginx_resolver }};
+{% endif %}
+
+    server_tokens {{ nginx_server_tokens | default('on') }};
+    server_names_hash_max_size {{ nginx_server_names_hash_max_size | default('512') }};
     server_names_hash_bucket_size {{ nginx_server_names_hash_bucket_size }};
 
     client_max_body_size {{ nginx_client_max_body_size }};

@@ -12,9 +12,14 @@ nginx_package_name: "nginx"
 nginx_worker_processes: "{{ ansible_processor_vcpus | default(ansible_processor_count) }}"
 nginx_worker_connections: "1024"
 nginx_multi_accept: "off"
+#nginx_use_method: "epoll"
 
 nginx_error_log: "/var/log/nginx/error.log warn"
 nginx_access_log: "/var/log/nginx/access.log main buffer=16k"
+
+nginx_tokens: "on"
+
+#nginx_resolver: "127.0.0.1"
 
 nginx_sendfile: "on"
 nginx_tcp_nopush: "on"
@@ -25,6 +30,7 @@ nginx_keepalive_requests: "100"
 
 nginx_client_max_body_size: "64m"
 
+nginx_server_names_hash_max_size: "512"
 nginx_server_names_hash_bucket_size: "64"
 
 nginx_proxy_cache_path: ""
