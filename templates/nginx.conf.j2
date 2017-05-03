@@ -8,7 +8,7 @@ worker_processes  {{ nginx_worker_processes }};
 events {
     worker_connections  {{ nginx_worker_connections }};
     multi_accept {{ nginx_multi_accept | default('off') }};
-{% if nginx_use_method %}
+{% if nginx_use_method is defined %}
     use {{ nginx_use_method }};
 {% endif %}
 }
@@ -21,7 +21,7 @@ http {
     include       {{ nginx_mime_file_path }};
     default_type  application/octet-stream;
 
-{% if nginx_resolver %}
+{% if nginx_resolver is defined %}
     resolver {{ nginx_resolver }};
 {% endif %}
 
