@@ -29,7 +29,7 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
         error_log: ""
         state: "present"
         template: "{{ nginx_vhost_template }}"
-        vhost_filename: "example.com.conf"
+        filename: "example.com.conf"
         extra_parameters: |
           location ~ \.php$ {
               fastcgi_split_path_info ^(.+\.php)(/.+)$;
@@ -50,11 +50,11 @@ Please take note of the indentation in the above block. The first line should be
       - listen: "80"
         server_name: "example.com www.example.com"
         return "301 https://example.com$request_uri;"
-        vhost_filename: "example.com.80.conf"
+        filename: "example.com.80.conf"
 
 An example of a secondary vhost which will redirect to the one shown above.
 
-*Note: The `vhost_filename` defaults to the first domain in `server_name`, if you have two vhosts with the same domain, eg. a redirect, you need to manually set the `vhost_filename` so the second one doesn't override the first one*
+*Note: The `filename` defaults to the first domain in `server_name`, if you have two vhosts with the same domain, eg. a redirect, you need to manually set the `filename` so the second one doesn't override the first one*
 
     nginx_remove_default_vhost: false
 
