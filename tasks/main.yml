@@ -8,6 +8,17 @@
     nginx_user: "{{ __nginx_user }}"
   when: nginx_user is not defined
 
+- name: Ensure nginx repository is present
+  apt_key:
+    url: 'http://nginx.org/keys/nginx_signing.key'
+    state: 'present'
+  apt_repository:
+    repo: 'deb http://nginx.org/packages/debian/ jessie nginx'
+    state: present
+    filename: 'nginx'
+    update_cache: yes
+  become: yes
+
 # Setup/install tasks.
 - include: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
