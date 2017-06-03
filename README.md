@@ -29,6 +29,7 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
         error_log: ""
         state: "present"
         template: "{{ nginx_vhost_template }}"
+        vhost_filename: "example.com.conf"
         extra_parameters: |
           location ~ \.php$ {
               fastcgi_split_path_info ^(.+\.php)(/.+)$;
