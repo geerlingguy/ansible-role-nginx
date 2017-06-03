@@ -21,6 +21,7 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
     nginx_vhosts:
       - listen: "80 default_server"
         server_name: "example.com"
+        server_name_redirect: "www.example.com"
         root: "/var/www/example.com"
         index: "index.php index.html index.htm"
         error_page: ""
