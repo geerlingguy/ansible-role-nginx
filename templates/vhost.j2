@@ -1,3 +1,4 @@
+server {
 {% block server_redirect %}
 {% if item.server_name_redirect is defined %}
     listen       {{ item.listen | default('80') }};
