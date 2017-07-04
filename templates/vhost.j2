@@ -32,7 +32,17 @@ server {
 {% endif %}
 {% if item.error_log is defined %}
     error_log {{ item.error_log }} error;
-{% endif %}
+{% endif %}}
+
+{% if item.auth_basic is defined %}
+    auth_basic {{ item.auth_basic }};
+{%endif %}
+
+
+{% if item.auth_basic_user_file is defined %}
+    auth_basic_user_file {{ item.auth_basic_user_file }};
+{%endif %}
+
 
 {% if item.return is defined %}
     return {{ item.return }};
