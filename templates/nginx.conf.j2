@@ -7,7 +7,6 @@ worker_processes  {{ nginx_worker_processes }};
 
 events {
     worker_connections  {{ nginx_worker_connections }};
-    use epoll;
     multi_accept {{ nginx_multi_accept }};
 }
 
