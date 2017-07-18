@@ -14,8 +14,11 @@ nginx_ppa_version: stable
 nginx_repo_use: false
 nginx_repo_version: ""
 
-# The name of the nginx apt/yum package to install.
+# The name of the nginx package to install.
 nginx_package_name: "nginx"
+
+nginx_conf_template: "nginx.conf.j2"
+nginx_vhost_template: "vhost.j2"
 
 nginx_worker_processes: "{{ ansible_processor_vcpus | default(ansible_processor_count) }}"
 nginx_worker_connections: "1024"
@@ -55,19 +58,22 @@ nginx_extra_http_options: ""
 #      proxy_set_header   Host $http_host;
 
 nginx_remove_default_vhost: false
-nginx_vhosts_filename: "vhosts.conf"
 nginx_vhosts: []
 # Example vhost below, showing all available options:
-# - listen: "80 default_server" # default: "80 default_server"
+# - listen: "80" # default: "80"
 #   server_name: "example.com" # default: N/A
 #   root: "/var/www/example.com" # default: N/A
 #   index: "index.html index.htm" # default: "index.html index.htm"
+#   filename: "example.com.conf" # Can be used to set the filename of the vhost file.
 #
 #   # Properties that are only added if defined:
+#   server_name_redirect: "www.example.com" # default: N/A
 #   error_page: ""
 #   access_log: ""
 #   error_log: ""
 #   extra_parameters: "" # Can be used to add extra config blocks (multiline).
+#   template: "" # Can be used to override the `nginx_vhost_template` per host.
+#   state: "absent" # To remove the vhost configuration.
 
 nginx_upstreams: []
 # - name: myapp1
