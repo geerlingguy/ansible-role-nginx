@@ -22,6 +22,14 @@ server {
     root {{ item.root }};
 {% endif %}
 
+{% if item.autoindex is defined %}
+    autoindex {{ item.autoindex }};
+{% endif %}
+
+{% if item.fancyindex is defined %}
+    fancyindex {{ item.fancyindex }};
+{% endif %}
+
     index {{ item.index | default('index.html index.htm') }};
 
 {% if item.error_page is defined %}
