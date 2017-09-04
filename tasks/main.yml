@@ -16,7 +16,7 @@
 
 - name: Ensure nginx apt repository is present
   apt_repository:
-    repo: deb http://nginx.org/packages/debian/ jessie nginx
+    repo: "deb http://nginx.org/packages/debian/ {{ ansible_distribution_release }} nginx"
     state: present
     filename: nginx
     update_cache: yes
