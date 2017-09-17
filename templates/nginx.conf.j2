@@ -72,7 +72,9 @@ http {
 
 {% block http_includes %}
     include {{ nginx_conf_path }}/*.conf;
-{% if nginx_conf_path != nginx_vhost_path %}
+{% if nginx_vhost_symlink_path is defined %}
+    include {{ nginx_vhost_symlink_path }}/*;
+{% elif nginx_conf_path != nginx_vhost_path %}
     include {{ nginx_vhost_path }}/*;
 {% endif %}
 {% endblock %}

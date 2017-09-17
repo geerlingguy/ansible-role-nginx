@@ -32,6 +32,23 @@
   with_items: "{{ nginx_vhosts }}"
   notify: reload nginx
 
+- name: Enable managed vhost config files.
+  file:
+    src: "{{ nginx_vhost_path }}/{{ item.filename|default(item.server_name.split(' ')[0] ~ '.conf') }}"
+    dest: "{{ nginx_vhost_symlink_path }}/{{ item.filename|default(item.server_name.split(' ')[0] ~ '.conf') }}"
+    state: link
+  when: nginx_vhost_symlink_path is defined and item.enabled|default(true) != false
+  with_items: "{{ nginx_vhosts }}"
+  notify: reload nginx
+
+- name: Disable managed vhost config files.
+  file:
+    path: "{{ nginx_vhost_symlink_path }}/{{ item.filename|default(item.server_name.split(' ')[0] ~ '.conf') }}"
+    state: absent
+  when: nginx_vhost_symlink_path is defined and item.enabled|default(true) == false
+  with_items: "{{ nginx_vhosts }}"
+  notify: reload nginx
+
 - name: Remove legacy vhosts.conf file.
   file:
     path: "{{ nginx_vhost_path }}/vhosts.conf"
