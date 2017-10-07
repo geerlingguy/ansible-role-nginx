@@ -2,6 +2,7 @@
 # Variable setup.
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
+  when: nginx_include_os_vars
 
 - name: Define nginx_user.
   set_fact:
@@ -42,4 +43,4 @@
     - reload nginx
 
 - name: Ensure nginx is started and enabled to start at boot.
-  service: name=nginx state=started enabled=yes
+  service: name={{ nginx_service_name }} state=started enabled=yes
