@@ -56,6 +56,19 @@ An example of a secondary vhost which will redirect to the one shown above.
 
 *Note: The `filename` defaults to the first domain in `server_name`, if you have two vhosts with the same domain, eg. a redirect, you need to manually set the `filename` so the second one doesn't override the first one*
 
+    nginx_vhosts:
+      - listen:
+          - "80"
+          - "443 ssl http2"
+        server_name: "example.com"
+        server_name_redirect: "www.example.com"
+        filename: "example.com.conf"
+        extra_parameters: |
+          ssl_certificate     /etc/ssl/certs/ssl-cert-snakeoil.pem;
+          ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+
+An example of double listen for the same `server_name`
+
     nginx_remove_default_vhost: false
 
 Whether to remove the 'default' virtualhost configuration supplied by Nginx. Useful if you want the base `/` URL to be directed at one of your own virtual hosts configured in a separate .conf file.
