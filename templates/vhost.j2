@@ -12,7 +12,18 @@ server {
     {% block server_begin %}{% endblock %}
 
     {% block server_basic -%}
-    listen {{ item.listen | default('80') }};
+
+{% if item.listen is defined %}
+  {% if item.listen is string %}
+    listen {{ item.listen }};
+  {% elif item.listen | length >= 1 %}
+    {% for listen_port in item.listen %}
+    listen {{ listen_port }};
+    {% endfor %}
+  {% endif %}
+{% else %}
+    listen 80;
+{% endif %}
 
 {% if item.server_name is defined %}
     server_name {{ item.server_name }};
