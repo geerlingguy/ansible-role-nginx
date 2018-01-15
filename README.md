@@ -30,6 +30,15 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
         state: "present"
         template: "{{ nginx_vhost_template }}"
         filename: "example.com.conf"
+        location:
+        - name: /proxyme
+          extra_parameters: |
+            proxy_pass_request_headers on;
+            proxy_set_header x-real-IP $remote_addr;
+            proxy_set_header x-forwarded-for $proxy_add_x_forwarded_for;
+            proxy_set_header host $host;
+            proxy_pass https://127.0.0.1:8000;
+
         extra_parameters: |
           location ~ \.php$ {
               fastcgi_split_path_info ^(.+\.php)(/.+)$;
