@@ -1,6 +1,8 @@
 ---
+
 - name: Update pkg cache.
   shell: pkg update -f
+  when: nginx_freebsd_pkg_update|lower == "yes"
 
 - name: Ensure nginx is installed.
   pkgng:
