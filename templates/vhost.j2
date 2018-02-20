@@ -22,7 +22,15 @@ server {
     root {{ item.root }};
 {% endif %}
 
+{% if item.autoindex is defined %}
+{% if item.autoindex == "on" %}
+    autoindex {{ item.autoindex }};
+{% else %}
     index {{ item.index | default('index.html index.htm') }};
+{% endif %}
+{% else %}
+    index {{ item.index | default('index.html index.htm') }};
+{% endif %}
 
 {% if item.error_page is defined %}
     error_page {{ item.error_page }};
