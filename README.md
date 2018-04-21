@@ -1,6 +1,8 @@
 # Ansible Role: Nginx
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-nginx)
+This is a fork of [ansible-role-nginx](https://github.com/geerlingguy/ansible-role-nginx) with tested patches for FreeBSD.
+
+[![Build Status](https://travis-ci.org/vbotka/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/vbotka/ansible-role-nginx)
 
 Installs Nginx on RedHat/CentOS, Debian/Ubuntu, Archlinux, FreeBSD or OpenBSD servers.
 
@@ -232,3 +234,5 @@ MIT / BSD
 ## Author Information
 
 This role was created in 2014 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+
+[Vladimir Botka](https://botka.link) contributed tested patches for FreeBSD.
