@@ -4,6 +4,9 @@ nginx_default_release: ""
 
 # Used only for Redhat installation, enables source Nginx repo.
 nginx_yum_repo_enabled: true
+nginx_yum_baseurl: "https://nginx.org/packages/{{ (ansible_distribution == 'CentOS') | ternary('centos', 'rhel') }}/{{ ansible_distribution_major_version }}/$basearch/"
+nginx_yum_gpgkeyurl: "https://nginx.org/packages/keys/nginx_signing.key"
+nginx_yum_gpgcheck: true
 
 # Use the official Nginx PPA for Ubuntu, and the version to use if so.
 nginx_ppa_use: false

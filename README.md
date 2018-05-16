@@ -145,8 +145,11 @@ Configures Nginx's [`log_format`](http://nginx.org/en/docs/http/ngx_http_log_mod
 (For Ubuntu only) Allows you to use the official Nginx PPA instead of the system's package. You can set the version to `stable` or `development`.
 
     nginx_yum_repo_enabled: true
+    nginx_yum_baseurl: "https://nginx.org/packages/{{ (ansible_distribution == 'CentOS') | ternary('centos', 'rhel') }}/{{ ansible_distribution_major_version }}/$basearch/"
+    nginx_yum_gpgkeyurl: "https://nginx.org/packages/keys/nginx_signing.key"
+    nginx_yum_gpgcheck: true
 
-(For RedHat/CentOS only) Set this to `false` to disable the installation of the `nginx` yum repository. This could be necessary if you want the default OS stable packages, or if you use Satellite.
+(For RedHat/CentOS only) Set `nginx_yum_repo_enabled` to `false` to disable the installation of the `nginx` yum repository. This could be necessary if you want the default OS stable packages, or if you use Satellite. Alternatively, you can override the yum repo's `baseurl`, `gpgkey`, or `gpgcheck` options.
 
 ## Overriding configuration templates
 
