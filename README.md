@@ -148,6 +148,11 @@ Configures Nginx's [`log_format`](http://nginx.org/en/docs/http/ngx_http_log_mod
 
 (For RedHat/CentOS only) Set this to `false` to disable the installation of the `nginx` yum repository. This could be necessary if you want the default OS stable packages, or if you use Satellite.
 
+    nginx_service_state: started
+    nginx_service_enabled: yes
+
+The last task in the role configures the current state and the boot time state of the nginx service. Default settings start nginx and set it to startup at boot time. These can be overridden if installing in a container or further control over the service state is needed.
+
 ## Overriding configuration templates
 
 If you can't customize via variables because an option isn't exposed, you can override the template used to generate the virtualhost configuration files or the `nginx.conf` file.
