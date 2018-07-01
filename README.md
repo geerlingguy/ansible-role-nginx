@@ -102,6 +102,10 @@ This value determines the largest file upload possible, as uploads are passed th
 
 If you have many server names, or have very long server names, you might get an Nginx error on startup requiring this value to be increased.
 
+    nginx_fastcgi_cache_path: ""
+
+Set as the `fastcgi_cache_path` directive in the `nginx.conf` file. By default, this will not be configured (if left as an empty string), but if you wish to use Nginx with a fastcgi cache, you can set this to a valid value (e.g. `"/var/cache/nginx-fastcgi-cache keys_zone=fastcgi-cache:32m"`) to use Nginx's fastcgi cache (further fastcgi configuration can be done in individual server configurations).
+
     nginx_proxy_cache_path: ""
 
 Set as the `proxy_cache_path` directive in the `nginx.conf` file. By default, this will not be configured (if left as an empty string), but if you wish to use Nginx as a reverse proxy, you can set this to a valid value (e.g. `"/var/cache/nginx keys_zone=cache:32m"`) to use Nginx's cache (further proxy configuration can be done in individual server configurations).

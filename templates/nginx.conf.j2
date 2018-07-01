@@ -41,6 +41,9 @@ http {
     keepalive_requests {{ nginx_keepalive_requests }};
 
     server_tokens {{ nginx_server_tokens }};
+{% if nginx_fastcgi_cache_path %}
+    fastcgi_cache_path {{ nginx_fastcgi_cache_path }};
+{% endif %}
 {% if nginx_proxy_cache_path %}
     proxy_cache_path {{ nginx_proxy_cache_path }};
 {% endif %}
