@@ -6,12 +6,12 @@ galaxy_info:
   description: Nginx installation for FreeBSD (fork of geerlingguy/nginx).
   company: "botka.link"
   license: "license (BSD, MIT)"
-  min_ansible_version: 2.4
+  min_ansible_version: 2.5
   platforms:
     - name: FreeBSD
       versions:
-      - 10.3
-      - 11.0
+      - 10.4
+      - 11.2
   galaxy_tags:
     - freebsd
     - nginx
