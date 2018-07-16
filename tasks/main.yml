@@ -29,6 +29,10 @@
 
 # Vhost configuration.
 - import_tasks: vhosts.yml
+  when: ansible_os_family != 'Debian'
+
+- import_tasks: vhosts-Debian.yml
+  when: ansible_os_family == 'Debian'
 
 # Nginx setup.
 - name: Copy nginx configuration in place.
