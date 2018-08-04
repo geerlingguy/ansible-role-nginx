@@ -12,3 +12,4 @@
   yum:
     name: "{{ nginx_package_name }}"
     state: present
+    enablerepo: "{{ nginx_enablerepo }}"
