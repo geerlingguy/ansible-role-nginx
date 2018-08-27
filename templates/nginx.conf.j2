@@ -29,7 +29,7 @@ http {
 
     client_max_body_size {{ nginx_client_max_body_size }};
 
-    log_format  main  {{ nginx_log_format|indent(23) }};
+    log_format  main  {{ nginx_log_format|indent(23) }}
 
     access_log  {{ nginx_access_log }};
 
@@ -60,9 +60,15 @@ http {
 {% if upstream.strategy is defined %}
         {{ upstream.strategy }};
 {% endif %}
+{% if upstream.group is defined %}
+{% for host in groups[upstream.group] %}
+        server {{ hostvars[host]['ansible_default_ipv4']['address'] }}{% if upstream.port is defined %}:{{ upstream.port }}{% endif %};
+{% endfor %}
+{% else %}
 {% for server in upstream.servers %}
         server {{ server }};
 {% endfor %}
+{% endif %}
 {% if upstream.keepalive is defined %}
         keepalive {{ upstream.keepalive }};
 {% endif %}
