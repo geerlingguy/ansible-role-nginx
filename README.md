@@ -62,6 +62,10 @@ An example of a secondary vhost which will redirect to the one shown above.
 
 Whether to remove the 'default' virtualhost configuration supplied by Nginx. Useful if you want the base `/` URL to be directed at one of your own virtual hosts configured in a separate .conf file.
 
+    nginx_vhosts_root_create: false
+
+Whether to create the root folder for the vhosts specified in the `nginx_vhosts` variable. The ownership of the folder is specified by the `nginx_user` variable, permission are 0744.
+
     nginx_upstreams: []
 
 If you are configuring Nginx as a load balancer, you can define one or more upstream sets using this variable. In addition to defining at least one upstream, you would need to configure one of your server blocks to proxy requests through the defined upstream (e.g. `proxy_pass http://myapp1;`). See the commented example in `defaults/main.yml` for more information.

@@ -29,6 +29,7 @@
 
 # Vhost configuration.
 - import_tasks: vhosts.yml
+- import_tasks: vhosts_root.yml
 
 # Nginx setup.
 - name: Copy nginx configuration in place.

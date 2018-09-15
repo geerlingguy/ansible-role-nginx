@@ -1,0 +1,12 @@
+---
+- name: Ensure managed vhost root directory are present
+  file:
+    path: "{{ item.root }}"
+    state: directory
+    owner: "{{ nginx_user }}"
+    group: "{{ nginx_user }}"
+    mode: 0755
+  when:
+    - item.root is defined
+    - nginx_vhosts_root_create
+  with_items: "{{ nginx_vhosts }}"
