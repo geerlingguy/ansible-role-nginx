@@ -15,6 +15,10 @@ worker_processes  {{ nginx_worker_processes }};
 events {
     worker_connections  {{ nginx_worker_connections }};
     multi_accept {{ nginx_multi_accept | default('off') }};
+{% if nginx_extra_events_options %}
+    {{ nginx_extra_events_options|indent(4, False) }}
+{% endif %}
+
 {% if nginx_use_method is defined %}
     use {{ nginx_use_method }};
 {% endif %}
