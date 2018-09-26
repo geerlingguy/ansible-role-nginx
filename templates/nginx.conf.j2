@@ -19,9 +19,6 @@ events {
     {{ nginx_extra_events_options|indent(4, False) }}
 {% endif %}
 
-{% if nginx_use_method is defined %}
-    use {{ nginx_use_method }};
-{% endif %}
 }
 {% endblock %}
 
