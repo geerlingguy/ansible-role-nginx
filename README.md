@@ -130,7 +130,7 @@ Extra lines to be inserted in the top of `nginx.conf`. The value should be defin
 
 See the template in `templates/nginx.conf.j2` for more details on the placement.
 
-    nginx_log_format: |
+    nginx_log_format: |-
       '$remote_addr - $remote_user [$time_local] "$request" '
       '$status $body_bytes_sent "$http_referer" '
       '"$http_user_agent" "$http_x_forwarded_for"'
