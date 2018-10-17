@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Converge
+  hosts: all
 
   vars:
     nginx_use_ppa: true
@@ -14,8 +15,5 @@
       when: ansible_os_family == 'Debian'
       changed_when: false
 
-    - name: Install dependencies.
-      package: name=curl state=present
-
   roles:
-    - role_under_test
+    - role: geerlingguy.nginx
