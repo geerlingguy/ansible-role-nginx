@@ -2,6 +2,10 @@
 - name: Update apt cache.
   apt: update_cache=yes cache_valid_time=86400
   changed_when: false
+  register: command_result
+  retries: 20
+  delay: 10
+  until: command_result | success
 
 - name: Ensure nginx is installed.
   apt:
