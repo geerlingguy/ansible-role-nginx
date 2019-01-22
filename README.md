@@ -45,6 +45,10 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
           ssl_protocols       TLSv1.1 TLSv1.2;
           ssl_ciphers         HIGH:!aNULL:!MD5;
 
+The configure a custom error log for a virtual host you can define the log-file and optionally the level, for example 
+
+    error_log: "/var/log/nginx/example.com.error.log warn" 
+
 An example of a fully-populated nginx_vhosts entry, using a `|` to declare a block of syntax for the `extra_parameters`.
 
 Please take note of the indentation in the above block. The first line should be a normal 2-space indent. All other lines should be indented normally relative to that line. In the generated file, the entire block will be 4-space indented. This style will ensure the config file is indented correctly.

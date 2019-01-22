@@ -31,7 +31,7 @@ server {
     access_log {{ item.access_log }};
 {% endif %}
 {% if item.error_log is defined %}
-    error_log {{ item.error_log }} error;
+    error_log {{ item.error_log }};
 {% endif %}
 
 {% if item.return is defined %}
