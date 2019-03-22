@@ -7,7 +7,7 @@ pid        {{ nginx_pidfile }};
 worker_processes  {{ nginx_worker_processes }};
 {% endblock %}
 
-{% if nginx_extra_conf_options %}
+{% if nginx_extra_conf_options is defined %}
 {{ nginx_extra_conf_options }}
 {% endif %}
 
@@ -41,7 +41,7 @@ http {
     keepalive_requests {{ nginx_keepalive_requests }};
 
     server_tokens {{ nginx_server_tokens }};
-{% if nginx_proxy_cache_path %}
+{% if nginx_proxy_cache_path is defined %}
     proxy_cache_path {{ nginx_proxy_cache_path }};
 {% endif %}
 {% endblock %}
@@ -50,7 +50,7 @@ http {
     # gzip on;
 {% endblock %}
 
-{% if nginx_extra_http_options %}
+{% if nginx_extra_http_options is defined %}
     {{ nginx_extra_http_options|indent(4, False) }}
 {% endif %}
 
