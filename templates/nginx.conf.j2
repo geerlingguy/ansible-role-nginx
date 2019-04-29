@@ -31,6 +31,8 @@ http {
 
     log_format  main  {{ nginx_log_format|indent(23) }};
 
+    {{ nginx_log_format_extra }}
+
     access_log  {{ nginx_access_log }};
 
     sendfile        {{ nginx_sendfile }};
