@@ -151,7 +151,7 @@ Configures Nginx's [`log_format`](http://nginx.org/en/docs/http/ngx_http_log_mod
     nginx_service_state: started
     nginx_service_enabled: yes
 
-The last task in the role configures the current state and the boot time state of the nginx service. Default settings start nginx and set it to startup at boot time. These can be overridden if installing in a container or further control over the service state is needed.
+By default, this role will ensure Nginx is running and enabled at boot after Nginx is configured. You can use these variables to override this behavior if installing in a container or further control over the service state is required.
 
 ## Overriding configuration templates
 
