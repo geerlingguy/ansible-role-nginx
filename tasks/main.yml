@@ -41,10 +41,8 @@
   notify:
     - reload nginx
 
-- name: Configure current state of nginx service.
-  service: name=nginx state={{ nginx_service_state }}
-  when: ((nginx_service_state is defined) and (nginx_service_state != None))
-
-- name: Configure nginx boot enablement.
-  service: name=nginx enabled={{ nginx_service_enabled }}
-  when: ((nginx_service_enabled is defined) and (nginx_service_enabled != None))
+- name: Ensure nginx service is running as configured.
+  service:
+    name: nginx
+    state: "{{ nginx_service_state }}"
+    enabled: "{{ nginx_service_enabled }}"
