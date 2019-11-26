@@ -7,9 +7,14 @@
   register: nginx_ppa_added
   when: nginx_ppa_use | bool
 
-- name: Ensure nginx will reinstall if the PPA was just added.
+- name: Ensure nginx will reinstall if the PPA was just added or modified.
   apt:
     name: nginx
     state: absent
   when: nginx_ppa_added.changed
   tags: ['skip_ansible_lint']
+
+- name: Install nginx.
+  apt:
+    name: nginx
+    state: present
