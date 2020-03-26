@@ -70,6 +70,11 @@ http {
 {% endfor %}
 {% endblock %}
 
+{% if nginx_server_ssl_secure %}
+ssl_dhparam {{ nginx_server_ssl_dhparam }};
+ssl_ecdh_curve {{ nginx_server_ssl_ecdh_curve }};
+{% endif %}
+
 {% block http_includes %}
     include {{ nginx_conf_path }}/*.conf;
 {% if nginx_conf_path != nginx_vhost_path %}

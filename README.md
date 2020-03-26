@@ -108,6 +108,10 @@ If you have many server names, or have very long server names, you might get an 
 
 Set as the `proxy_cache_path` directive in the `nginx.conf` file. By default, this will not be configured (if left as an empty string), but if you wish to use Nginx as a reverse proxy, you can set this to a valid value (e.g. `"/var/cache/nginx keys_zone=cache:32m"`) to use Nginx's cache (further proxy configuration can be done in individual server configurations).
 
+    nginx_server_ssl_secure: false
+
+Set this to `true` to enable advanced SSL settings improving encryption strength.
+
     nginx_extra_http_options: ""
 
 Extra lines to be inserted in the top-level `http` block in `nginx.conf`. The value should be defined literally (as you would insert it directly in the `nginx.conf`, adhering to the Nginx configuration syntax - such as `;` for line termination, etc.), for example:

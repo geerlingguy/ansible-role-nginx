@@ -31,6 +31,12 @@
 - import_tasks: vhosts.yml
 
 # Nginx setup.
+- name: Generate DH param file
+  shell:
+    cmd: "openssl dhparam -out {{ nginx_server_ssl_dhparam }} {{ nginx_server_ssl_dh_size }}"
+    creates: "{{ nginx_server_ssl_dhparam }}"
+  when: nginx_server_ssl_secure
+
 - name: Copy nginx configuration in place.
   template:
     src: "{{ nginx_conf_template }}"
