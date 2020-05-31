@@ -42,6 +42,7 @@
     mode: 0644
   notify:
     - reload nginx
+  tags:
     - nginx_conf
 
 - name: Ensure nginx service is running as configured.
