@@ -2,6 +2,8 @@
 # Variable setup.
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
+  tags:
+    - nginx_conf
 
 - name: Define nginx_user.
   set_fact:
@@ -40,6 +42,7 @@
     mode: 0644
   notify:
     - reload nginx
+    - nginx_conf
 
 - name: Ensure nginx service is running as configured.
   service:

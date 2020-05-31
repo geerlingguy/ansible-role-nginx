@@ -25,6 +25,7 @@
   notify: reload nginx
   tags:
     - skip_ansible_lint
+    - nginx_conf
 
 - name: Remove managed vhost config files.
   file:
