@@ -1,28 +1,38 @@
 ---
+dist: bionic
 language: python
-services: docker
+python: "3.8"
+
+# Use the new container infrastructure
+sudo: false
 
 env:
   global:
     - ROLE_NAME: nginx
   matrix:
-    - MOLECULE_DISTRO: centos7
-    - MOLECULE_DISTRO: ubuntu1804
-    - MOLECULE_DISTRO: ubuntu1604
-    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRIBUTION: ubuntu18
+    - MOLECULE_DISTRIBUTION: ubuntu20
+    - MOLECULE_DISTRIBUTION: debian8
+    - MOLECULE_DISTRIBUTION: debian9
+    - MOLECULE_DISTRIBUTION: debian10
+# Install ansible
+addons:
+  apt:
+    packages:
+      - python-pip
 
 install:
-  # Install test dependencies.
-  - pip install molecule yamllint ansible-lint docker
+  - mv "$PWD" "${PWD%/*}/$ROLE_NAME"
+  # Install ansible
+  - pip install ansible molecule docker testinfra pytest pytest-xdist
 
-before_script:
-  # Use actual Ansible Galaxy role name for the project directory.
-  - cd ../
-  - mv ansible-role-$ROLE_NAME geerlingguy.$ROLE_NAME
-  - cd geerlingguy.$ROLE_NAME
+  # Check ansible version
+  - ansible --version
+
+  - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
-  # Run tests.
+  # Basic role syntax check
   - molecule test
 
 notifications:

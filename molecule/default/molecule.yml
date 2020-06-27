@@ -5,11 +5,11 @@ driver:
   name: docker
 lint: |
   set -e
-  yamllint .
-  ansible-lint
+  yamllint . -d "{extends: default, ignore: .github}"
+  ansible-lint -r .
 platforms:
-  - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest"
+  - name: ${MOLECULE_DISTRIBUTION:-debian10}
+    image: "nekeal/${MOLECULE_DISTRIBUTION:-debian10}-ansible-systemd:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro

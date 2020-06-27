@@ -1,0 +1,69 @@
+# {{ ansible_managed }}
+
+upstream {{ item.upstream.name }} {
+    server {{ item.upstream.server }}
+}
+
+server {
+    	listen 80;
+      {% if item.enable_https %}
+      listen 443 ssl {% if item.enable_http2 %}http2{% endif %};
+      {% endif %}
+      server_name {% for server_name in item.server_names %}{{ server_name }} {% endfor %};
+
+      {% if item.access_log %}
+        access_log  /var/log/nginx/{{ item.access_log }}.access.log;
+      {% endif %}
+
+      {% if item.error_log %}
+        error_log /var/log/nginx/{{ app_name }}.error.log;
+      {% endif %}
+
+      {% if item.enable_https %}
+      if ($scheme = http) {
+          return 301 https://$host$request_uri;
+      }
+      {% endif %}
+
+      ssl_certificate {{ item.certificate }};
+      ssl_certificate_key {{ item.private_key }};
+      ssl_trusted_certificate {{ item.certificate }};
+
+      {% if item.error_page is defined %}
+          error_page {{ item.error_page }};
+      {% endif %}
+
+      {% if item.static_root %}
+      location /static/ {
+          alias {{ item.static_root }};
+      }
+      {% endif %}
+
+      {% if item.media_root %}
+      location /media/ {
+          alias {{ item.media_root }};
+      }
+      {% endif %}
+
+      {% for location in item.additional_locations | default([]) %}
+      location {{ location.path }} {
+          alias {{ location.alias }};
+      }
+      {% endfor %}
+
+      {% if enable_default_cache %}
+        location ~* /static/.*\.(js|css)$ {
+        root {{ directories.project }};
+        expires 2d;
+        add_header Cache-Control "public, no-transform";
+        }
+      {% endif %}
+
+      location / {
+          proxy_pass {{ item.upstream }};
+          proxy_set_header X-Forwarded-Host $server_name;
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-Proto $scheme;
+      }
+  }

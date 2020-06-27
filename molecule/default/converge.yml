@@ -6,14 +6,14 @@
     nginx_use_ppa: true
     nginx_remove_default_vhost: true
     nginx_vhosts:
-      - server_name: "test.dev"
+      - server_name: "localhost"
         root: "/var/www/test"
 
   pre_tasks:
-    - name: Update apt cache.
+    - name: Update apt cache
       apt: update_cache=yes cache_valid_time=600
       when: ansible_os_family == 'Debian'
       changed_when: false
 
   roles:
-    - role: geerlingguy.nginx
+    - role: nginx
