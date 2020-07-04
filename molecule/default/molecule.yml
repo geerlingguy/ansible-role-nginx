@@ -5,7 +5,7 @@ driver:
   name: docker
 lint: |
   set -e
-  yamllint . -d "{extends: default, ignore: .github}"
+  yamllint . -c .yamllint
   ansible-lint -r .
 platforms:
   - name: ${MOLECULE_DISTRIBUTION:-debian10}
@@ -15,7 +15,15 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
+    published_ports:
+      - 0.0.0.0:8080:443/udp
+      - 0.0.0.0:8080:443/tcp
 provisioner:
   name: ansible
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+verifier:
+  name: testinfra
+  options:
+    capture: no
+    # n: 2

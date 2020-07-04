@@ -2,33 +2,52 @@
 # Variable setup.
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
+  tags:
+    - nginx
+    - always
 
 - name: Define nginx_user.
   set_fact:
     nginx_user: "{{ __nginx_user }}"
   when: nginx_user is not defined
-
+  tags:
+    - always
 # Setup/install tasks.
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
+  tags:
+    - always
 
 - include_tasks: setup-Ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
+  tags:
+    - always
 
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
+  tags:
+    - always
 
 - include_tasks: setup-FreeBSD.yml
   when: ansible_os_family == 'FreeBSD'
+  tags:
+    - always
 
 - include_tasks: setup-OpenBSD.yml
   when: ansible_os_family == 'OpenBSD'
+  tags:
+    - always
 
 - include_tasks: setup-Archlinux.yml
   when: ansible_os_family == 'Archlinux'
+  tags:
+    - always
 
 # Vhost configuration.
 - import_tasks: vhosts.yml
+  tags:
+    - nginx
+    - nginx_vhost
 
 # Nginx setup.
 - name: Copy nginx configuration in place.

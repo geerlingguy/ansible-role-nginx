@@ -1,36 +1,42 @@
 ---
-- name: Remove default nginx vhost config file (if configured).
+- name: Remove default nginx vhost config file (if configured)
   file:
     path: "{{ nginx_default_vhost_path }}"
     state: absent
-  when: nginx_remove_default_vhost | bool
+  when:
+    - nginx_remove_default_vhost | bool
+    - nginx_create_catchall_vhost | default(true)
   notify: restart nginx
 
-- name: Ensure nginx_vhost_path exists.
+- name: Ensure nginx_vhost_path exists
   file:
     path: "{{ nginx_vhost_path }}"
     state: directory
   notify: reload nginx
 
-- name: Add managed vhost config files.
+- include_tasks: catchall-vhost.yml
+  when: nginx_create_catchall_vhost | default(true) | bool
+
+- name: Add managed vhost config files
   template:
-    src: "{{ item.template|default(nginx_vhost_template) }}"
-    dest: "{{ nginx_vhost_path }}/{{ item.filename
-    | default(item.server_name.split(' ')[0] ~ '.conf') }}"
+    src: "{{ item.template }}"
+    dest: "{{ nginx_vhost_path }}/{{ item.filename }}"
     force: true
     owner: root
     group: "{{ root_group }}"
+    lstrip_blocks: yes
+    backup: yes
     mode: 0644
-  when: item.state|default('present') != 'absent'
+  when: item.state | default('present') != 'absent'
   with_items: "{{ nginx_vhosts }}"
   notify: reload nginx
   tags:
     - skip_ansible_lint
-
-- name: Remove managed vhost config files.
+    - nginx_site_vhost
+    - nginx_vhost
+- name: Remove managed vhost config files
   file:
-    path: "{{ nginx_vhost_path }}/{{ item.filename |
-    default(item.server_name.split(' ')[0] ~ '.conf') }}"
+    path: "{{ nginx_vhost_path }}/{{ item.filename }}.conf"
     state: absent
   when: item.state|default('present') == 'absent'
   with_items: "{{ nginx_vhosts }}"
@@ -38,7 +44,7 @@
   tags:
     - skip_ansible_lint
 
-- name: Remove legacy vhosts.conf file.
+- name: Remove legacy vhosts.conf file
   file:
     path: "{{ nginx_vhost_path }}/vhosts.conf"
     state: absent

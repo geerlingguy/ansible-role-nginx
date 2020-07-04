@@ -18,6 +18,13 @@ nginx_service_enabled: true
 nginx_conf_template: "nginx.conf.j2"
 nginx_vhost_template: "vhost.j2"
 
+nginx_catchall_template: default-catchall.j2
+nginx_catchall_vhost_name: default.conf
+nginx_catchall_ssl_directory: /etc/nginx/ssl
+nginx_catchall_privkey: "{{ nginx_catchall_ssl_directory }}/privkey.pem"
+nginx_catchall_fullchain: "{{ nginx_catchall_ssl_directory }}/fullchain.pem"
+nginx_catchall_csr: "{{ nginx_catchall_ssl_directory }}/cert.csr"
+
 nginx_worker_processes: >-
   "{{ ansible_processor_vcpus | default(ansible_processor_count) }}"
 nginx_worker_connections: "1024"

@@ -1,0 +1,34 @@
+# {{ansible_managed}}
+
+server {
+    listen 80;
+    server_name {% for server_name in item.server_names %}{{ server_name }} {% endfor %};
+
+    access_log /var/log/nginx/{{ item.access_log | default(item.filename) }}.access.log;
+    error_log /var/log/nginx/{{ item.error_log | default(item.filename) }}.error.log;
+
+    root {{ item.root }};
+    index index.html index.htm;
+
+    {% if item.force_https | default(false) and item.enable_https | default(true) %}
+      return 301 https://$server_name$request_uri;
+    {% endif %}
+
+}
+
+{% if item.enable_https | default(true) %}
+server {
+    listen 443 ssl;
+    server_name {% for server_name in item.server_names %}{{ server_name }} {% endfor %};
+
+    access_log /var/log/nginx/{{ item.access_log | default(item.filename) }}.access.log;
+    error_log /var/log/nginx/{{ item.error_log | default(item.filename) }}.error.log;
+
+    ssl_certificate {{ item.certificate }};
+    ssl_certificate_key {{ item.private_key }};
+
+    root {{ item.root }};
+    index index.html index.htm;
+}
+
+{% endif %}

@@ -1,0 +1,1151 @@
+versions pytest-5.4.3, py-1.8.2, python-3.8.1.final.0
+cwd=/home/sccad/infra/multiko/roles/nginx/molecule/default
+args=('--connection=ansible', '--ansible-inventory=/home/sccad/.cache/molecule/nginx/default/inventory/ansible_inventory.yml', '-p', 'no:cacheprovider', '--debug', '/home/sccad/infra/multiko/roles/nginx/molecule/default/tests/test_default.py', '-vvv')
+
+  pytest_cmdline_main [hook]
+      config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+    pytest_plugin_registered [hook]
+        plugin: <Session default exitstatus=None testsfailed=0 testscollected=0>
+        manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+    finish pytest_plugin_registered --> [] [hook]
+    pytest_configure [hook]
+        config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+    early skip of rewriting module: faulthandler [assertion]
+      pytest_configure [hook]
+          config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+      finish pytest_configure --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.faulthandler.FaultHandlerHooks object at 0x7f4c4f48daf0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+    early skip of rewriting module: pdb [assertion]
+    early skip of rewriting module: cmd [assertion]
+    early skip of rewriting module: code [assertion]
+    early skip of rewriting module: codeop [assertion]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.mark' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/mark/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.main' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/main.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.runner' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/runner.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.fixtures' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/fixtures.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.helpconfig' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/helpconfig.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.python' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/python.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.terminal' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/terminal.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.debugging' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/debugging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unittest' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/unittest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.capture' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/capture.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.skipping' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/skipping.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.tmpdir' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/tmpdir.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.monkeypatch' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/monkeypatch.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.recwarn' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/recwarn.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.pastebin' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/pastebin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.nose' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/nose.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.assertion' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/assertion/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.junitxml' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/junitxml.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.resultlog' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/resultlog.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.doctest' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/doctest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.freeze_support' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/freeze_support.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setuponly' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/setuponly.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setupplan' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/setupplan.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.warnings' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/warnings.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.logging' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/logging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.reports' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/reports.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.faulthandler' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/faulthandler.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'pytest_forked' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_forked/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'xdist.plugin' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/xdist/plugin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'xdist.looponfail' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/xdist/looponfail.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'pytest_sugar' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_sugar.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'testinfra.plugin' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/plugin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <CaptureManager _method='fd' _global_capturing=<MultiCapture out=<FDCapture 1 oldfd=5 _state='suspended' tmpfile=<_pytest.capture.EncodedFile object at 0x7f4c4f3fd8e0>> err=<FDCapture 2 oldfd=6 _state='suspended' tmpfile=<_pytest.capture.EncodedFile object at 0x7f4c4f3fd9a0>> in_=<FDCapture 0 oldfd=3 _state='started' tmpfile=<_io.TextIOWrapper name='/dev/null' mode='r' encoding='UTF-8'>> _state='suspended' _in_suspended=False> _capture_fixture=None>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'conftest' from '/home/sccad/infra/multiko/roles/nginx/molecule/default/tests/conftest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.faulthandler.FaultHandlerHooks object at 0x7f4c4f48daf0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.terminal.TerminalReporter object at 0x7f4c4f3e4a00>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.logging.LoggingPlugin object at 0x7f4c4f3a47c0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+    early skip of rewriting module: distutils [assertion]
+    early skip of rewriting module: distutils.dist [assertion]
+    early skip of rewriting module: distutils.errors [assertion]
+    early skip of rewriting module: distutils.fancy_getopt [assertion]
+    early skip of rewriting module: getopt [assertion]
+    early skip of rewriting module: distutils.util [assertion]
+    early skip of rewriting module: distutils.dep_util [assertion]
+    early skip of rewriting module: distutils.spawn [assertion]
+    early skip of rewriting module: distutils.debug [assertion]
+    early skip of rewriting module: distutils.log [assertion]
+    early skip of rewriting module: distutils.sysconfig [assertion]
+    early skip of rewriting module: distutils.version [assertion]
+      pytest_plugin_registered [hook]
+          plugin: <pytest_sugar.DeferredXdistPlugin object at 0x7f4c4f3a4a00>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.mark' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/mark/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.main' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/main.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.runner' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/runner.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.fixtures' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/fixtures.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.helpconfig' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/helpconfig.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.python' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/python.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.terminal' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/terminal.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.debugging' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/debugging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unittest' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/unittest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.capture' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/capture.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.skipping' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/skipping.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.tmpdir' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/tmpdir.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.monkeypatch' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/monkeypatch.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.recwarn' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/recwarn.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.pastebin' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/pastebin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.nose' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/nose.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.assertion' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/assertion/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.junitxml' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/junitxml.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.resultlog' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/resultlog.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.doctest' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/doctest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.freeze_support' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/freeze_support.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setuponly' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/setuponly.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setupplan' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/setupplan.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.warnings' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/warnings.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.logging' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/logging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.reports' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/reports.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.faulthandler' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/faulthandler.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'pytest_forked' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_forked/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'xdist.plugin' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/xdist/plugin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'xdist.looponfail' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/xdist/looponfail.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'pytest_sugar' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_sugar.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'testinfra.plugin' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/plugin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <CaptureManager _method='fd' _global_capturing=<MultiCapture out=<FDCapture 1 oldfd=5 _state='suspended' tmpfile=<_pytest.capture.EncodedFile object at 0x7f4c4f3fd8e0>> err=<FDCapture 2 oldfd=6 _state='suspended' tmpfile=<_pytest.capture.EncodedFile object at 0x7f4c4f3fd9a0>> in_=<FDCapture 0 oldfd=3 _state='started' tmpfile=<_io.TextIOWrapper name='/dev/null' mode='r' encoding='UTF-8'>> _state='suspended' _in_suspended=False> _capture_fixture=None>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'conftest' from '/home/sccad/infra/multiko/roles/nginx/molecule/default/tests/conftest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.faulthandler.FaultHandlerHooks object at 0x7f4c4f48daf0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.terminal.TerminalReporter object at 0x7f4c4f3e4a00>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.logging.LoggingPlugin object at 0x7f4c4f3a47c0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <pytest_sugar.DeferredXdistPlugin object at 0x7f4c4f3a4a00>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <pytest_sugar.SugarTerminalReporter object at 0x7f4c4f3a4d00>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+    finish pytest_configure --> [] [hook]
+    pytest_sessionstart [hook]
+        session: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+    early skip of rewriting module: py._std [assertion]
+      pytest_report_header [hook]
+          config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+          startdir: /home/sccad/infra/multiko/roles/nginx/molecule/default
+      early skip of rewriting module: email.parser [assertion]
+      early skip of rewriting module: email.feedparser [assertion]
+      early skip of rewriting module: email.errors [assertion]
+      early skip of rewriting module: email._policybase [assertion]
+      early skip of rewriting module: email.header [assertion]
+      early skip of rewriting module: email.quoprimime [assertion]
+      early skip of rewriting module: email.base64mime [assertion]
+      early skip of rewriting module: base64 [assertion]
+      early skip of rewriting module: email.charset [assertion]
+      early skip of rewriting module: email.encoders [assertion]
+      early skip of rewriting module: quopri [assertion]
+      early skip of rewriting module: email.utils [assertion]
+      early skip of rewriting module: socket [assertion]
+      early skip of rewriting module: _socket [assertion]
+      early skip of rewriting module: email._parseaddr [assertion]
+      early skip of rewriting module: calendar [assertion]
+      early skip of rewriting module: email.message [assertion]
+      early skip of rewriting module: uu [assertion]
+      early skip of rewriting module: email._encoded_words [assertion]
+      early skip of rewriting module: email.iterators [assertion]
+      finish pytest_report_header --> [['rootdir: /home/sccad/infra/multiko/roles/nginx/molecule/default', 'plugins: forked-1.1.3, xdist-1.32.0, sugar-0.9.3, testinfra-5.2.1'], ['using: pytest-5.4.3 pylib-1.8.2', 'setuptools registered plugins:', '  pytest-forked-1.1.3 at /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_forked/__init__.py', '  pytest-xdist-1.32.0 at /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/xdist/plugin.py', '  pytest-xdist-1.32.0 at /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/xdist/looponfail.py', '  pytest-sugar-0.9.3 at /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_sugar.py', '  testinfra-5.2.1 at /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/plugin.py']] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.mark' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/mark/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.main' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/main.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.runner' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/runner.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.fixtures' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/fixtures.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.helpconfig' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/helpconfig.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.python' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/python.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.terminal' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/terminal.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.debugging' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/debugging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unittest' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/unittest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.capture' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/capture.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.skipping' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/skipping.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.tmpdir' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/tmpdir.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.monkeypatch' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/monkeypatch.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.recwarn' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/recwarn.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.pastebin' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/pastebin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.nose' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/nose.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.assertion' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/assertion/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.junitxml' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/junitxml.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.resultlog' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/resultlog.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.doctest' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/doctest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.freeze_support' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/freeze_support.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setuponly' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/setuponly.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setupplan' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/setupplan.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.warnings' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/warnings.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.logging' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/logging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.reports' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/reports.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.faulthandler' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/faulthandler.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'pytest_forked' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_forked/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'xdist.plugin' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/xdist/plugin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'xdist.looponfail' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/xdist/looponfail.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'pytest_sugar' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_sugar.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'testinfra.plugin' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/plugin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <CaptureManager _method='fd' _global_capturing=<MultiCapture out=<FDCapture 1 oldfd=5 _state='suspended' tmpfile=<_pytest.capture.EncodedFile object at 0x7f4c4f3fd8e0>> err=<FDCapture 2 oldfd=6 _state='suspended' tmpfile=<_pytest.capture.EncodedFile object at 0x7f4c4f3fd9a0>> in_=<FDCapture 0 oldfd=3 _state='started' tmpfile=<_io.TextIOWrapper name='/dev/null' mode='r' encoding='UTF-8'>> _state='suspended' _in_suspended=False> _capture_fixture=None>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module 'conftest' from '/home/sccad/infra/multiko/roles/nginx/molecule/default/tests/conftest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.faulthandler.FaultHandlerHooks object at 0x7f4c4f48daf0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.terminal.TerminalReporter object at 0x7f4c4f3e4a00>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.logging.LoggingPlugin object at 0x7f4c4f3a47c0>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <pytest_sugar.DeferredXdistPlugin object at 0x7f4c4f3a4a00>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <pytest_sugar.SugarTerminalReporter object at 0x7f4c4f3a4d00>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.fixtures.FixtureManager object at 0x7f4c4f378100>
+          manager: <_pytest.config.PytestPluginManager object at 0x7f4c4ff277f0>
+      finish pytest_plugin_registered --> [] [hook]
+    finish pytest_sessionstart --> [] [hook]
+    pytest_collection [hook]
+        session: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+    perform_collect <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0> ['/home/sccad/infra/multiko/roles/nginx/molecule/default/tests/test_default.py'] [collection]
+        pytest_collectstart [hook]
+            collector: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+        finish pytest_collectstart --> [] [hook]
+        pytest_make_collect_report [hook]
+            collector: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+        processing argument (local('/home/sccad/infra/multiko/roles/nginx/molecule/default/tests/test_default.py'), []) [collection]
+            pytest_collect_file [hook]
+                path: /home/sccad/infra/multiko/roles/nginx/molecule/default/tests/test_default.py
+                parent: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+              pytest_pycollect_makemodule [hook]
+                  path: /home/sccad/infra/multiko/roles/nginx/molecule/default/tests/test_default.py
+                  parent: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+              finish pytest_pycollect_makemodule --> <Module tests/test_default.py> [hook]
+            finish pytest_collect_file --> [<Module tests/test_default.py>] [hook]
+          matchnodes [<Module tests/test_default.py>] [] [collection]
+            matchnodes finished ->  1 nodes [collection]
+        finish pytest_make_collect_report --> <CollectReport '' lenresult=1 outcome='passed'> [hook]
+        pytest_collectreport [hook]
+            report: <CollectReport '' lenresult=1 outcome='passed'>
+        finish pytest_collectreport --> [] [hook]
+    genitems <Module tests/test_default.py> [collection]
+      pytest_collectstart [hook]
+          collector: <Module tests/test_default.py>
+      finish pytest_collectstart --> [] [hook]
+      pytest_make_collect_report [hook]
+          collector: <Module tests/test_default.py>
+      find_module called for: test_default [assertion]
+      matched test file (was specified on cmdline): '/home/sccad/infra/multiko/roles/nginx/molecule/default/tests/test_default.py' [assertion]
+      found cached rewritten pyc for /home/sccad/infra/multiko/roles/nginx/molecule/default/tests/test_default.py [assertion]
+      early skip of rewriting module: requests [assertion]
+      early skip of rewriting module: urllib3 [assertion]
+      early skip of rewriting module: urllib3.connectionpool [assertion]
+      early skip of rewriting module: urllib3.exceptions [assertion]
+      early skip of rewriting module: urllib3.packages [assertion]
+      early skip of rewriting module: urllib3.packages.ssl_match_hostname [assertion]
+      early skip of rewriting module: ssl [assertion]
+      early skip of rewriting module: _ssl [assertion]
+      early skip of rewriting module: urllib3.packages.six [assertion]
+      early skip of rewriting module: urllib3.packages.six.moves [assertion]
+      early skip of rewriting module: urllib3.packages.six.moves.http_client [assertion]
+      early skip of rewriting module: http [assertion]
+      early skip of rewriting module: http.client [assertion]
+      early skip of rewriting module: queue [assertion]
+      early skip of rewriting module: _queue [assertion]
+      early skip of rewriting module: urllib3.connection [assertion]
+      early skip of rewriting module: urllib3.util [assertion]
+      early skip of rewriting module: urllib3.util.connection [assertion]
+      early skip of rewriting module: urllib3.util.wait [assertion]
+      early skip of rewriting module: urllib3.contrib [assertion]
+      early skip of rewriting module: urllib3.contrib._appengine_environ [assertion]
+      early skip of rewriting module: urllib3.util.request [assertion]
+      early skip of rewriting module: brotli [assertion]
+      early skip of rewriting module: urllib3.util.response [assertion]
+      early skip of rewriting module: urllib3.util.ssl_ [assertion]
+      early skip of rewriting module: hmac [assertion]
+      early skip of rewriting module: _hashlib [assertion]
+      early skip of rewriting module: hashlib [assertion]
+      early skip of rewriting module: _blake2 [assertion]
+      early skip of rewriting module: _sha3 [assertion]
+      early skip of rewriting module: urllib3.util.url [assertion]
+      early skip of rewriting module: urllib3.util.timeout [assertion]
+      early skip of rewriting module: urllib3.util.retry [assertion]
+      early skip of rewriting module: urllib3._collections [assertion]
+      early skip of rewriting module: urllib3.request [assertion]
+      early skip of rewriting module: urllib3.filepost [assertion]
+      early skip of rewriting module: urllib3.fields [assertion]
+      early skip of rewriting module: mimetypes [assertion]
+      early skip of rewriting module: winreg [assertion]
+      early skip of rewriting module: urllib3.packages.six.moves.urllib [assertion]
+      early skip of rewriting module: urllib3.packages.six.moves.urllib.parse [assertion]
+      early skip of rewriting module: urllib3.response [assertion]
+      early skip of rewriting module: brotli [assertion]
+      early skip of rewriting module: urllib3.util.queue [assertion]
+      early skip of rewriting module: urllib3.poolmanager [assertion]
+      early skip of rewriting module: chardet [assertion]
+      early skip of rewriting module: chardet.compat [assertion]
+      early skip of rewriting module: chardet.universaldetector [assertion]
+      early skip of rewriting module: chardet.charsetgroupprober [assertion]
+      early skip of rewriting module: chardet.enums [assertion]
+      early skip of rewriting module: chardet.charsetprober [assertion]
+      early skip of rewriting module: chardet.escprober [assertion]
+      early skip of rewriting module: chardet.codingstatemachine [assertion]
+      early skip of rewriting module: chardet.escsm [assertion]
+      early skip of rewriting module: chardet.latin1prober [assertion]
+      early skip of rewriting module: chardet.mbcsgroupprober [assertion]
+      early skip of rewriting module: chardet.utf8prober [assertion]
+      early skip of rewriting module: chardet.mbcssm [assertion]
+      early skip of rewriting module: chardet.sjisprober [assertion]
+      early skip of rewriting module: chardet.mbcharsetprober [assertion]
+      early skip of rewriting module: chardet.chardistribution [assertion]
+      early skip of rewriting module: chardet.euctwfreq [assertion]
+      early skip of rewriting module: chardet.euckrfreq [assertion]
+      early skip of rewriting module: chardet.gb2312freq [assertion]
+      early skip of rewriting module: chardet.big5freq [assertion]
+      early skip of rewriting module: chardet.jisfreq [assertion]
+      early skip of rewriting module: chardet.jpcntx [assertion]
+      early skip of rewriting module: chardet.eucjpprober [assertion]
+      early skip of rewriting module: chardet.gb2312prober [assertion]
+      early skip of rewriting module: chardet.euckrprober [assertion]
+      early skip of rewriting module: chardet.cp949prober [assertion]
+      early skip of rewriting module: chardet.big5prober [assertion]
+      early skip of rewriting module: chardet.euctwprober [assertion]
+      early skip of rewriting module: chardet.sbcsgroupprober [assertion]
+      early skip of rewriting module: chardet.sbcharsetprober [assertion]
+      early skip of rewriting module: chardet.langcyrillicmodel [assertion]
+      early skip of rewriting module: chardet.langgreekmodel [assertion]
+      early skip of rewriting module: chardet.langbulgarianmodel [assertion]
+      early skip of rewriting module: chardet.langthaimodel [assertion]
+      early skip of rewriting module: chardet.langhebrewmodel [assertion]
+      early skip of rewriting module: chardet.hebrewprober [assertion]
+      early skip of rewriting module: chardet.langturkishmodel [assertion]
+      early skip of rewriting module: chardet.version [assertion]
+      early skip of rewriting module: requests.exceptions [assertion]
+      early skip of rewriting module: requests.__version__ [assertion]
+      early skip of rewriting module: requests.utils [assertion]
+      early skip of rewriting module: requests.certs [assertion]
+      early skip of rewriting module: certifi [assertion]
+      early skip of rewriting module: certifi.core [assertion]
+      early skip of rewriting module: importlib.resources [assertion]
+      early skip of rewriting module: requests._internal_utils [assertion]
+      early skip of rewriting module: requests.compat [assertion]
+      early skip of rewriting module: simplejson [assertion]
+      early skip of rewriting module: json [assertion]
+      early skip of rewriting module: json.decoder [assertion]
+      early skip of rewriting module: json.scanner [assertion]
+      early skip of rewriting module: _json [assertion]
+      early skip of rewriting module: json.encoder [assertion]
+      early skip of rewriting module: urllib.request [assertion]
+      early skip of rewriting module: urllib.error [assertion]
+      early skip of rewriting module: urllib.response [assertion]
+      early skip of rewriting module: http.cookiejar [assertion]
+      early skip of rewriting module: http.cookies [assertion]
+      early skip of rewriting module: requests.cookies [assertion]
+      early skip of rewriting module: requests.structures [assertion]
+      early skip of rewriting module: requests.packages [assertion]
+      early skip of rewriting module: idna [assertion]
+      early skip of rewriting module: idna.package_data [assertion]
+      early skip of rewriting module: idna.core [assertion]
+      early skip of rewriting module: idna.idnadata [assertion]
+      early skip of rewriting module: idna.intranges [assertion]
+      early skip of rewriting module: requests.models [assertion]
+      early skip of rewriting module: encodings.idna [assertion]
+      early skip of rewriting module: stringprep [assertion]
+      early skip of rewriting module: requests.hooks [assertion]
+      early skip of rewriting module: requests.auth [assertion]
+      early skip of rewriting module: requests.status_codes [assertion]
+      early skip of rewriting module: requests.api [assertion]
+      early skip of rewriting module: requests.sessions [assertion]
+      early skip of rewriting module: requests.adapters [assertion]
+      early skip of rewriting module: urllib3.contrib.socks [assertion]
+      early skip of rewriting module: socks [assertion]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __name__
+            obj: test_default
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __doc__
+            obj: Role testing files using testinfra.
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __package__
+            obj: 
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __loader__
+            obj: <_pytest.assertion.rewrite.AssertionRewritingHook object at 0x7f4c4f49a610>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __spec__
+            obj: ModuleSpec(name='test_default', loader=<_pytest.assertion.rewrite.AssertionRewritingHook object at 0x7f4c4f49a610>, origin='/home/sccad/infra/multiko/roles/nginx/molecule/default/tests/test_default.py')
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __file__
+            obj: /home/sccad/infra/multiko/roles/nginx/molecule/default/tests/test_default.py
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __cached__
+            obj: /home/sccad/infra/multiko/roles/nginx/molecule/default/tests/__pycache__/test_default.cpython-38.pyc
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __builtins__
+            obj: {'__name__': 'builtins', '__doc__': "Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil' object; Ellipsis represents `...' in slices.", '__package__': '', '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': ModuleSpec(name='builtins', loader=<class '_frozen_importlib.BuiltinImporter'>), '__build_class__': <built-in function __build_class__>, '__import__': <built-in function __import__>, 'abs': <built-in function abs>, 'all': <built-in function all>, 'any': <built-in function any>, 'ascii': <built-in function ascii>, 'bin': <built-in function bin>, 'breakpoint': <built-in function breakpoint>, 'callable': <built-in function callable>, 'chr': <built-in function chr>, 'compile': <built-in function compile>, 'delattr': <built-in function delattr>, 'dir': <built-in function dir>, 'divmod': <built-in function divmod>, 'eval': <built-in function eval>, 'exec': <built-in function exec>, 'format': <built-in function format>, 'getattr': <built-in function getattr>, 'globals': <built-in function globals>, 'hasattr': <built-in function hasattr>, 'hash': <built-in function hash>, 'hex': <built-in function hex>, 'id': <built-in function id>, 'input': <built-in function input>, 'isinstance': <built-in function isinstance>, 'issubclass': <built-in function issubclass>, 'iter': <built-in function iter>, 'len': <built-in function len>, 'locals': <built-in function locals>, 'max': <built-in function max>, 'min': <built-in function min>, 'next': <built-in function next>, 'oct': <built-in function oct>, 'ord': <built-in function ord>, 'pow': <built-in function pow>, 'print': <built-in function print>, 'repr': <built-in function repr>, 'round': <built-in function round>, 'setattr': <built-in function setattr>, 'sorted': <built-in function sorted>, 'sum': <built-in function sum>, 'vars': <built-in function vars>, 'None': None, 'Ellipsis': Ellipsis, 'NotImplemented': NotImplemented, 'False': False, 'True': True, 'bool': <class 'bool'>, 'memoryview': <class 'memoryview'>, 'bytearray': <class 'bytearray'>, 'bytes': <class 'bytes'>, 'classmethod': <class 'classmethod'>, 'complex': <class 'complex'>, 'dict': <class 'dict'>, 'enumerate': <class 'enumerate'>, 'filter': <class 'filter'>, 'float': <class 'float'>, 'frozenset': <class 'frozenset'>, 'property': <class 'property'>, 'int': <class 'int'>, 'list': <class 'list'>, 'map': <class 'map'>, 'object': <class 'object'>, 'range': <class 'range'>, 'reversed': <class 'reversed'>, 'set': <class 'set'>, 'slice': <class 'slice'>, 'staticmethod': <class 'staticmethod'>, 'str': <class 'str'>, 'super': <class 'super'>, 'tuple': <class 'tuple'>, 'type': <class 'type'>, 'zip': <class 'zip'>, '__debug__': True, 'BaseException': <class 'BaseException'>, 'Exception': <class 'Exception'>, 'TypeError': <class 'TypeError'>, 'StopAsyncIteration': <class 'StopAsyncIteration'>, 'StopIteration': <class 'StopIteration'>, 'GeneratorExit': <class 'GeneratorExit'>, 'SystemExit': <class 'SystemExit'>, 'KeyboardInterrupt': <class 'KeyboardInterrupt'>, 'ImportError': <class 'ImportError'>, 'ModuleNotFoundError': <class 'ModuleNotFoundError'>, 'OSError': <class 'OSError'>, 'EnvironmentError': <class 'OSError'>, 'IOError': <class 'OSError'>, 'EOFError': <class 'EOFError'>, 'RuntimeError': <class 'RuntimeError'>, 'RecursionError': <class 'RecursionError'>, 'NotImplementedError': <class 'NotImplementedError'>, 'NameError': <class 'NameError'>, 'UnboundLocalError': <class 'UnboundLocalError'>, 'AttributeError': <class 'AttributeError'>, 'SyntaxError': <class 'SyntaxError'>, 'IndentationError': <class 'IndentationError'>, 'TabError': <class 'TabError'>, 'LookupError': <class 'LookupError'>, 'IndexError': <class 'IndexError'>, 'KeyError': <class 'KeyError'>, 'ValueError': <class 'ValueError'>, 'UnicodeError': <class 'UnicodeError'>, 'UnicodeEncodeError': <class 'UnicodeEncodeError'>, 'UnicodeDecodeError': <class 'UnicodeDecodeError'>, 'UnicodeTranslateError': <class 'UnicodeTranslateError'>, 'AssertionError': <class 'AssertionError'>, 'ArithmeticError': <class 'ArithmeticError'>, 'FloatingPointError': <class 'FloatingPointError'>, 'OverflowError': <class 'OverflowError'>, 'ZeroDivisionError': <class 'ZeroDivisionError'>, 'SystemError': <class 'SystemError'>, 'ReferenceError': <class 'ReferenceError'>, 'MemoryError': <class 'MemoryError'>, 'BufferError': <class 'BufferError'>, 'Warning': <class 'Warning'>, 'UserWarning': <class 'UserWarning'>, 'DeprecationWarning': <class 'DeprecationWarning'>, 'PendingDeprecationWarning': <class 'PendingDeprecationWarning'>, 'SyntaxWarning': <class 'SyntaxWarning'>, 'RuntimeWarning': <class 'RuntimeWarning'>, 'FutureWarning': <class 'FutureWarning'>, 'ImportWarning': <class 'ImportWarning'>, 'UnicodeWarning': <class 'UnicodeWarning'>, 'BytesWarning': <class 'BytesWarning'>, 'ResourceWarning': <class 'ResourceWarning'>, 'ConnectionError': <class 'ConnectionError'>, 'BlockingIOError': <class 'BlockingIOError'>, 'BrokenPipeError': <class 'BrokenPipeError'>, 'ChildProcessError': <class 'ChildProcessError'>, 'ConnectionAbortedError': <class 'ConnectionAbortedError'>, 'ConnectionRefusedError': <class 'ConnectionRefusedError'>, 'ConnectionResetError': <class 'ConnectionResetError'>, 'FileExistsError': <class 'FileExistsError'>, 'FileNotFoundError': <class 'FileNotFoundError'>, 'IsADirectoryError': <class 'IsADirectoryError'>, 'NotADirectoryError': <class 'NotADirectoryError'>, 'InterruptedError': <class 'InterruptedError'>, 'PermissionError': <class 'PermissionError'>, 'ProcessLookupError': <class 'ProcessLookupError'>, 'TimeoutError': <class 'TimeoutError'>, 'open': <built-in function open>, 'quit': Use quit() or Ctrl-D (i.e. EOF) to exit, 'exit': Use exit() or Ctrl-D (i.e. EOF) to exit, 'copyright': Copyright (c) 2001-2019 Python Software Foundation.
+All Rights Reserved.
+
+Copyright (c) 2000 BeOpen.com.
+All Rights Reserved.
+
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All Rights Reserved.
+
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+All Rights Reserved., 'credits':     Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
+    for supporting Python development.  See www.python.org for more information., 'license': See https://www.python.org/psf/license/, 'help': Type help() for interactive help, or help(object) for help about object.}
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: @py_builtins
+            obj: <module 'builtins' (built-in)>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: @pytest_ar
+            obj: <module '_pytest.assertion.rewrite' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/assertion/rewrite.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: pytest
+            obj: <module 'pytest' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest/__init__.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: requests
+            obj: <module 'requests' from '/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/requests/__init__.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: test_is_postgresql_runnnig_and_enabled
+            obj: <function test_is_postgresql_runnnig_and_enabled at 0x7f4c4f0f4dc0>
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f4c4f0fb3d0>
+          matched marked file 'testinfra.backend.ansible' (from 'testinfra') [assertion]
+          find_module called for: testinfra.backend.ansible [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/backend/ansible.py [assertion]
+          matched marked file 'testinfra.backend.base' (from 'testinfra') [assertion]
+          find_module called for: testinfra.backend.base [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/backend/base.py [assertion]
+          early skip of rewriting module: pipes [assertion]
+          matched marked file 'testinfra.utils' (from 'testinfra') [assertion]
+          find_module called for: testinfra.utils [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/utils/__init__.py [assertion]
+          matched marked file 'testinfra.utils.ansible_runner' (from 'testinfra') [assertion]
+          find_module called for: testinfra.utils.ansible_runner [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/utils/ansible_runner.py [assertion]
+          early skip of rewriting module: ipaddress [assertion]
+          matched marked file 'testinfra.backend.local' (from 'testinfra') [assertion]
+          find_module called for: testinfra.backend.local [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/backend/local.py [assertion]
+          early skip of rewriting module: encodings.unicode_escape [assertion]
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>] [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: test_statics_location_is_accessible
+            obj: <function test_statics_location_is_accessible at 0x7f4c4dd30e50>
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x7f4c4f0fb640>
+            pytest_make_parametrize_id [hook]
+                config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+                val: static/static.html
+                argname: path
+            finish pytest_make_parametrize_id --> None [hook]
+            pytest_make_parametrize_id [hook]
+                config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+                val: b'static'
+                argname: content
+            finish pytest_make_parametrize_id --> None [hook]
+            pytest_make_parametrize_id [hook]
+                config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+                val: media/media.html
+                argname: path
+            finish pytest_make_parametrize_id --> None [hook]
+            pytest_make_parametrize_id [hook]
+                config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+                val: b'media'
+                argname: content
+            finish pytest_make_parametrize_id --> None [hook]
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function test_statics_location_is_accessible[ansible://debian10-static/static.html-static]>, <Function test_statics_location_is_accessible[ansible://debian10-media/media.html-media]>] [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __repr__
+            obj: <slot wrapper '__repr__' of 'module' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __getattribute__
+            obj: <slot wrapper '__getattribute__' of 'module' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __setattr__
+            obj: <slot wrapper '__setattr__' of 'module' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __delattr__
+            obj: <slot wrapper '__delattr__' of 'module' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __init__
+            obj: <slot wrapper '__init__' of 'module' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __new__
+            obj: <built-in method __new__ of type object at 0x557388c65340>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __dir__
+            obj: <method '__dir__' of 'module' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __dict__
+            obj: <member '__dict__' of 'module' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __hash__
+            obj: <slot wrapper '__hash__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __str__
+            obj: <slot wrapper '__str__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __lt__
+            obj: <slot wrapper '__lt__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __le__
+            obj: <slot wrapper '__le__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __eq__
+            obj: <slot wrapper '__eq__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __ne__
+            obj: <slot wrapper '__ne__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __gt__
+            obj: <slot wrapper '__gt__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __ge__
+            obj: <slot wrapper '__ge__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __reduce_ex__
+            obj: <method '__reduce_ex__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __reduce__
+            obj: <method '__reduce__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __subclasshook__
+            obj: <method '__subclasshook__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __init_subclass__
+            obj: <method '__init_subclass__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __format__
+            obj: <method '__format__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __sizeof__
+            obj: <method '__sizeof__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/test_default.py>
+            name: __class__
+            obj: <attribute '__class__' of 'object' objects>
+        finish pytest_pycollect_makeitem --> None [hook]
+      finish pytest_make_collect_report --> <CollectReport 'tests/test_default.py' lenresult=3 outcome='passed'> [hook]
+    genitems <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]> [collection]
+      pytest_itemcollected [hook]
+          item: <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function test_statics_location_is_accessible[ansible://debian10-static/static.html-static]> [collection]
+      pytest_itemcollected [hook]
+          item: <Function test_statics_location_is_accessible[ansible://debian10-static/static.html-static]>
+      finish pytest_itemcollected --> [] [hook]
+    genitems <Function test_statics_location_is_accessible[ansible://debian10-media/media.html-media]> [collection]
+      pytest_itemcollected [hook]
+          item: <Function test_statics_location_is_accessible[ansible://debian10-media/media.html-media]>
+      finish pytest_itemcollected --> [] [hook]
+      pytest_collectreport [hook]
+          report: <CollectReport 'tests/test_default.py' lenresult=3 outcome='passed'>
+      finish pytest_collectreport --> [] [hook]
+      pytest_collection_modifyitems [hook]
+          session: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+          items: [<Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>, <Function test_statics_location_is_accessible[ansible://debian10-static/static.html-static]>, <Function test_statics_location_is_accessible[ansible://debian10-media/media.html-media]>]
+      finish pytest_collection_modifyitems --> [] [hook]
+      pytest_collection_finish [hook]
+          session: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+        pytest_report_collectionfinish [hook]
+            config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+            startdir: /home/sccad/infra/multiko/roles/nginx/molecule/default
+            items: [<Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>, <Function test_statics_location_is_accessible[ansible://debian10-static/static.html-static]>, <Function test_statics_location_is_accessible[ansible://debian10-media/media.html-media]>]
+        finish pytest_report_collectionfinish --> [] [hook]
+      finish pytest_collection_finish --> [] [hook]
+    finish pytest_collection --> [<Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>, <Function test_statics_location_is_accessible[ansible://debian10-static/static.html-static]>, <Function test_statics_location_is_accessible[ansible://debian10-media/media.html-media]>] [hook]
+    pytest_runtestloop [hook]
+        session: <Session default exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=3>
+      pytest_runtest_protocol [hook]
+          item: <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>
+          nextitem: <Function test_statics_location_is_accessible[ansible://debian10-static/static.html-static]>
+        pytest_runtest_logstart [hook]
+            nodeid: tests/test_default.py::test_is_postgresql_runnnig_and_enabled[ansible://debian10]
+            location: ('tests/test_default.py', 4, 'test_is_postgresql_runnnig_and_enabled[ansible://debian10]')
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='_testinfra_host' scope='module' baseid=''>
+              request: <SubRequest '_testinfra_host' for <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>>
+          finish pytest_fixture_setup --> <testinfra.host.Host ansible://debian10> [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='host' scope='module' baseid=''>
+              request: <SubRequest 'host' for <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>>
+          finish pytest_fixture_setup --> <testinfra.host.Host ansible://debian10> [hook]
+        finish pytest_runtest_setup --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>
+            call: <CallInfo when='setup' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_is_postgresql_runnnig_and_enabled[ansible://debian10]' when='setup' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_is_postgresql_runnnig_and_enabled[ansible://debian10]' when='setup' outcome='passed'>
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_call [hook]
+            item: <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>
+          pytest_pyfunc_call [hook]
+              pyfuncitem: <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>
+          matched marked file 'testinfra.modules.service' (from 'testinfra') [assertion]
+          find_module called for: testinfra.modules.service [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/modules/service.py [assertion]
+          matched marked file 'testinfra.modules.base' (from 'testinfra') [assertion]
+          find_module called for: testinfra.modules.base [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/modules/base.py [assertion]
+          matched marked file 'testinfra.modules.systeminfo' (from 'testinfra') [assertion]
+          find_module called for: testinfra.modules.systeminfo [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/modules/systeminfo.py [assertion]
+          matched marked file 'testinfra.backend.docker' (from 'testinfra') [assertion]
+          find_module called for: testinfra.backend.docker [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/backend/docker.py [assertion]
+          matched marked file 'testinfra.modules.file' (from 'testinfra') [assertion]
+          find_module called for: testinfra.modules.file [assertion]
+          found cached rewritten pyc for /home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/testinfra/modules/file.py [assertion]
+          finish pytest_pyfunc_call --> True [hook]
+        finish pytest_runtest_call --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>
+            call: <CallInfo when='call' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/test_default.py::test_is_postgresql_runnnig_and_enabled[ansible://debian10]' when='call' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/test_default.py::test_is_postgresql_runnnig_and_enabled[ansible://debian10]' when='call' outcome='passed'>
+    pytest_internalerror [hook]
+        excrepr: Traceback (most recent call last):
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/main.py", line 191, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/main.py", line 247, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 337, in traced_hookexec
+    return outcome.get_result()
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 52, in from_call
+    result = func()
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 335, in <lambda>
+    outcome = _Result.from_call(lambda: oldcall(hook, hook_impls, kwargs))
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 84, in <lambda>
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 208, in _multicall
+    return outcome.get_result()
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/main.py", line 272, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 337, in traced_hookexec
+    return outcome.get_result()
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 52, in from_call
+    result = func()
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 335, in <lambda>
+    outcome = _Result.from_call(lambda: oldcall(hook, hook_impls, kwargs))
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 84, in <lambda>
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 208, in _multicall
+    return outcome.get_result()
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/runner.py", line 85, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/runner.py", line 100, in runtestprotocol
+    reports.append(call_and_report(item, "call", log))
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/runner.py", line 190, in call_and_report
+    hook.pytest_runtest_logreport(report=report)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/hooks.py", line 286, in __call__
+    return self._hookexec(self, self.get_hookimpls(), kwargs)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 93, in _hookexec
+    return self._inner_hookexec(hook, methods, kwargs)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 337, in traced_hookexec
+    return outcome.get_result()
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 52, in from_call
+    result = func()
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 335, in <lambda>
+    outcome = _Result.from_call(lambda: oldcall(hook, hook_impls, kwargs))
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/manager.py", line 84, in <lambda>
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 208, in _multicall
+    return outcome.get_result()
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 80, in get_result
+    raise ex[1].with_traceback(ex[2])
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pluggy/callers.py", line 187, in _multicall
+    res = hook_impl.function(*args)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_sugar.py", line 441, in pytest_runtest_logreport
+    self.begin_new_line(report, print_filename=True)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/pytest_sugar.py", line 391, in begin_new_line
+    self.write("\r\n")
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/_pytest/terminal.py", line 363, in write
+    self._tw.write(content, **markup)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/py/_io/terminalwriter.py", line 256, in write
+    write_out(self._file, markupmsg)
+  File "/home/sccad/.virtualenvs/ansible/lib/python3.8/site-packages/py/_io/terminalwriter.py", line 406, in write_out
+    fil.write(msg)
+OSError: [Errno 5] Input/output error
+        excinfo: <ExceptionInfo OSError(5, 'Input/output error') tblen=41>
+    pytest_sessionfinish [hook]
+        session: <Session default exitstatus=<ExitCode.INTERNAL_ERROR: 3> testsfailed=0 testscollected=3>
+        exitstatus: ExitCode.INTERNAL_ERROR
+      pytest_fixture_post_finalizer [hook]
+          fixturedef: <FixtureDef argname='host' scope='module' baseid=''>
+          request: <SubRequest 'host' for <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>>
+      finish pytest_fixture_post_finalizer --> [] [hook]
+      pytest_fixture_post_finalizer [hook]
+          fixturedef: <FixtureDef argname='host' scope='module' baseid=''>
+          request: <SubRequest 'host' for <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>>
+      finish pytest_fixture_post_finalizer --> [] [hook]
+      pytest_fixture_post_finalizer [hook]
+          fixturedef: <FixtureDef argname='_testinfra_host' scope='module' baseid=''>
+          request: <SubRequest '_testinfra_host' for <Function test_is_postgresql_runnnig_and_enabled[ansible://debian10]>>
+      finish pytest_fixture_post_finalizer --> [] [hook]
+  pytest_unconfigure [hook]
+      config: <_pytest.config.Config object at 0x7f4c4fbf1ee0>
+  finish pytest_unconfigure --> [] [hook]

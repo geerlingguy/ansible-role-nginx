@@ -1,0 +1,6 @@
+
+location {{ config.location }} {
+    alias {{ config.alias }};
+    expires {{ config.expiries }};
+    add_header Cache-Control "public, no-transform";
+}
