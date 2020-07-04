@@ -24,39 +24,5 @@
         media_root: /var/www/media/
         certificate: /etc/nginx/ssl/fullchain.pem  # selfsigned
         private_key: /etc/nginx/ssl/privkey.pem  # selfsigned
-
-  pre_tasks:
-    - name: Update apt cache
-      apt: update_cache=yes cache_valid_time=600
-      become: yes
-      when: ansible_os_family == 'Debian'
-      changed_when: false
-    - name: "Create directories"
-      file:
-        path: /var/www/{{ item }}
-        state: directory
-      loop:
-        - static
-        - media
-    - name: "Create test file"
-      copy:
-        dest: /var/www/{{ item.directory }}/{{ item.file }}
-        content: "{{ item.directory }}"
-      loop:
-        - directory: static
-          file: static.html
-        - directory: static
-          file: cache.js
-        - directory: static
-          file: cache.css
-        - directory: media
-          file: media.html
-    - debug: var=ansible_python
-      tags: xd
-    - name: Run simple python server
-      shell:
-        cmd: "nohup {{ ansible_python.executable }} -m {{ 'http.server' if ansible_python.version.major == 3 else 'SimpleHTTPServer'}} &"
-        chdir: /tmp
-      tags: xd
   roles:
     - role: nginx

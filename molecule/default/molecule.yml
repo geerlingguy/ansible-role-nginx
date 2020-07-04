@@ -26,4 +26,3 @@ verifier:
   name: testinfra
   options:
     capture: no
-    # n: 2

@@ -24,7 +24,7 @@ addons:
 install:
   - mv "$PWD" "${PWD%/*}/$ROLE_NAME"
   # Install ansible
-  - pip install ansible molecule docker testinfra pytest pytest-xdist
+  - pip install -r requirements.txt
 
   # Check ansible version
   - ansible --version
