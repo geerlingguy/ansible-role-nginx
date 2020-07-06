@@ -51,5 +51,5 @@
         var: ansible_python
     - name: Run simple python server
       shell:
-        cmd: "nohup {{ ansible_python.executable }} -m {{ 'http.server' if ansible_python.version.major == 3 else 'SimpleHTTPServer'}} &"
+        cmd: "nohup {{ ansible_python.executable }} -m {{ 'http.server' if ansible_python.version.major == 3 else 'SimpleHTTPServer'}} >/dev/null 2>&1 &"
         chdir: /tmp
