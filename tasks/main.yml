@@ -17,6 +17,7 @@
 - name: Install cryptography python library
   pip:
     name: cryptography
+    state: forcereinstall
   tags:
     - nginx
 
