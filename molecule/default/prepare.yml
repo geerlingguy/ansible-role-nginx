@@ -15,9 +15,9 @@
     - name: Install python packages
       apt:
         name:
-          -  "python{{ '3' if ansible_python.version.major == 3 else '' }}-dev"
-          -  "python{{ '3' if ansible_python.version.major == 3 else '' }}-setuptools"
-          -  "python{{ '3' if ansible_python.version.major == 3 else '' }}-pip"
+          - "python{{ '3' if ansible_python.version.major == 3 else '' }}-dev"
+          - "python{{ '3' if ansible_python.version.major == 3 else '' }}-setuptools"
+          - "python{{ '3' if ansible_python.version.major == 3 else '' }}-pip"
 
     - name: "Create directories"
       file:
