@@ -24,5 +24,8 @@
         media_root: /var/www/media/
         certificate: /etc/nginx/ssl/fullchain.pem  # selfsigned
         private_key: /etc/nginx/ssl/privkey.pem  # selfsigned
+  pre_tasks:
+    - debug:
+        var: ansible_python
   roles:
     - role: nginx

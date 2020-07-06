@@ -20,6 +20,7 @@ platforms:
       - 0.0.0.0:8080:443/tcp
 provisioner:
   name: ansible
+  log: true
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
 verifier:
