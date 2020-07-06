@@ -14,13 +14,6 @@
     - always
 
 # Setup/install tasks.
-- name: Install cryptography python library
-  pip:
-    name: cryptography
-    state: forcereinstall
-  tags:
-    - nginx
-
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
   tags:

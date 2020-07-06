@@ -12,6 +12,13 @@
       when: ansible_os_family == 'Debian'
       changed_when: false
 
+    - name: Install cryptography python library
+      pip:
+        name: cryptography
+        state: forcereinstall
+      tags:
+        - nginx
+
     - name: Install python packages
       apt:
         name:
