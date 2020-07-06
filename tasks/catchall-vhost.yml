@@ -6,14 +6,17 @@
   become: yes
   tags:
     - nginx
+    - nginx_catchall_vhost
 
 - name: Generate private openssl key
   openssl_privatekey:
     path: "{{ nginx_catchall_privkey }}"
     size: 2048
+    select_crypto_backend: cryptography
   become: yes
   tags:
     - nginx
+    - nginx_catchall_vhost
 
 - name: Generate Certificate Signing Request (CSR)
   openssl_csr:
@@ -23,6 +26,7 @@
   become: yes
   tags:
     - nginx
+    - nginx_catchall_vhost
 
 - name: Generate a Self Signed OpenSSL certificate
   openssl_certificate:
@@ -33,6 +37,7 @@
   become: yes
   tags:
     - nginx
+    - nginx_catchall_vhost
 
 - name: Create the nginx catch-all
   template:
@@ -41,3 +46,4 @@
   become: yes
   tags:
     - nginx
+    - nginx_catchall_vhost

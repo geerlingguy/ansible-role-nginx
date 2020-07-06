@@ -12,7 +12,14 @@
   when: nginx_user is not defined
   tags:
     - always
+
 # Setup/install tasks.
+- name: Install cryptography python library
+  pip:
+    name: cryptography
+  tags:
+    - nginx
+    
 - include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
   tags:
@@ -44,10 +51,12 @@
     - always
 
 # Vhost configuration.
-- import_tasks: vhosts.yml
+- include_tasks: catchall-vhost.yml
+  when: nginx_create_catchall_vhost | default(true) | bool
   tags:
-    - nginx
-    - nginx_vhost
+    - always
+
+- import_tasks: vhosts.yml
 
 # Nginx setup.
 - name: Copy nginx configuration in place.

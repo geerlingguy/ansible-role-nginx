@@ -14,9 +14,6 @@
     state: directory
   notify: reload nginx
 
-- include_tasks: catchall-vhost.yml
-  when: nginx_create_catchall_vhost | default(true) | bool
-
 - name: Add managed vhost config files
   template:
     src: "{{ item.template }}"
