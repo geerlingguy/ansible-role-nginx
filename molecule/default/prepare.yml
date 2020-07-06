@@ -12,19 +12,19 @@
       when: ansible_os_family == 'Debian'
       changed_when: false
 
-    - name: Install cryptography python library
-      pip:
-        name: cryptography
-        state: forcereinstall
-      tags:
-        - nginx
-
     - name: Install python packages
       apt:
         name:
           - "python{{ '3' if ansible_python.version.major == 3 else '' }}-dev"
           - "python{{ '3' if ansible_python.version.major == 3 else '' }}-setuptools"
           - "python{{ '3' if ansible_python.version.major == 3 else '' }}-pip"
+
+    - name: Install cryptography python library
+      pip:
+        name: cryptography
+        state: forcereinstall
+      tags:
+        - nginx
 
     - name: "Create directories"
       file:
