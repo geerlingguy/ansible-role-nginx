@@ -137,6 +137,11 @@ See the template in `templates/nginx.conf.j2` for more details on the placement.
 
 Configures Nginx's [`log_format`](http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format). options.
 
+    nginx_conf_file_permission: "0644"
+
+Set the `nginx.conf` file permission mode.
+
+
     nginx_default_release: ""
 
 (For Debian/Ubuntu only) Allows you to set a different repository for the installation of Nginx. As an example, if you are running Debian's wheezy release, and want to get a newer version of Nginx, you can install the `wheezy-backports` repository and set that value here, and Ansible will use that as the `-t` option while installing Nginx.
