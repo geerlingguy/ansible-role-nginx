@@ -42,6 +42,9 @@ nginx_server_names_hash_bucket_size: "64"
 nginx_proxy_cache_path: ""
 
 nginx_extra_conf_options: ""
+
+nginx_manage_service_reload: true
+
 # Example extra main options, used within the main nginx's context:
 #   nginx_extra_conf_options: |
 #     env VARIABLE;

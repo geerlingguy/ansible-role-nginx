@@ -8,3 +8,4 @@
 
 - name: reload nginx
   service: name=nginx state=reloaded
+  when: nginx_manage_service_reload | bool
