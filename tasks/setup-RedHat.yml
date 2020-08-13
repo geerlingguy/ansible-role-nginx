@@ -15,6 +15,7 @@
   args:
     warn: false
   when: repo.changed
+  tags: ['skip_ansible_lint']
 
 - name: Ensure nginx is installed.
   package:
