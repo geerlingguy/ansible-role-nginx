@@ -4,6 +4,7 @@ nginx_default_release: ""
 
 # Used only for Redhat installation, enables source Nginx repo.
 nginx_yum_repo_enabled: true
+nginx_yum_repo_mainline: false
 
 # Use the official Nginx PPA for Ubuntu, and the version to use if so.
 nginx_ppa_use: false

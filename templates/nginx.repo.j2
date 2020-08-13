@@ -1,5 +1,5 @@
 [nginx]
 name=nginx repo
-baseurl=http://nginx.org/packages/centos/{{ ansible_distribution_major_version }}/$basearch/
+baseurl=http://nginx.org/packages{{ '/mainline' if nginx_yum_repo_mainline }}/centos/{{ ansible_distribution_major_version }}/$basearch/
 gpgcheck=0
 enabled=1
