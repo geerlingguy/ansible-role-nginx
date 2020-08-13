@@ -7,8 +7,17 @@
     group: "{{ root_group }}"
     mode: 0644
   when: nginx_yum_repo_enabled | bool
+  register: repo
+
+- name: Clean the nginx repo
+  command: >
+    yum clean all --disablerepo="*" --enablerepo=nginx
+  args:
+    warn: false
+  when: repo.changed
 
 - name: Ensure nginx is installed.
   package:
     name: "{{ nginx_package_name }}"
-    state: present
+    state: "{{ 'latest' if repo.changed else 'present' }}"
+  notify: restart nginx
