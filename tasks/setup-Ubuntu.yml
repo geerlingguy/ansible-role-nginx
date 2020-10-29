@@ -4,17 +4,27 @@
     name: dirmngr
     state: present
 
-- name: Add PPA for Nginx (if configured).
-  apt_repository:
-    repo: 'ppa:nginx/{{ nginx_ppa_version }}'
-    state: present
-    update_cache: true
-  register: nginx_ppa_added
-  when: nginx_ppa_use | bool
+- apt_repository:
+    repo: ppa:nginx/stable
+    state: absent
+    
+- name: add nginx public key
+  apt_key: url=https://nginx.org/keys/nginx_signing.key 
+           state=present
+  register: nginx_repo_added
+  when: nginx_repo_use | bool
 
-- name: Ensure nginx will reinstall if the PPA was just added.
+- name: add nginx stable repository
+  apt_repository: repo='deb http://nginx.org/packages/{{ '/mainline' if nginx_repo_mainline else ''}}ubuntu {{ ansible_distribution_release }} nginx'
+                  state=present
+                  mode=0644
+                  update_cache=true
+  register: nginx_repo_added
+  when: nginx_repo_use | bool
+
+- name: Ensure nginx will reinstall if the repo was just added.
   apt:
     name: nginx
     state: absent
-  when: nginx_ppa_added is changed
+  when: nginx_repo_added is changed
   tags: ['skip_ansible_lint']
