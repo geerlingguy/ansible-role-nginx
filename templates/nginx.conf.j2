@@ -31,7 +31,14 @@ http {
 
     log_format  main  {{ nginx_log_format|indent(23) }};
 
+    {% for format_name, format in nginx_log_formats.iteritems() -%}
+    log_format {{ format_name }} {{ format | indent(23) }};
+    {% endfor %}
+
     access_log  {{ nginx_access_log }};
+    {% for access_log in nginx_access_logs -%}
+    access_log {{ access_log }};
+    {% endfor %}
 
     sendfile        {{ nginx_sendfile }};
     tcp_nopush      {{ nginx_tcp_nopush }};

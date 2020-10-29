@@ -81,6 +81,12 @@ The user under which Nginx will run. Defaults to `nginx` for RedHat, `www-data` 
 
 Configuration of the default error and access logs. Set to `off` to disable a log entirely.
 
+    nginx_access_logs: 
+      - "/var/log/nginx/myformat1.log myformat1 buffer=16k"
+      - "/var/log/nginx/myformat2.log myformat2 buffer=16k"
+
+Configuration of the additional access logs.
+
     nginx_sendfile: "on"
     nginx_tcp_nopush: "on"
     nginx_tcp_nodelay: "on"
@@ -136,6 +142,18 @@ See the template in `templates/nginx.conf.j2` for more details on the placement.
       '"$http_user_agent" "$http_x_forwarded_for"'
 
 Configures Nginx's [`log_format`](http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format). options.
+
+    nginx_log_formats: 
+      myformat1: |-
+        '$remote_addr - $remote_user [$time_local] "$request" '
+        '$status $body_bytes_sent "$http_referer" '
+        '"$http_user_agent" "$http_x_forwarded_for"'
+      myformat2: |-
+        '$remote_addr - $remote_user [$time_local] "$request" '
+        '$status $body_bytes_sent "$http_referer" '
+        '"$http_user_agent" "$http_x_forwarded_for"'
+
+Configures additional log format [`log_format`](http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format). options.
 
     nginx_default_release: ""
 
