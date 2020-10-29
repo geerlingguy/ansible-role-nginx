@@ -7,9 +7,9 @@
 - apt_repository:
     repo: ppa:nginx/stable
     state: absent
-    
+
 - name: add nginx public key
-  apt_key: url=https://nginx.org/keys/nginx_signing.key 
+  apt_key: url=https://nginx.org/keys/nginx_signing.key
            state=present
   register: nginx_repo_added
   when: nginx_repo_use | bool
