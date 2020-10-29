@@ -4,17 +4,18 @@
     name: dirmngr
     state: present
 
-- apt_repository:
+- name: Remove legacy ppa if present
+  apt_repository:
     repo: ppa:nginx/stable
     state: absent
 
-- name: add nginx public key
+- name: Add nginx public key
   apt_key: url=https://nginx.org/keys/nginx_signing.key
            state=present
   register: nginx_repo_added
   when: nginx_repo_use | bool
 
-- name: add nginx stable repository
+- name: Add nginx stable repository
   apt_repository: repo='deb http://nginx.org/packages/{{ '/mainline' if nginx_repo_mainline else ''}}ubuntu {{ ansible_distribution_release }} nginx'
                   state=present
                   mode=0644
