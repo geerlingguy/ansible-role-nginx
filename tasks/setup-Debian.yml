@@ -23,7 +23,7 @@
   register: nginx_repo_added
   when: nginx_debian_repo_enabled | bool and nginx_debian_repo_flavour == "mainline"
 
-- name: Ensure nginx will reinstall if the PPA was just added.
+- name: Ensure nginx will reinstall if the repo was just added.
   apt:
     name: nginx
     state: absent
