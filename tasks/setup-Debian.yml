@@ -1,4 +1,35 @@
 ---
+- name: Ensure APT official nginx key
+  apt_key:
+    url: 'http://nginx.org/keys/nginx_signing.key'
+    state: present
+  when: nginx_debian_repo_enabled | bool
+
+- name: Ensure APT official nginx repository
+  apt_repository:
+    repo: 'deb http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx'
+    state: present
+    filename: nginx
+    update_cache: true
+  register: nginx_repo_added
+  when: nginx_debian_repo_enabled | bool and nginx_debian_repo_flavour == "stable"
+
+- name: Ensure APT official nginx repository (mainline)
+  apt_repository:
+    repo: 'deb http://nginx.org/packages/mainline/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx'
+    state: present
+    filename: nginx
+    update_cache: true
+  register: nginx_repo_added
+  when: nginx_debian_repo_enabled | bool and nginx_debian_repo_flavour == "mainline"
+
+- name: Ensure nginx will reinstall if the PPA was just added.
+  apt:
+    name: nginx
+    state: absent
+  when: nginx_repo_added is changed
+  tags: ['skip_ansible_lint']
+
 - name: Update apt cache.
   apt: update_cache=yes cache_valid_time=86400
   changed_when: false

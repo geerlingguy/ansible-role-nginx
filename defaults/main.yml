@@ -9,6 +9,10 @@ nginx_yum_repo_enabled: true
 nginx_ppa_use: false
 nginx_ppa_version: stable
 
+# Use the official Nginx Repo for Debian, and decide between "stable" and "mainline"
+nginx_debian_repo_enabled: false
+nginx_debian_repo_flavour: stable
+
 # The name of the nginx package to install.
 nginx_package_name: "nginx"
 

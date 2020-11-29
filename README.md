@@ -141,6 +141,11 @@ Configures Nginx's [`log_format`](http://nginx.org/en/docs/http/ngx_http_log_mod
 
 (For Debian/Ubuntu only) Allows you to set a different repository for the installation of Nginx. As an example, if you are running Debian's wheezy release, and want to get a newer version of Nginx, you can install the `wheezy-backports` repository and set that value here, and Ansible will use that as the `-t` option while installing Nginx.
 
+    nginx_debian_repo_enabled: false
+    nginx_debian_repo_flavour: stable
+
+(For Debian only) Allows you to use the official Nginx Repo instead of the system's package. You can set the flavour to `stable` or `mainline`.
+
     nginx_ppa_use: false
     nginx_ppa_version: stable
 
