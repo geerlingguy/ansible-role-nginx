@@ -25,6 +25,9 @@ galaxy_info:
     - name: Archlinux
       versions:
         - all
+    - name: ClearLinux
+      versions:
+        - all
     - name: FreeBSD
       versions:
         - 10.3

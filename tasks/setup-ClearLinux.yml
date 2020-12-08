@@ -1,0 +1,5 @@
+---
+- name: Ensure nginx is installed.
+  swupd:
+    name: "{{ nginx_package_name }}"
+    state: present

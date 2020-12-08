@@ -27,6 +27,9 @@
 - include_tasks: setup-Archlinux.yml
   when: ansible_os_family == 'Archlinux'
 
+- include_tasks: setup-ClearLinux.yml
+  when: ansible_os_family == 'ClearLinux'
+
 # Vhost configuration.
 - import_tasks: vhosts.yml
 
