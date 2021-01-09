@@ -137,6 +137,15 @@ See the template in `templates/nginx.conf.j2` for more details on the placement.
 
 Configures Nginx's [`log_format`](http://nginx.org/en/docs/http/ngx_http_log_module.html#log_format). options.
 
+    nginx_extra_log_formats:
+      - name: gzip
+        format: |-
+          '$remote_addr - $remote_user [$time_local] "$request" '
+          '$status $body_bytes_sent "$http_referer" '
+          '"$http_user_agent" "$http_x_forwarded_for" "$gzip_ratio"'
+
+Additional log formats added to `nginx.conf` below the standard one.
+
     nginx_default_release: ""
 
 (For Debian/Ubuntu only) Allows you to set a different repository for the installation of Nginx. As an example, if you are running Debian's wheezy release, and want to get a newer version of Nginx, you can install the `wheezy-backports` repository and set that value here, and Ansible will use that as the `-t` option while installing Nginx.
