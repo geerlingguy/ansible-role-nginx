@@ -16,7 +16,7 @@
   when: nginx_repo_use | bool
 
 - name: Add nginx stable repository
-  apt_repository: repo='deb http://nginx.org/packages/{{ '/mainline' if nginx_repo_mainline else ''}}ubuntu {{ ansible_distribution_release }} nginx'
+  apt_repository: repo='deb http://nginx.org/packages/{{ 'mainline/' if nginx_repo_mainline else ''}}ubuntu {{ ansible_distribution_release }} nginx'
                   state=present
                   mode=0644
                   update_cache=true
