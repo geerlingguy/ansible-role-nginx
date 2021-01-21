@@ -1,6 +1,7 @@
 ---
 - name: Converge
   hosts: all
+  become: yes
 
   vars:
     nginx_use_ppa: true
