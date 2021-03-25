@@ -40,6 +40,8 @@ http {
     keepalive_timeout  {{ nginx_keepalive_timeout }};
     keepalive_requests {{ nginx_keepalive_requests }};
 
+    send_timeout {{ nginx_send_timeout }};
+
     server_tokens {{ nginx_server_tokens }};
 {% if nginx_proxy_cache_path %}
     proxy_cache_path {{ nginx_proxy_cache_path }};
