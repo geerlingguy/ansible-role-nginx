@@ -48,9 +48,7 @@ http {
 {% endif %}
 {% endblock %}
 
-{% block http_gzip %}
-    # gzip on;
-{% endblock %}
+{% block http_gzip %}{% endblock %}
 
 {% if nginx_extra_http_options %}
     {{ nginx_extra_http_options|indent(4, False) }}
