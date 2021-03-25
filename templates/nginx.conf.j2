@@ -19,7 +19,7 @@ events {
 {% endblock %}
 
 http {
-    {% block http_begin %}{% endblock %}
+{% block http_begin %}{% endblock %}
 
 {% block http_basic %}
     include       {{ nginx_mime_file_path }};
@@ -79,5 +79,5 @@ http {
 {% endif %}
 {% endblock %}
 
-    {% block http_end %}{% endblock %}
+{% block http_end %}{% endblock %}
 }
