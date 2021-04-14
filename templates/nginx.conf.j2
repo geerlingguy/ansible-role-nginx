@@ -31,6 +31,10 @@ http {
 
     log_format  main  {{ nginx_log_format|indent(23) }};
 
+{% for format in nginx_extra_log_formats %}
+    log_format  {{ format.name }} {{ format.format|indent(23) }};
+{% endfor %}
+
     access_log  {{ nginx_access_log }};
 
     sendfile        {{ nginx_sendfile }};
