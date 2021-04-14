@@ -19,7 +19,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
     nginx_listen_ipv6: true
 
-   Whether or not we want to listen on IPv6, this is enabled by default.
+Whether or not to listen on IPv6 (applied to all vhosts managed by this role).
 
     nginx_vhosts: []
 

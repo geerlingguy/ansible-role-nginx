@@ -2,9 +2,9 @@
 {% if item.server_name_redirect is defined %}
 server {
     listen       {{ item.listen | default('80') }};
- {% if nginx_listen_ipv6 %}
+{% if nginx_listen_ipv6 %}
     listen       [::]:{{item.listen | default('80') }};
- {% endif %}
+{% endif %}
     server_name  {{ item.server_name_redirect }};
     return       301 $scheme://{{ item.server_name.split(' ')[0] }}$request_uri;
 }
