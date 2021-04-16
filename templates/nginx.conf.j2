@@ -19,7 +19,7 @@ events {
 {% endblock %}
 
 http {
-    {% block http_begin %}{% endblock %}
+{% block http_begin %}{% endblock %}
 
 {% block http_basic %}
     include       {{ nginx_mime_file_path }};
@@ -40,15 +40,15 @@ http {
     keepalive_timeout  {{ nginx_keepalive_timeout }};
     keepalive_requests {{ nginx_keepalive_requests }};
 
+    send_timeout {{ nginx_send_timeout }};
+
     server_tokens {{ nginx_server_tokens }};
 {% if nginx_proxy_cache_path %}
     proxy_cache_path {{ nginx_proxy_cache_path }};
 {% endif %}
 {% endblock %}
 
-{% block http_gzip %}
-    # gzip on;
-{% endblock %}
+{% block http_gzip %}{% endblock %}
 
 {% if nginx_extra_http_options %}
     {{ nginx_extra_http_options|indent(4, False) }}
@@ -77,5 +77,5 @@ http {
 {% endif %}
 {% endblock %}
 
-    {% block http_end %}{% endblock %}
+{% block http_end %}{% endblock %}
 }

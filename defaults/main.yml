@@ -30,10 +30,12 @@ nginx_sendfile: "on"
 nginx_tcp_nopush: "on"
 nginx_tcp_nodelay: "on"
 
-nginx_keepalive_timeout: "65"
+nginx_keepalive_timeout: "10"
 nginx_keepalive_requests: "100"
 
-nginx_server_tokens: "on"
+nginx_send_timeout: "10"
+
+nginx_server_tokens: "off"
 
 nginx_client_max_body_size: "64m"
 
