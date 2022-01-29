@@ -21,6 +21,12 @@
     owner: root
     group: "{{ root_group }}"
     mode: 0644
+    validate: >
+      bash -c 'NGINX_CONF_DIR=`mktemp -d`;
+      cp -rTp /etc/nginx/ "$NGINX_CONF_DIR" &&
+      find "$NGINX_CONF_DIR" -type f -exec sed -i "s#/etc/nginx#$NGINX_CONF_DIR#g" {} \; &&
+      cp -Tp %s "$NGINX_CONF_DIR"/sites-enabled/new-site.conf &&
+      nginx -t -c "$NGINX_CONF_DIR"/nginx.conf'
   when: item.state|default('present') != 'absent'
   with_items: "{{ nginx_vhosts }}"
   notify: reload nginx
