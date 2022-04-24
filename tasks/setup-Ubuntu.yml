@@ -14,7 +14,7 @@
 
 - name: Ensure nginx will reinstall if the PPA was just added.
   apt:
-    name: nginx
+    name: "{{ nginx_package_name }}"
     state: absent
   when: nginx_ppa_added is changed
   tags: ['skip_ansible_lint']
