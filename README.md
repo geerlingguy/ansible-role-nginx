@@ -38,6 +38,9 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
         template: "{{ nginx_vhost_template }}"
         filename: "example.com.conf"
         extra_parameters: |
+          if ($good_user = 0) {
+              rewrite ^/page/to/be/hidden/for/public.html$ /index.html;
+          }
           location ~ \.php$ {
               fastcgi_split_path_info ^(.+\.php)(/.+)$;
               fastcgi_pass unix:/var/run/php5-fpm.sock;
@@ -49,8 +52,15 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
           ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
           ssl_protocols       TLSv1.1 TLSv1.2;
           ssl_ciphers         HIGH:!aNULL:!MD5;
+        extra_vhost_header: |
+          geo $good_user {
+              default 0;
+              10.0.0.0/8 1;
+              192.168.0.0/16 1;
+              172.16.0.0/12 1;
+          }
 
-An example of a fully-populated nginx_vhosts entry, using a `|` to declare a block of syntax for the `extra_parameters`.
+An example of a fully-populated nginx_vhosts entry, using a `|` to declare a block of syntax for the `extra_parameters` and for `extra_vhost_header`.
 
 Please take note of the indentation in the above block. The first line should be a normal 2-space indent. All other lines should be indented normally relative to that line. In the generated file, the entire block will be 4-space indented. This style will ensure the config file is indented correctly.
 

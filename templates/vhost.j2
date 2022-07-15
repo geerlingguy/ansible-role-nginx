@@ -1,3 +1,9 @@
+{% block vhost_header %}
+{% if item.extra_vhost_header is defined %}
+{{ item.extra_vhost_header }}
+{% endif %}
+{% endblock %}
+
 {% block server_redirect %}
 {% if item.server_name_redirect is defined %}
 server {
