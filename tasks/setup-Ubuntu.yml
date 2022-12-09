@@ -6,7 +6,7 @@
 
 - name: Add PPA for Nginx (if configured).
   apt_repository:
-    repo: 'ppa:nginx/{{ nginx_ppa_version }}'
+    repo: 'ppa:ondrej/nginx'
     state: present
     update_cache: true
   register: nginx_ppa_added
