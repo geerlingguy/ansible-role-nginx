@@ -3,9 +3,9 @@
 # DOESN'T DELETE EXISTING FILES
 #
 ---
-- name: "Create the {{ nginx_include_d }} directory"
+- name: "Create the {{ nginx_include_path }} directory"
   file:
-    path: "{{ nginx_include_d }}"
+    path: "{{ nginx_include_path }}"
     state: directory
 
 - name: Deploy conf.d files
