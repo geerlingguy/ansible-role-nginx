@@ -115,3 +115,12 @@ nginx_conf_d:
         '"upstream_response_time": "$upstream_response_time", '
         '"upstream_connect_time": "$upstream_connect_time", '
         '"referer": "$http_referer"}';
+
+
+nginx_include_path: /etc/nginx/include.d
+nginx_include_d:
+- file_name: deny_htaccess.conf
+  content: |
+    location ~ /\.ht {
+        deny all;
+    }
