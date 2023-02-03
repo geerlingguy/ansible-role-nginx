@@ -16,4 +16,3 @@
     owner: root
   with_items: "{{ nginx_include_d }}"
   when: nginx_include_d is defined
-  #notify: reload nginx
