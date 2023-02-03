@@ -27,6 +27,12 @@
 - include_tasks: setup-Archlinux.yml
   when: ansible_os_family == 'Archlinux'
 
+# Manage conf.d content
+- import_tasks: conf_d.yml
+
+# Manage conf.d content
+- import_tasks: include_d.yml
+
 # Vhost configuration.
 - import_tasks: vhosts.yml
 

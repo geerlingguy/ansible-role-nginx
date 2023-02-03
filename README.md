@@ -227,6 +227,59 @@ Create the child template in the path you configured above and extend `geerlingg
 {% endblock %}
 ```
 
+## Manage conf.d content
+
+If you can't repeat the same options again and again, you can generate files under **conf.d** directory (those files will be applied automaticaly) or under **include.d** directory (you have to include those files manualy)
+
+### Example: conf.d/files
+```yaml
+nginx_conf_path: /etc/nginx/conf.d
+nginx_conf_d:
+- file_name: json_logs.conf
+  content: |
+    # Managed by ansible (ansible-nginx-role/conf_d)
+    log_format json escape=json '{"time": $msec, '
+        '"resp_body_size": $body_bytes_sent, '
+        '"host": "$http_host", '
+        '"address": "$remote_addr", '
+        '"request_length": $request_length, '
+        '"method": "$request_method", '
+        '"uri": "$request_uri", '
+        '"status": $status, '
+        '"user_agent": "$http_user_agent", '
+        '"resp_time": $request_time, '
+        '"upstream_addr": "$upstream_addr", '
+        '"upstream_status": "$upstream_status", '
+        '"upstream_header_time": "$upstream_header_time", '
+        '"upstream_response_time": "$upstream_response_time", '
+        '"upstream_connect_time": "$upstream_connect_time", '
+        '"referer": "$http_referer"}';
+
+```
+
+### Example: include.d/files
+
+```yaml
+nginx_include_path: /etc/nginx/include.d
+nginx_include_d:
+- file_name: deny_htaccess.conf
+  content: |
+    location ~ /\.ht {
+        deny all;
+    }
+
+vhost:
+  - filename: example_com.conf
+    listen: "443 ssl http2"
+    server_name: "example.com"
+    root: "/var/www/example.com"
+    index: "index.php index.html index.htm"
+    extra_parameters: |
+      include ../include.d/deny_htaccess.conf;
+
+```
+
+
 ## Dependencies
 
 None.

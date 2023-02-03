@@ -1,0 +1,19 @@
+# Manage include.d content
+#
+# DOESN'T DELETE EXISTING FILES
+#
+---
+- name: "Create the {{ nginx_include_d }} directory"
+  file:
+    path: "{{ nginx_include_d }}"
+    state: directory
+
+- name: Deploy conf.d files
+  copy:
+    content: "{{ item.content }}"
+    dest: "{{ nginx_include_path }}/{{ item.file_name }}"
+    mode: "0640"
+    owner: root
+  with_items: "{{ nginx_include_d }}"
+  when: nginx_include_d is defined
+  #notify: reload nginx
