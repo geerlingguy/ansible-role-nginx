@@ -8,11 +8,11 @@
     path: "{{ nginx_include_path }}"
     state: directory
 
-- name: Deploy conf.d files
+- name: Deploy include.d files
   copy:
     content: "{{ item.content }}"
     dest: "{{ nginx_include_path }}/{{ item.file_name }}"
-    mode: "0640"
-    owner: root
+    mode: "{{ item.mode | default(0640) }}"
+    owner: "{{ item.owner | default(root) }}"
   with_items: "{{ nginx_include_d }}"
   when: nginx_include_d is defined
