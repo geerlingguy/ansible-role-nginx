@@ -1,7 +1,9 @@
 user  {{ nginx_user }};
 
 error_log  {{ nginx_error_log }};
+{% if nginx_pidfile is defined and nginx_pidfile|d('')|length > 0 %}
 pid        {{ nginx_pidfile }};
+{% endif %}
 
 {% block worker %}
 worker_processes  {{ nginx_worker_processes }};
