@@ -18,3 +18,54 @@
     state: absent
   when: nginx_ppa_added is changed
   tags: ['skip_ansible_lint']
+
+
+- name: Ensure required packages are installed.
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - curl
+    - gnupg2
+    - ca-certificates
+    - lsb-release
+    - ubuntu-keyring
+  when: nginx_native_use | bool
+
+- name: Import an official nginx signing key so apt could verify the packages authenticity.
+  ansible.builtin.apt_key:
+    url: "https://nginx.org/keys/nginx_signing.key"
+    state: present
+    validate_certs: false
+  when: nginx_native_use | bool
+  register: _add_apt_key
+  until: _add_apt_key is succeeded
+  retries: 5
+  delay: 2
+
+- name: Add Nginx stable repository.
+  ansible.builtin.apt_repository:
+    repo: deb http://nginx.org/packages//{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} nginx
+    state: present
+  register: nginx_native_added
+  when: nginx_native_use | bool
+
+- name: Add Nginx repository pinning preferences.
+  ansible.builtin.copy:
+    dest: /etc/apt/preferences.d/99nginx
+    content: |
+      Package: *
+      Pin: origin nginx.org
+      Pin: release o=nginx
+      Pin-Priority: 900
+    force: true
+    backup: true
+  when: nginx_native_added is changed
+
+- name: Ensure nginx will reinstall if the nginx repository was just added.
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+    update_cache: true
+    dpkg_options: 'force-confdef,force-confold'
+  when: nginx_native_use | bool and nginx_native_added is changed

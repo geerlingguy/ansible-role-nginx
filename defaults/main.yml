@@ -8,6 +8,7 @@ nginx_yum_repo_enabled: true
 # Use the official Nginx PPA for Ubuntu, and the version to use if so.
 nginx_ppa_use: false
 nginx_ppa_version: stable
+nginx_native_use: false
 
 # The name of the nginx package to install.
 nginx_package_name: "nginx"
