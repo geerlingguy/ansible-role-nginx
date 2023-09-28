@@ -65,6 +65,12 @@
 - name: Ensure nginx will reinstall if the nginx repository was just added.
   ansible.builtin.apt:
     name: nginx
+    state: absent
+  when: nginx_native_use | bool and nginx_native_added is changed
+
+- name: Ensure nginx will reinstall if the nginx repository was just added.
+  ansible.builtin.apt:
+    name: nginx
     state: present
     update_cache: true
     dpkg_options: 'force-confdef,force-confold'
