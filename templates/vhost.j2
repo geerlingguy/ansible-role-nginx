@@ -11,6 +11,16 @@ server {
 {% endif %}
 {% endblock %}
 
+{% block https_to_http %}
+{% if item.http_to_https %}
+server {
+    listen: 80;
+    {% if item.server_name is defined %}server_name {{ item.server_name }};{% endif %}
+    return 301 https://$host$request_uri;
+}
+{% endif %}
+{% endblock %}
+
 server {
     {% block server_begin %}{% endblock %}
 
