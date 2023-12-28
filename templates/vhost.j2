@@ -12,10 +12,11 @@ server {
 {% endblock %}
 
 {% block https_to_http %}
-{% if item.http_to_https %}
+{% if item.http_to_https is defined and item.http_to_https %}
 server {
     listen {{ item.listen_http | default('80') }};
     {% if item.server_name is defined %}server_name {{ item.server_name }};{% endif %}
+
     return 301 https://$host$request_uri;
 }
 {% endif %}
