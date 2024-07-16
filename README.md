@@ -65,7 +65,7 @@ An example of a secondary vhost which will redirect to the one shown above.
 
     nginx_remove_default_vhost: false
 
-Whether to remove the 'default' virtualhost configuration supplied by Nginx. Useful if you want the base `/` URL to be directed at one of your own virtual hosts configured in a separate .conf file.
+Whether to remove the 'default' virtualhost configuration supplied by Nginx. Useful if you want the base `/` URL to be directed at one of your own virtual hosts configured in a separate .conf file. You can optionnaly set `nginx_override_default_vhost_path` if the default vhost file determined by distribution name is not the correct one (for example: since nginx 1.24 Debian package from nginx repository, vhost default file supplied is '/etc/nginx/conf.d/default.conf' instead of '/etc/nginx/sites-enabled/default' previously).
 
     nginx_upstreams: []
 
