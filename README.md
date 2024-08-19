@@ -155,6 +155,10 @@ Configures Nginx's [`log_format`](http://nginx.org/en/docs/http/ngx_http_log_mod
 
 (For RedHat/CentOS only) Set this to `false` to disable the installation of the `nginx` yum repository. This could be necessary if you want the default OS stable packages, or if you use Satellite.
 
+    nginx_zypper_repo_enabled: true
+
+(For Suse only) Set this to `false` to disable the installation of the `nginx` zypper repository. This could be necessary if you want the default OS stable packages, or if you use Suse Manager.
+
     nginx_service_state: started
     nginx_service_enabled: yes
 
