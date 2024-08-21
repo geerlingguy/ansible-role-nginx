@@ -44,7 +44,6 @@ jobs:
           - rockylinux9
           - ubuntu2204
           - debian12
-          - opensuseleap15
 
     steps:
       - name: Check out the codebase.
