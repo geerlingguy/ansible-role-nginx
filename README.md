@@ -1,6 +1,6 @@
 # Ansible Role: Nginx
 
-[![CI](https://github.com/geerlingguy/ansible-role-nginx/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-nginx/actions?query=workflow%3ACI)
+[![CI](https://github.com/geerlingguy/ansible-role-nginx/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-nginx/actions/workflows/ci.yml)
 
 **Note:** Please consider using the official [NGINX Ansible role](https://github.com/nginxinc/ansible-role-nginx) from NGINX, Inc.
 
