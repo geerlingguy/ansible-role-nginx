@@ -64,6 +64,13 @@ nginx_remove_default_vhost: false
 # Listen on IPv6 (default: true)
 nginx_listen_ipv6: true
 
+nginx_extra_conf_files: []
+# Example extra conf files list:
+# - src: "files/envs/nginx/map.conf"
+#   dest: "/etc/conf.d/"
+# - src: "files/envs/nginx/proxy.conf"
+#   dest: "/etc/conf.d/"
+
 nginx_vhosts: []
 # Example vhost below, showing all available options:
 # - listen: "80" # default: "80"

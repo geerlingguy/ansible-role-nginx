@@ -33,6 +33,17 @@
 # Vhost configuration.
 - import_tasks: vhosts.yml
 
+- name: Copy nginx extra configuration files
+  ansible.builtin.copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "0644"
+    owner: root
+    group: "{{ root_group }}"
+  loop: "{{ nginx_extra_conf_files }}"
+  notify:
+    - reload nginx
+
 # Nginx setup.
 - name: Copy nginx configuration in place.
   template:
