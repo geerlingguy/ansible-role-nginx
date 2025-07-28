@@ -8,3 +8,10 @@
     name: "{{ nginx_package_name }}"
     state: present
     default_release: "{{ nginx_default_release }}"
+
+- name: Ensure nginx stream module is installed.
+  apt:
+    name: libnginx-mod-stream
+    state: present
+    default_release: "{{ nginx_default_release }}"
+  when: nginx_install_stream_module and nginx_vhosts_stream|length > 0

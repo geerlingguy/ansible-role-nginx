@@ -1,0 +1,7 @@
+server {
+    listen {{ item.listen }};
+
+{% if item.vhost_parameters is defined %}
+    {{ item.vhost_parameters|indent(4) }}
+{% endif %}
+}

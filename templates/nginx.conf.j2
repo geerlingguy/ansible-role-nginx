@@ -73,13 +73,18 @@ http {
 {% block http_includes %}
     include {{ nginx_conf_path }}/*.conf;
 {% if nginx_conf_path != nginx_vhost_path %}
-    include {{ nginx_vhost_path }}/*;
+    include {{ nginx_vhost_path }}/*.conf;
 {% endif %}
 {% endblock %}
 
     {% block http_end %}{% endblock %}
 }
 
+{% if nginx_vhosts_stream|length > 0 %}
 stream {
     include {{ nginx_conf_path }}/*.stream;
+{% if nginx_conf_path != nginx_vhost_path %}
+    include {{ nginx_vhost_path }}/*.stream;
+{% endif %}
 }
+{% endif %}

@@ -4,15 +4,31 @@
 
   vars:
     nginx_use_ppa: true
+
+    # Test HTTP vhost
     nginx_remove_default_vhost: true
     nginx_vhosts:
       - server_name: "test.dev"
         root: "/var/www/test"
 
+    # Test stream vhost
+    nginx_vhosts_stream:
+      - listen: 8080
+        filename: "stream.test.dev.stream"
+        vhost_parameters:
+          proxy_pass 127.0.0.1:80;
+
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes cache_valid_time=600
       when: ansible_facts.os_family == 'Debian'
+      changed_when: false
+
+    - name: Enable Nginx stream module.
+      set_fact:
+        nginx_extra_conf_options: |
+          load_module modules/ngx_stream_module.so;
+      when: ansible_os_family == 'Debian'
       changed_when: false
 
   roles:
