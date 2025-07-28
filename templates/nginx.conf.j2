@@ -79,3 +79,7 @@ http {
 
     {% block http_end %}{% endblock %}
 }
+
+stream {
+    include {{ nginx_conf_path }}/*.stream;
+}
