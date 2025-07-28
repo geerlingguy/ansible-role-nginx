@@ -231,6 +231,46 @@ Create the child template in the path you configured above and extend `geerlingg
 {% endblock %}
 ```
 
+### Example: LDAP stream via Nginx
+
+This example describes how to setup a secure LDAP stream via Nginx.
+
+Create the following file in your playbook directory (e.g. `templates/nginx/vhost-stream.j2`):
+
+```
+server {
+    listen {{ item.listen }};
+
+{% if item.server_name is defined and item.server_name|length > 0 %}
+    server_name {{ item.server_name }};
+{% endif %}
+
+{% if item.vhost_parameters is defined %}
+    {{ item.vhost_parameters|indent(8) }}
+{% endif %}
+
+}
+```
+
+Then, in your Ansible vars, specify e.g. the following configuration:
+
+```yaml
+nginx_vhosts:
+  # Configuration for other hosts
+  # <snip>
+
+  # LDAPS
+  - listen: "636 ssl"
+    server_name: "ldap.example.com"
+    template: "{{ playbook_dir }}/templates/nginx/vhost-stream.j2"
+    filename: "ldap.example.com.636.stream"
+    vhost_parameters: |
+      ssl_certificate     /etc/letsencrypt/live/ldap.example.com/fullchain.pem;
+      ssl_certificate_key /etc/letsencrypt/live/ldap.example.com/privkey.pem;
+
+      proxy_pass ldap-vm1.internal:389;
+```
+
 ## Dependencies
 
 None.
