@@ -12,6 +12,13 @@ This role installs and configures the latest version of Nginx from the Nginx yum
 
 None.
 
+If `nginx_service_state` is set to `started`, make sure the listen ports used by
+the package default virtual host or by `nginx_vhosts` are available before the
+role starts Nginx. Managed vhosts default to port 80, and SSL vhosts commonly
+also require port 443. Stop or reconfigure any existing web server first, or set
+`nginx_service_state: stopped` until your desired vhost configuration is in
+place.
+
 ## Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
