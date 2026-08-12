@@ -26,7 +26,8 @@ Whether or not to listen on IPv6 (applied to all vhosts managed by this role).
 A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry will create a separate config file named by `server_name`. If left empty, you will need to supply your own virtual host configuration. See the commented example in `defaults/main.yml` for available server options. If you have a large number of customizations required for your server definition(s), you're likely better off managing the vhost configuration file yourself, leaving this variable set to `[]`.
 
     nginx_vhosts:
-      - listen: "443 ssl http2"
+      - listen: "443 ssl"
+        http2: true
         server_name: "example.com"
         server_name_redirect: "www.example.com"
         root: "/var/www/example.com"
@@ -51,6 +52,8 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
           ssl_ciphers         HIGH:!aNULL:!MD5;
 
 An example of a fully-populated nginx_vhosts entry, using a `|` to declare a block of syntax for the `extra_parameters`.
+
+Set `http2: true` to render `http2 on;` in the generated server block. This avoids using the deprecated `http2` parameter on the `listen` directive in Nginx 1.25.1 and later.
 
 Please take note of the indentation in the above block. The first line should be a normal 2-space indent. All other lines should be indented normally relative to that line. In the generated file, the entire block will be 4-space indented. This style will ensure the config file is indented correctly.
 

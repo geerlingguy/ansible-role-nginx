@@ -67,6 +67,7 @@ nginx_listen_ipv6: true
 nginx_vhosts: []
 # Example vhost below, showing all available options:
 # - listen: "80" # default: "80"
+#   http2: false # Whether to render "http2 on;" in the server block.
 #   server_name: "example.com" # default: N/A
 #   root: "/var/www/example.com" # default: N/A
 #   index: "index.html index.htm" # default: "index.html index.htm"
