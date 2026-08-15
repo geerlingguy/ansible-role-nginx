@@ -37,6 +37,11 @@ A list of vhost definitions (server blocks) for Nginx virtual hosts. Each entry 
         state: "present"
         template: "{{ nginx_vhost_template }}"
         filename: "example.com.conf"
+        extra_http_parameters: |
+          map $http_upgrade $connection_upgrade {
+              default upgrade;
+              ''      close;
+          }
         extra_parameters: |
           location ~ \.php$ {
               fastcgi_split_path_info ^(.+\.php)(/.+)$;

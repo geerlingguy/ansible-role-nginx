@@ -1,3 +1,9 @@
+{% block extra_http_parameters %}
+{% if item.extra_http_parameters is defined %}
+{{ item.extra_http_parameters }}
+{% endif %}
+{% endblock %}
+
 {% block server_redirect %}
 {% if item.server_name_redirect is defined %}
 server {
