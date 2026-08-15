@@ -37,6 +37,30 @@
   tags:
     - skip_ansible_lint
 
+- name: Add managed vhost stream config files.
+  template:
+    src: "{{ item.template|default(nginx_vhost_stream_template) }}"
+    dest: "{{ nginx_vhost_path }}/{{ item.filename }}"
+    force: true
+    owner: root
+    group: "{{ root_group }}"
+    mode: 0644
+  when: item.state|default('present') != 'absent'
+  with_items: "{{ nginx_vhosts_stream }}"
+  notify: reload nginx
+  tags:
+    - skip_ansible_lint
+
+- name: Remove managed vhost stream config files.
+  file:
+    path: "{{ nginx_vhost_path }}/{{ item.filename }}"
+    state: absent
+  when: item.state|default('present') == 'absent'
+  with_items: "{{ nginx_vhosts_stream }}"
+  notify: reload nginx
+  tags:
+    - skip_ansible_lint
+
 - name: Remove legacy vhosts.conf file.
   file:
     path: "{{ nginx_vhost_path }}/vhosts.conf"

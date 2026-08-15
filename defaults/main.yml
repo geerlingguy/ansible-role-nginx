@@ -2,6 +2,9 @@
 # Used only for Debian/Ubuntu installation, as the -t option for apt.
 nginx_default_release: ""
 
+# Used only for Debian installation to install the Nginx stream module.
+nginx_install_stream_module: true
+
 # Used only for Redhat installation, enables source Nginx repo.
 nginx_yum_repo_enabled: true
 
@@ -20,6 +23,7 @@ nginx_service_enabled: true
 
 nginx_conf_template: "nginx.conf.j2"
 nginx_vhost_template: "vhost.j2"
+nginx_vhost_stream_template: "vhost-stream.j2"
 
 nginx_worker_processes: >-
   "{{ ansible_facts.processor_vcpus | default(ansible_facts.processor_count) }}"
@@ -78,6 +82,17 @@ nginx_vhosts: []
 #   access_log: ""
 #   error_log: ""
 #   extra_parameters: "" # Can be used to add extra config blocks (multiline).
+#   template: "" # Can be used to override the `nginx_vhost_template` per host.
+#   state: "absent" # To remove the vhost configuration.
+
+nginx_vhosts_stream: []
+# Example vhost below, showing all available options:
+# - listen: "80" # default: N/A
+#   server_name: "example.com" # default: N/A
+#   filename: "example.com.stream" # Can be used to set the vhost filename.
+#   vhost_parameters: "" # Must be used to add vhost config blocks (multiline).
+#
+#   # Properties that are only added if defined:
 #   template: "" # Can be used to override the `nginx_vhost_template` per host.
 #   state: "absent" # To remove the vhost configuration.
 

@@ -54,6 +54,7 @@ An example of a fully-populated nginx_vhosts entry, using a `|` to declare a blo
 
 Please take note of the indentation in the above block. The first line should be a normal 2-space indent. All other lines should be indented normally relative to that line. In the generated file, the entire block will be 4-space indented. This style will ensure the config file is indented correctly.
 
+
       - listen: "80"
         server_name: "example.com www.example.com"
         return: "301 https://example.com$request_uri"
@@ -62,6 +63,25 @@ Please take note of the indentation in the above block. The first line should be
 An example of a secondary vhost which will redirect to the one shown above.
 
 *Note: The `filename` defaults to the first domain in `server_name`, if you have two vhosts with the same domain, eg. a redirect, you need to manually set the `filename` so the second one doesn't override the first one*
+
+    nginx_vhosts_stream: []
+
+Define stream server entries here. The formatting is comparable with `nginx_vhosts`.
+
+    nginx_vhosts_stream:
+      - listen: "636 ssl"
+        filename: "ldap.example.com.stream"
+        state: "present"
+        vhost_parameters: |
+            ssl_certificate     /etc/letsencrypt/live/ldap.example.com/fullchain.pem;
+            ssl_certificate_key /etc/letsencrypt/live/ldap.example.com/privkey.pem;
+
+            proxy_pass ldap-vm1.internal:389;
+
+An example of a fully-populated nginx_vhosts_stream entry. The formatting is comparable with `nginx_vhosts`.
+**NOTE**: Ensure that the stream module is loaded. Enabling this differs per distibution, but should look like
+`load_module modules/ngx_stream_module.so;` (defined via e.g. `nginx_extra_conf_options`). On some distributions
+(e.g. RedHat based ones), the stream module is enabled automatically.
 
     nginx_remove_default_vhost: false
 
