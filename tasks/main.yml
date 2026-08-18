@@ -45,6 +45,11 @@
   notify:
     - reload nginx
 
+- name: Cleanup any PID file created during template validation.
+  ansible.builtin.file:
+    name: /var/run/nginx.pid
+    state: absent
+
 - name: Ensure nginx service is running as configured.
   service:
     name: nginx
